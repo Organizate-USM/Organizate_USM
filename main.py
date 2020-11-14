@@ -6,21 +6,24 @@ from flask import session
 from flask import url_for
 from flask import redirect
 from flask import flash
+from flask import g
+from config import DevelopmentConfig
+
 
 import forms
 
 app = Flask(__name__)
-app.secret_key = 'Llave_secreta'
+app.config.from_object(DevelopmentConfig)
 
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
-@app.before_request()
+@app.before_request
 def before_request():
     pass
 
-@app.after_request()
+@app.after_request
 def after_request(response):
     return response
 
@@ -54,4 +57,4 @@ def logout():
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8000)
+    app.run(port=8000)
