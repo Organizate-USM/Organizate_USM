@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+
+  {% from "_macro.html" import render_field %}
+
+  <div class="login-container">
+    <div class="avtar"></div>
+    <div class="title">{{ title }}</div>
+    <div class="sub-title">Inicio de sesion</div>
+    <div class="fields">
+      <div class="username">
+        <i class="fas fa lock"></i>
+        {{ render_field(form.username)}}
+      </div>
+      <div class="email">
+        <i class="fas fa lock"></i>
+        {{ render_field(form.email)}}
+      </div>
+      <div class="comment">
+        <i class="fas fa lock"></i>
+        {{ render_field(form.comment)}}
+      </div>
+    </div>
+    <button class="login">Inicia sesion</button>
+    <div class="link">
+      <a href="#">Olvidaste tu contrasena?</a>
+      o <a href="#">Crear una cuenta nueva</a>
+    </div>
+  </div>
+
+{% endblock %}
