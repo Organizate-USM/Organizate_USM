@@ -12,6 +12,18 @@ import forms
 app = Flask(__name__)
 app.secret_key = 'Llave_secreta'
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+@app.before_request()
+def before_request():
+    pass
+
+@app.after_request()
+def after_request(response):
+    return response
+
 @app.route('/')
 def index():
 	if 'username' in session:
@@ -40,7 +52,6 @@ def logout():
     if "username" in session:
         session.pop('username')
     return redirect(url_for('login'))
-
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
