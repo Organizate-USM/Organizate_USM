@@ -22,7 +22,10 @@ def page_not_found(e):
 
 @app.before_request
 def before_request():
-    pass
+	if 'username' not in session and request.endpoint in ['cookie']:
+		return redirect(url_for('login'))
+	elif 'username' in session and request.endpoint in ['login', 'create']:
+		return redirect(url_for('index'))
 
 @app.after_request
 def after_request(response):
