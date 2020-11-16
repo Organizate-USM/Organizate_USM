@@ -8,16 +8,6 @@ from flask import redirect
 from flask import flash
 from flask import g
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-#aaaaa
-#Wena cabros
-=======
-#AAAAA
->>>>>>> 66af664ed55740b8b55cbf73f181efba00d2774c
-=======
-
 from config import DevelopmentConfig
 from models import db
 from models import User
@@ -72,9 +62,5 @@ if __name__ == '__main__':
     app.run(port=8000)
     with app.app_context():
         db.create_all
->>>>>>> Pipe
-=======
-app= Flask(__name__) #hola
 
-app.run(debug= True, port=8000)
->>>>>>> Gabo
+
