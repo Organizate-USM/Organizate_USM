@@ -5,8 +5,13 @@
 }
 
 body {
-    background-image: url(../img/usm2.JPG);
-    background-size: auto 950px;
+    background: url(../img/usm2.jpg)fixed;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 15px;
+    background-color: #ECF0F1;
     position: absolute;
     top: 50%;
     left: 50%;
