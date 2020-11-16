@@ -23,6 +23,6 @@ class LoginForm(Form):
 				validators.length(min=4, max=25, message='Ingrese un username valido!.'),
 				])
 	password = PasswordField('Password',
-                            [
-                            validators.Required(message='El password es requerido')
-                            ])
+                [
+                validators.Required(message='El password es requerido')
+                ])

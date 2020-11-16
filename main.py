@@ -7,9 +7,11 @@ from flask import url_for
 from flask import redirect
 from flask import flash
 from flask import g
+
+
 from config import DevelopmentConfig
-
-
+from models import db
+from models import User
 import forms
 
 app = Flask(__name__)
@@ -57,4 +59,7 @@ def logout():
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
+    db.init_app(app)
     app.run(port=8000)
+    with app.app_context():
+        db.create_all
