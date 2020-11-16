@@ -62,8 +62,3 @@ if __name__ == '__main__':
     app.run(port=8000)
     with app.app_context():
         db.create_all
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f9a6bf94417fc34191300068fea39200a476dd07
