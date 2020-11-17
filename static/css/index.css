@@ -86,7 +86,9 @@ nav ul{
 
 /* OTHER*/
 
-p {
-    margin-left: 91.6%;
+.text-muted {
+    position: fixed;
+    color: #ecb5b5;
     margin-top: 0px;
+    margin-left: 1170px;
 }
