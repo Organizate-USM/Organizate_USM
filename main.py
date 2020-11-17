@@ -60,6 +60,15 @@ def logout():
         session.pop('username')
     return redirect(url_for('login'))
 
+@app.route('/material')
+def material():
+    return render_template('material.html')
+
+@app.route('/collaborate')
+def collaborate():
+    return render_template('collaborate.html')
+    
+
 if __name__ == '__main__':
     db.init_app(app)
     app.run(port=8000)

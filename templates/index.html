@@ -1,6 +1,22 @@
 {% extends 'base/base.html'%}
+{% block link_css %}
+    rel="stylesheet" href="{{ url_for('static', filename='css/index.css' ) }}"
+{% endblock %}
 {% block title %} Index  {% endblock %}
 
 {% block content %}
-		<h3>Index</h3>
+	<header class=main-head>
+		<nav>
+			<div id="logoimg">
+				<img src="static\img\img.png" alt="logo" width="70" height="70">
+			</div>
+			<h1 id= 'logo'>Organizate USM</h1>
+			<ul>    
+				<li><a href="#">Inicio</a></li>
+				<li><a href="{{ url_for('material') }}">Material</a></li>
+				<li><a href="{{ url_for('collaborate') }}">Colaborar</a></li>
+				<li><a href="#">Contacto</a></li>
+			</ul>
+		</nav>
+</header>  
 {% endblock %}
