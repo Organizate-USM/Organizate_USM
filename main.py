@@ -7,6 +7,7 @@ from flask import url_for
 from flask import redirect
 from flask import flash
 from flask import g
+from flask_wtf import CsrfProtect
 
 from config import DevelopmentConfig
 from models import db
@@ -14,6 +15,8 @@ from models import User
 import forms
 
 app = Flask(__name__)
+app.secret_key = 'my_secret_key'
+csrf = CsrfProtect(app)
 app.config.from_object(DevelopmentConfig)
 
 @app.errorhandler(404)
@@ -41,11 +44,19 @@ def index():
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
     login_form = forms.LoginForm(request.form)
+
+    if request.method == 'POST' and login_form.validate():
+        print(login_form.username.data)
+        print(login_form.password.data)
+    else:
+        print('error en el formulario')
+
     if request.method == 'POST' and login_form.validate():
         username = login_form.username.data
         success_message = 'Bienvenido {}'.format(username)
         flash(success_message)
         session['username'] = login_form.username.data
+        return redirect(url_for('login'))
     return render_template('login.html', form = login_form)
 
 @app.route('/cookie')

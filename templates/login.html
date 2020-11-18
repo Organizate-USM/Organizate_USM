@@ -5,7 +5,9 @@
 {% block title %} Login  {% endblock %}
 
 {% block content %}
-	{% from "_macro.html" import render_field %}
+    {% from "_macro.html" import render_field %}
+<form name="LoginForm" method="POST">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <div class="login-container">
         <div class="avtar"></div>
         <div class="title">¡Bienvenido!</div>
@@ -13,15 +15,16 @@
         <div class="fields">
             <div class="username">
                 <i class="fas fa-user"></i>
-                <input type="username" class="user-input" placeholder="Nombre de usuario">
+                {{ render_field(form.username)}} 
             </div>
             <div class="password">
                 <i class="fas fa-lock"></i>
-                <input type="password" class="pass-input" placeholder="Contraseña">
+                {{ render_field(form.password)}} 
             </div>
         </div>
-        <button class="login">Iniciar Sesión</button>
+        <button type= "submit" class="login">Iniciar Sesión</button>
     </div>
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+</form>
 
 {% endblock %}

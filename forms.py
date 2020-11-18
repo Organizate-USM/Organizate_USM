@@ -21,8 +21,10 @@ class LoginForm(Form):
 				[
 				validators.Required(message = 'El username es requerido!.'),
 				validators.length(min=4, max=25, message='Ingrese un username valido!.'),
-				])
+				],
+				render_kw={"placeholder": "Ingrese Username"})
 	password = PasswordField('Password',
                 [
                 validators.Required(message='El password es requerido')
-                ])
+                ],
+				render_kw={"placeholder": "Ingrese Contraseña"})
