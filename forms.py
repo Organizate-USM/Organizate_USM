@@ -28,3 +28,23 @@ class LoginForm(Form):
                 validators.Required(message='El password es requerido')
                 ],
 				render_kw={"placeholder": "Ingrese Contraseña"})
+
+class RegisterForm(Form):
+	username = StringField('Username',
+				[
+				validators.Required(message = 'El username es requerido!.'),
+				validators.length(min=4, max=25, message='Ingrese un username valido!.'),
+				],
+				render_kw={"placeholder": "Ingrese Username"})
+
+	email = EmailField('Email',
+				[
+				validators.Required(message = 'El Email es requerido!.'),
+				validators.length(min=4, max=25, message='Ingrese un Email valido!.'),
+				],render_kw={"placeholder": "Ingrese correo electronico"})
+
+	password = PasswordField('Password',
+                [
+                validators.Required(message='El password es requerido')
+                ],
+				render_kw={"placeholder": "Ingrese Contraseña"})

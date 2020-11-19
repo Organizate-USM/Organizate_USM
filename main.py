@@ -25,10 +25,10 @@ def page_not_found(e):
 
 @app.before_request
 def before_request():
-	if 'username' not in session and request.endpoint in ['cookie']:
+	if 'username' not in session and request.endpoint in ['index']:
 		return redirect(url_for('login'))
-	elif 'username' in session and request.endpoint in ['login', 'create']:
-		return redirect(url_for('index'))
+	elif 'username' in session and request.endpoint in ['login']:
+		return redirect(url_for('index')) 
 
 @app.after_request
 def after_request(response):
@@ -46,19 +46,43 @@ def login():
     login_form = forms.LoginForm(request.form)
 
     if request.method == 'POST' and login_form.validate():
-        print(login_form.username.data)
-        print(login_form.password.data)
-    else:
-        print('error en el formulario')
-
-    if request.method == 'POST' and login_form.validate():
         username = login_form.username.data
-        success_message = 'Bienvenido {}'.format(username)
-        flash(success_message)
-        session['username'] = login_form.username.data
-        return redirect(url_for('login'))
+        password = login_form.password.data
+
+        user = User.query.filter_by(username = username).first()
+        if user is not None and user.verify_password(password):
+            success_message = 'Bienvenido {}'.format(username)
+            flash(success_message)
+            session['username'] = username
+            return redirect(url_for('index')) 
+        else:
+            error_message = 'Usuario o contraseña no valida'
+            flash(error_message)
+             
     return render_template('login.html', form = login_form)
 
+@app.route('/register', methods = ['GET', 'POST'])
+def register():
+    register_form = forms.RegisterForm(request.form)
+    if request.method == 'POST' and register_form.validate():
+        username = register_form.username.data
+        user_verify = User.query.filter_by(username = username).first()
+        if user_verify is None:
+            user = User(register_form.username.data,
+                        register_form.email.data,
+                        register_form.password.data)
+
+            db.session.add(user)
+            db.session.commit()
+            success_message = 'Cuenta registrada exitosamente'
+            flash(success_message)
+
+        else:
+            error_message = 'Este usuario ya está registrado'
+            flash(error_message)
+
+    return render_template('register.html', form = register_form)
+    
 @app.route('/cookie')
 def cookie():
     response = make_response( render_template('cookie.html'))
@@ -81,7 +105,9 @@ def collaborate():
     
 
 if __name__ == '__main__':
+    csrf.init_app(app)
     db.init_app(app)
-    app.run(port=8000)
     with app.app_context():
-        db.create_all
+        db.create_all()
+    app.run(port=8000)
+
