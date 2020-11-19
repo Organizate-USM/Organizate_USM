@@ -9,6 +9,7 @@ class DevelopmentConfig(Config):
     #SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:@localhost/flask'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     # SQLALCHEMY_DATABASE_URI = 'mysql://root@localhost/flask?charset=utf8&use_unicode=True'
-    MYSQL_USER = 'root'
-    MYSQL_PASSWORD = ''
-    MYSQL_DB = 'cursoflask'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///C:\db_organizate\organizate.db'
+    # MYSQL_USER = 'root'
+    # MYSQL_PASSWORD = ''
+    # MYSQL_DB = 'cursoflask'

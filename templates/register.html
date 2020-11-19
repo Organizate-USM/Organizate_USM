@@ -2,28 +2,33 @@
 {% block link_css %}
     rel="stylesheet" href="{{ url_for('static', filename='css/login.css' ) }}"
 {% endblock %}
-{% block title %} Login  {% endblock %}
+{% block title %} Register  {% endblock %}
 
 {% block content %}
     {% from "_macro.html" import render_field %}
-<form name="LoginForm" method="POST">
+<form name="RegisterForm" method="POST">
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-    <div class="login-container">
+    <div class="register-container">
         <div class="avtar"></div>
         <div class="title">¡Bienvenido!</div>
         <div class="sub-title">Organizate USM</div>
-        <div class="fields">
+        <div class="fields_register">
             <div class="username">
                 <i class="fas fa-user"></i>
                 {{ render_field(form.username)}} 
+            </div>
+            <div class="email">
+                <i class="fas fa-user"></i>
+                {{ render_field(form.email)}} 
             </div>
             <div class="password">
                 <i class="fas fa-lock"></i>
                 {{ render_field(form.password)}} 
             </div>
         </div>
-        <button type= "submit" class="login">Iniciar Sesión</button>
-        <li class="go_register"><a href="{{ url_for('register') }}">¿No tienes una cuenta?</a></li>
+        <button type= "submit" class="register">Registrarse</button>
+        <li class="go_login"><a href="{{ url_for('login') }}">¿Ya Tienes una cuenta?</a></li>
+        
     </div>
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </form>

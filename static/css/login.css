@@ -22,7 +22,8 @@ body {
     color: #1c85b7;
 }
 
-.login-container {
+.login-container,
+.register-container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -77,6 +78,10 @@ p {
     width: 100%;
     padding: 75px 5px 5px 5px;
 }
+.fields_register{
+    width: 100%;
+    padding: 15px 5px 5px 5px
+}
 
 input {
     border: none;
@@ -88,13 +93,14 @@ input {
 }
 
 .username,
-.password {
+.password,
+.email {
     margin-bottom: 30px;
     border-radius: 25px;
     box-shadow: inset 8px 8px 8px #090909, inset -8px -8px 8px #1b1b1b;
 }
 
-.login {
+.login, .register {
     outline: none;
     border: none;
     cursor: pointer;
@@ -109,6 +115,32 @@ input {
     background: #111111;
     box-shadow: 3px 3px 8px #080808, -3px -3px 8px #3a3a3a;
     transition: 0.5s;
+}
+
+.go_login,
+.go_register{
+
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-left: 0px;
+    height: 0px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 750;
+    font-family: 'Lato', sans-serif;
+    color: #7ACBCD;
+    background: #111111;
+    box-shadow: 3px 3px 8px #080808, -3px -3px 8px #3a3a3a;
+    transition: 0.5s;
+
+}
+li{
+	font-size: 2rem;
+    list-style: none;
+    margin-top: -5;
+    margin-bottom: -4rem;
 }
 
 .login:hover {
