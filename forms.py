@@ -23,8 +23,8 @@ class CommentForm(Form):
 class LoginForm(Form):
 	username = StringField('Username',
 				[
-				validators.Required(message = 'El username es requerido!.'),
-				validators.length(min=4, max=25, message='Ingrese un username valido!.'),
+				validators.Required(message = '¡El username es requerido!.'),
+				validators.length(min=4, max=25, message='¡Ingrese un username valido!.'),
 				],
 				render_kw={"placeholder": "Ingrese Username"})
 	password = PasswordField('Password',
@@ -36,15 +36,15 @@ class LoginForm(Form):
 class RegisterForm(Form):
 	username = StringField('Username',
 				[
-				validators.Required(message = 'El username es requerido!.'),
-				validators.length(min=4, max=25, message='Ingrese un username valido!.'),
+				validators.Required(message = '¡El username es requerido!.'),
+				validators.length(min=4, max=25, message='¡Ingrese un username valido!.'),
 				],
 				render_kw={"placeholder": "Ingrese Username"})
 
 	email = EmailField('Email',
 				[
-				validators.Required(message = 'El Email es requerido!.'),
-				validators.length(min=4, max=50, message='Ingrese un Email valido!.'),
+				validators.Required(message = '¡El Email es requerido!.'),
+				validators.length(min=4, max=50, message='¡Ingrese un Email valido!.'),
                 email_usm,
 				],render_kw={"placeholder": "Ingrese correo electronico"})
 
