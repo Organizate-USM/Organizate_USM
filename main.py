@@ -28,7 +28,7 @@ def before_request():
 	if 'username' not in session and request.endpoint in ['index']:
 		return redirect(url_for('login'))
 	elif 'username' in session and request.endpoint in ['login']:
-		return redirect(url_for('index')) 
+		return redirect(url_for('index'))
 
 @app.after_request
 def after_request(response):
@@ -54,11 +54,11 @@ def login():
             success_message = 'Bienvenido {}'.format(username)
             flash(success_message)
             session['username'] = username
-            return redirect(url_for('index')) 
+            return redirect(url_for('index'))
         else:
             error_message = 'Usuario o contraseña no valida'
             flash(error_message)
-             
+
     return render_template('login.html', form = login_form)
 
 @app.route('/register', methods = ['GET', 'POST'])
@@ -76,13 +76,13 @@ def register():
             db.session.commit()
             success_message = 'Cuenta registrada exitosamente'
             flash(success_message)
-
+            return redirect(url_for('login'))
         else:
             error_message = 'Este usuario ya está registrado'
             flash(error_message)
 
     return render_template('register.html', form = register_form)
-    
+
 @app.route('/cookie')
 def cookie():
     response = make_response( render_template('cookie.html'))
@@ -102,7 +102,7 @@ def material():
 @app.route('/collaborate')
 def collaborate():
     return render_template('collaborate.html')
-    
+
 
 if __name__ == '__main__':
     csrf.init_app(app)
@@ -110,4 +110,3 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     app.run(port=8000)
-
