@@ -25,9 +25,9 @@ def page_not_found(e):
 
 @app.before_request
 def before_request():
-	if 'username' not in session and request.endpoint in ['index']:
+	if 'username' not in session and request.endpoint in ['index', 'cookie', 'material', 'collaborate']:
 		return redirect(url_for('login'))
-	elif 'username' in session and request.endpoint in ['login']:
+	elif 'username' in session and request.endpoint in ['login', 'register']:
 		return redirect(url_for('index'))
 
 @app.after_request
@@ -66,7 +66,9 @@ def register():
     register_form = forms.RegisterForm(request.form)
     if request.method == 'POST' and register_form.validate():
         username = register_form.username.data
+        email = register_form.email.data
         user_verify = User.query.filter_by(username = username).first()
+        user_verify = User.query.filter_by(email = email).first()
         if user_verify is None:
             user = User(register_form.username.data,
                         register_form.email.data,
