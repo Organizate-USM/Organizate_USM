@@ -8,6 +8,7 @@ from flask import redirect
 from flask import flash
 from flask import g
 from flask_wtf import CsrfProtect
+from flask_bootstrap import Bootstrap
 
 from config import DevelopmentConfig
 from models import db
@@ -15,6 +16,7 @@ from models import User
 import forms
 
 app = Flask(__name__)
+Bootstrap(app)
 app.secret_key = 'my_secret_key'
 csrf = CsrfProtect(app)
 app.config.from_object(DevelopmentConfig)
@@ -56,7 +58,7 @@ def login():
             session['username'] = username
             return redirect(url_for('index'))
         else:
-            error_message = 'Usuario o contraseña no valida'
+            error_message = 'Usuario o contraseña no válida'
             flash(error_message)
 
     return render_template('login.html', form = login_form)
