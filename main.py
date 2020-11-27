@@ -10,7 +10,8 @@ from flask import g
 from flask_wtf import CsrfProtect
 
 from config import DevelopmentConfig
-from models import db
+from models import db1
+from models import db2
 from models import User
 import forms
 
@@ -72,8 +73,8 @@ def register():
                         register_form.email.data,
                         register_form.password.data)
 
-            db.session.add(user)
-            db.session.commit()
+            db1.session.add(user)
+            db1.session.commit()
             success_message = 'Cuenta registrada exitosamente'
             flash(success_message)
 
@@ -106,8 +107,9 @@ def collaborate():
 
 if __name__ == '__main__':
     csrf.init_app(app)
-    db.init_app(app)
+    db1.init_app(app)
     with app.app_context():
-        db.create_all()
+        db1.create_all()
+        db2.create_all(bind=['calendary'])
     app.run(port=8000)
 
