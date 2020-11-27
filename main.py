@@ -13,6 +13,7 @@ from flask_bootstrap import Bootstrap
 from config import DevelopmentConfig
 from models import db
 from models import User
+from models import Todo
 import forms
 
 app = Flask(__name__)
@@ -36,12 +37,24 @@ def before_request():
 def after_request(response):
     return response
 
-@app.route('/')
+@app.route('/', methods = ['POST'])
 def index():
 	if 'username' in session:
 		username = session['username']
 	title = 'Index'
-	return render_template('index.html', title = title)
+
+    todos = Todo.query.all()
+
+	return render_template('index.html', title = title, todos=todos)
+
+@app.route('/add', methods=['POST'])
+def add():
+    todo = Todo(text=request.form['todoitem'], complete=False)
+    db.session.add(todo)
+    db.session.commit()
+
+    return redirect(url_for('index'))
+
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():

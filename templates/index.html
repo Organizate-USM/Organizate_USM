@@ -11,12 +11,29 @@
 				<img src="static\img\img.png" alt="logo" width="70" height="70">
 			</div>
 			<h1 id= 'logo'>Organízate USM</h1>
-			<ul>    
+			<ul>
 				<li><a href="#">Inicio</a></li>
 				<li><a href="{{ url_for('material') }}">Material</a></li>
 				<li><a href="{{ url_for('collaborate') }}">Colaborar</a></li>
 				<li><a href="{{ url_for('logout') }}">Logout</a></li>
 			</ul>
 		</nav>
-	</header> 
+	</header>
+
+    <body>
+        <h1>Todo List</h1>
+        <div>Agregar una nueva tarea:
+            <form action="/add" method="POST">
+                <input type="text" name="todoitem">
+                <input type="submit">
+            </form>
+        </div>
+        <div>
+            <ul>
+                {% for todo in todos %}
+                <li style="font-size: 30pt"><input type="checkbox">{{ todo.text }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
 {% endblock %}
