@@ -13,7 +13,7 @@ class User(db1.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True)
     email = db.Column(db.String(40))
-    password = db.Column(db.String(66))
+    password = db.Column(db.String(96))
     created_date = db.Column(db.DateTime, default= datetime.datetime.now)
 =======
     id = db1.Column(db1.Integer, primary_key=True)

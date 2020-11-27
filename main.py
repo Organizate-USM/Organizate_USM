@@ -8,6 +8,7 @@ from flask import redirect
 from flask import flash
 from flask import g
 from flask_wtf import CsrfProtect
+from flask_bootstrap import Bootstrap
 
 from config import DevelopmentConfig
 from models import db1
@@ -16,6 +17,7 @@ from models import User
 import forms
 
 app = Flask(__name__)
+Bootstrap(app)
 app.secret_key = 'my_secret_key'
 csrf = CsrfProtect(app)
 app.config.from_object(DevelopmentConfig)
@@ -26,10 +28,10 @@ def page_not_found(e):
 
 @app.before_request
 def before_request():
-	if 'username' not in session and request.endpoint in ['index']:
+	if 'username' not in session and request.endpoint in ['index', 'cookie', 'material', 'collaborate']:
 		return redirect(url_for('login'))
-	elif 'username' in session and request.endpoint in ['login']:
-		return redirect(url_for('index')) 
+	elif 'username' in session and request.endpoint in ['login', 'register']:
+		return redirect(url_for('index'))
 
 @app.after_request
 def after_request(response):
@@ -55,11 +57,11 @@ def login():
             success_message = 'Bienvenido {}'.format(username)
             flash(success_message)
             session['username'] = username
-            return redirect(url_for('index')) 
+            return redirect(url_for('index'))
         else:
-            error_message = 'Usuario o contraseña no valida'
+            error_message = 'Usuario o contraseña no válida'
             flash(error_message)
-             
+
     return render_template('login.html', form = login_form)
 
 @app.route('/register', methods = ['GET', 'POST'])
@@ -67,7 +69,9 @@ def register():
     register_form = forms.RegisterForm(request.form)
     if request.method == 'POST' and register_form.validate():
         username = register_form.username.data
+        email = register_form.email.data
         user_verify = User.query.filter_by(username = username).first()
+        user_verify = User.query.filter_by(email = email).first()
         if user_verify is None:
             user = User(register_form.username.data,
                         register_form.email.data,
@@ -77,13 +81,13 @@ def register():
             db1.session.commit()
             success_message = 'Cuenta registrada exitosamente'
             flash(success_message)
-
+            return redirect(url_for('login'))
         else:
             error_message = 'Este usuario ya está registrado'
             flash(error_message)
 
     return render_template('register.html', form = register_form)
-    
+
 @app.route('/cookie')
 def cookie():
     response = make_response( render_template('cookie.html'))
@@ -103,7 +107,7 @@ def material():
 @app.route('/collaborate')
 def collaborate():
     return render_template('collaborate.html')
-    
+
 
 if __name__ == '__main__':
     csrf.init_app(app)
@@ -112,4 +116,3 @@ if __name__ == '__main__':
         db1.create_all()
         db2.create_all(bind=['calendary'])
     app.run(port=8000)
-
