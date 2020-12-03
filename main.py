@@ -11,7 +11,8 @@ from flask_wtf import CsrfProtect
 from flask_bootstrap import Bootstrap
 
 from config import DevelopmentConfig
-from models import db
+from models import db1
+from models import db2
 from models import User
 from models import Todo
 import forms
@@ -37,22 +38,19 @@ def before_request():
 def after_request(response):
     return response
 
-@app.route('/', methods = ['POST'])
+@app.route('/')
 def index():
-	if 'username' in session:
-		username = session['username']
-	title = 'Index'
-
-    todos = Todo.query.all()
-
-	return render_template('index.html', title = title, todos=todos)
+    if 'username' in session:
+        username = session['username']
+    title = 'Index'
+    todos = Todo.query.all
+    return render_template('index.html', title = title, todos = todos)
 
 @app.route('/add', methods=['POST'])
 def add():
     todo = Todo(text=request.form['todoitem'], complete=False)
-    db.session.add(todo)
-    db.session.commit()
-
+    db1.session.add(todo)
+    db1.session.commit()
     return redirect(url_for('index'))
 
 
@@ -89,8 +87,8 @@ def register():
                         register_form.email.data,
                         register_form.password.data)
 
-            db.session.add(user)
-            db.session.commit()
+            db1.session.add(user)
+            db1.session.commit()
             success_message = 'Cuenta registrada exitosamente'
             flash(success_message)
             return redirect(url_for('login'))
@@ -123,7 +121,8 @@ def collaborate():
 
 if __name__ == '__main__':
     csrf.init_app(app)
-    db.init_app(app)
+    db1.init_app(app)
     with app.app_context():
-        db.create_all()
+        db1.create_all()
+        db2.create_all(bind=['calendary'])
     app.run(port=8000)
