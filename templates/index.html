@@ -1,6 +1,6 @@
 {% extends 'base/base.html'%}
 {% block link_css %}
-    rel="stylesheet" href="{{ url_for('static', filename='css/index.css' ) }}"
+	rel="stylesheet" href="{{ url_for('static', filename='css/index.css' ) }}"
 {% endblock %}
 {% block title %} Index  {% endblock %}
 
@@ -15,6 +15,7 @@
 				<li><a href="#">Inicio</a></li>
 				<li><a href="{{ url_for('material') }}">Material</a></li>
 				<li><a href="{{ url_for('collaborate') }}">Colaborar</a></li>
+				<li><a href="{{ url_for('pomodoro') }}">Pomodoro</a></li>
 				<li><a href="{{ url_for('logout') }}">Logout</a></li>
 			</ul>
 		</nav>
