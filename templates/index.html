@@ -5,6 +5,7 @@
 {% block title %} Index  {% endblock %}
 
 {% block content %}
+    <!---
 	<header class=main-head>
 		<nav>
 			<div id="logoimg">
@@ -19,21 +20,41 @@
 			</ul>
 		</nav>
 	</header>
-
+    --->
     <body>
-        <h1>Todo List</h1>
-        <div>Agregar una nueva tarea:
-            <form action="/add" method="post">
-                <input type="text" name="todoitem">
-                <input type="submit">
-            </form>
-        </div>
         <div>
-            <ul>
-                {% for todo in todos %}
-                <li style="font-size: 30pt"><input type="checkbox">{{ todo.text }}</li>
-                {% endfor %}
-            </ul>
+            <h1>Todo list</h1>
+            <div>Add a new todo item:
+                <form action="{{ url_for('add') }}" method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
+                    <input type="text" name="todoitem">
+                    <input type="submit" value='Add items'>
+                </form>
+            </div>
+            <div class="todolist">
+                <h2>Incomplete Items</h2>
+                <div>
+                    <ul>
+                        {% for todo in incomplete %}
+                        <li type="square" style="font-size: 30pt">{{ todo.text }} <a href="{{ url_for('complete', id=todo.id) }}">Mark As Complete</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <h2>Completed Items</h2>
+                <ul>
+                    {% for todo in complete %}
+                    <li>{{ todo.text }}</li>
+                    {% endfor %}
+                </ul>
+                <div>
+                    <form action="{{ url_for('deleteitem') }}" method="POST">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
+                        <input type="submit" value='Eliminar tareas'>
+                    </form>
+                </div>
+            </div>
         </div>
     </body>
 {% endblock %}

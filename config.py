@@ -10,5 +10,6 @@ class DevelopmentConfig(Config):
     # SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root@localhost/flaskmysql'
     SQLALCHEMY_DATABASE_URI = 'sqlite:///C:\db_organizate\organizate.db'
     SQLALCHEMY_BINDS = {
+    'sqlite' : 'sqlite:///C:\db_organizate\organizate.db',
     'calendary': 'mysql+pymysql://root@localhost/flaskmysql',
 }

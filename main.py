@@ -43,16 +43,34 @@ def index():
     if 'username' in session:
         username = session['username']
     title = 'Index'
-    todos = Todo.query.all
-    return render_template('index.html', title = title, todos = todos)
+    incomplete = Todo.query.filter_by(complete=False).all()
+    complete = Todo.query.filter_by(complete=True).all()
+    return render_template('index.html', title = title, incomplete=incomplete, complete=complete)
 
-@app.route('/add', methods=['POST'])
+@app.route('/add', methods=['GET', 'POST'])
 def add():
     todo = Todo(text=request.form['todoitem'], complete=False)
     db1.session.add(todo)
     db1.session.commit()
     return redirect(url_for('index'))
 
+@app.route('/complete/<id>')
+def complete(id):
+
+    todo = Todo.query.filter_by(id=int(id)).first()
+    todo.complete = True
+    db1.session.commit()
+
+    return redirect(url_for('index'))
+
+@app.route('/deleteitem', methods=['POST'])
+def deleteitem():
+    eliminar = Todo.query.filter_by(complete=True).all()
+    for elemento in eliminar:
+        db1.session.delete(elemento)
+    db1.session.commit()
+
+    return redirect(url_for('index'))
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():

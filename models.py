@@ -8,6 +8,7 @@ db1 = SQLAlchemy()
 db2 = SQLAlchemy()
 
 class Todo(db1.Model):
+    __bind_key__ = 'sqlite'
     __tablename__ = 'todo'
     id = db1.Column(db1.Integer, primary_key=True)
     text = db1.Column(db1.String(200))
