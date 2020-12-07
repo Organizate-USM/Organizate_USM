@@ -37,8 +37,7 @@ body {
 }
 
 .text-muted {
-    position: absolute;
-    transform: translate(-50%, -50%);
+    transform: translate(150%, 1100%);
     FONT-WEIGHT: 1000;
     top: 50%;
     height: 0px;

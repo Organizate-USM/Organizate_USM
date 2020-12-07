@@ -7,6 +7,7 @@
   type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"
 {% endblock %}
 
+
 {% block title %} Pomodoro {% endblock %}
 
 {% block content %}
@@ -16,7 +17,7 @@
       <img src="static\img\img.png" alt="logo" width="70" height="70">
     </div>
     <h1 id= 'logo'>Organízate USM</h1>
-    <ul>    
+    <ul>
       <li><a href="{{ url_for('index') }}">Inicio</a></li>
       <li><a href="{{ url_for('material') }}">Material</a></li>
       <li><a href="{{ url_for('collaborate') }}">Colaborar</a></li>
@@ -27,30 +28,38 @@
 </header>
   <body onload="template()">
     <div class="container">
-      <!-- Heading -->
       <h1 class="text-center my-5 heading">Pomodoro</h1>
-      <!-- Main Timer -->
-      <div class="container timer">
-        <div class="row">
-          <div class="col-5">
-            <h4 id="minutes"></h4>
+      <!-- Main timer -->
+      <div class= "parrafo">
+        <ol>
+          <h1>¿Cómo trabajar con pomodoro? </h1>
+          <br>
+          <li>Elige una tarea para completar.</li>
+          <li>Dale inicio al temporizador.</li>
+          <li>Trabaja en la tarea hasta que pasen los 25 minutos.</li>
+          <li>Toma un pequeño descanso de cinco minutos (esto indica la conclusión de un "pomodoro").</li>
+          <li>Repite los pasos del 1 al 4.</li>
+          <li>Después de cada cuatro pomodoros, toma un descanso más extenso, de unos 20 minutos o más.</li>
+        </ol>
+        <div class="container timer">
+          <div class="row">
+            <div class="col-5">
+              <h4 id="minutes"></h4>
+            </div>
+            <div class="col-2">
+              <h4>:</h4>
+            </div>
+            <div class="col-5">
+              <h4 id="seconds"></h4>
+            </div>
           </div>
-          <div class="col-2">
-            <h4>:</h4>
-          </div>
-          <div class="col-5">
-            <h4 id="seconds"></h4>
-          </div>
-        </div>
       </div>
-
-      <!-- Finished Message -->
       <div class="my-5">
         <h3 id="done" class="text-center"></h3>
       </div>
-
-      <!-- Start Button and reset button-->
-      <div class="conatiner d-flex justify-content-center my-5">
+    </div>
+      <!-- Botón de inicio y reinicio-->
+      <div class="conatiner d-flex justify-content-center my-5" style="margin-left: 500px;">
         <button class="btn" onclick="start_timer()">
           <i class="fas fa-play fa-2x"></i>
         </button>

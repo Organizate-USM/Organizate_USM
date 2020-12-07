@@ -16,8 +16,8 @@ function start_timer() {
   click_sound.play();
 
   // Change the minutes and seconds to starting time
-  session_minutes = 24;
-  session_seconds = 59;
+  session_minutes = 0;
+  session_seconds = 10;
 
   // Add the seconds and minutes to the page
   document.getElementById("minutes").innerHTML = session_minutes;
@@ -49,7 +49,7 @@ function start_timer() {
 
         // Add the message to the html
         document.getElementById("done").innerHTML =
-          "Session Completed!! Take a Break";
+          "Sesión completada!! Toma un descanso";
 
         // Make the html message div visible
         document.getElementById("done").classList.add("show_message");
