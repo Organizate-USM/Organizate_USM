@@ -3,8 +3,8 @@ var session_seconds = "00";
 var session_minutes = 25;
 
 // Audio files
-var click_sound = new Audio("click.mp3");
-var bell = new Audio("bell.mp3");
+var click_sound = new Audio("static/audio/click.mp3");
+var bell = new Audio("static/audio/bell.mp3");
 
 // Starting template for the timer
 function template() {
@@ -16,7 +16,7 @@ function start_timer() {
   click_sound.play();
 
   // Change the minutes and seconds to starting time
-  session_minutes = 0;
+  session_minutes = 00;
   session_seconds = 10;
 
   // Add the seconds and minutes to the page
