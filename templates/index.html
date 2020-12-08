@@ -1,6 +1,9 @@
 {% extends 'base/base.html'%}
 {% block link_css %}
-    rel="stylesheet" href="{{ url_for('static', filename='css/index.css' ) }}"
+    rel="stylesheet" href="{{ url_for('static', filename='css/prueba.css' ) }}"
+{% endblock %}
+{% block script_js %}
+    type="text/javascript" src=" {{ url_for('static', filename='js/prueba.js') }} "
 {% endblock %}
 {% block title %} Index  {% endblock %}
 
@@ -22,6 +25,26 @@
 	</header>
     --->
     <body>
+        <div class="todolist">
+            <div id="myDIV" class="header" methods='POST'>
+                <h2>My To Do List</h2>
+                <form action="{{ url_for('add') }}" method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
+                    <input type="text" id="myInput" name="todoitem" placeholder="Title...">
+                    <input type="submit" class="addBtn" value='Add'>
+                </form>
+            </div>
+
+            <ul id="myUL">
+                {% for todo in incomplete %}
+                <li>{{ todo.text }}<a href="{{ url_for('complete', id=todo.id) }}"><span class="close">✔</span></a></li>
+                {% endfor %}
+                {% for todo in complete %}
+                <li class="checked">{{ todo.text }}<a href="{{ url_for('incomplete', id=todo.id) }}"><span class="closeleft">✔</span></a><a href="{{ url_for('deleteitem', id=todo.id) }}"><span class="close">X</span></a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    <!---
         <div>
             <h1>Todo list</h1>
             <div>Add a new todo item:
@@ -56,5 +79,6 @@
                 </div>
             </div>
         </div>
+    --->
     </body>
 {% endblock %}

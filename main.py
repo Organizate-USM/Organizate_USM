@@ -56,11 +56,16 @@ def add():
 
 @app.route('/complete/<id>')
 def complete(id):
-
     todo = Todo.query.filter_by(id=int(id)).first()
     todo.complete = True
     db1.session.commit()
+    return redirect(url_for('index'))
 
+@app.route('/incomplete/<id>')
+def incomplete(id):
+    todo = Todo.query.filter_by(id=int(id)).first()
+    todo.complete = False
+    db1.session.commit()
     return redirect(url_for('index'))
 
 @app.route('/deleteitem', methods=['POST'])
