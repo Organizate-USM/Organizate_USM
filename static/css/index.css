@@ -14,7 +14,8 @@ html{
 
 
 /* NAV BAR */
-a{
+
+/* a{
     color: #fff;;
     text-decoration: none;
     text-transform: uppercase;
@@ -25,26 +26,51 @@ a{
     transform: all 0.3s;
     border: 2px solid transparent;
 
+} */
+
+.ausm{
+    color: #fff;;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: Verdana;
+    font-size: 20px;
+    display: inline-block;
+    padding: 16px 32px;
+    transform: all 0.3s;
+    border: 2px solid transparent;
 }
 
  /* ul:hover a {
     filter: blur(2px);
 } */
 
-ul a:hover{
+/* ul a:hover{
     color: #fff;
     filter: blur(0);
     transform: translateY(-10px);
     background-color: rgb(41, 66, 90);
-} 
+}  */
 
+.ulusm .ausm:hover{
+    color: #fff;
+    filter: blur(0);
+    transform: translateY(-10px);
+    background-color: rgb(41, 66, 90);
+}
 h1{
     font-size: 2.5rem;
     color:white;
 }
 
-ul li, p{
+/* ul li, p{
 	font-size: 2rem;
+    list-style: none;
+    margin-top: -5;
+    margin-bottom: -4rem;
+} */
+
+.ulusm .liusm,p{
+    font-size: 2rem;
     list-style: none;
     margin-top: -5;
     margin-bottom: -4rem;
@@ -59,15 +85,32 @@ ul li, p{
     background: rgb(36, 53, 70); 
 }
 
-nav{
+/* nav{
 	min-height: 10vh;
+	display: flex;
+	width: 80%;
+	margin: auto;
+	align-items: center;
+} */
+
+.navusm{
+    min-height: 10vh;
 	display: flex;
 	width: 80%;
 	margin: auto;
 	align-items: center;
 }
 
-nav ul{
+/* nav ul{
+    width: 90%;
+	display: flex;
+	flex: 1 1 20rem;
+	justify-content: space-around;
+	align-items: center;
+    list-style: none;
+} */
+
+.navusm .ulusm{
     width: 90%;
 	display: flex;
 	flex: 1 1 20rem;
