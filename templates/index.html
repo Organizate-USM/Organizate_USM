@@ -2,6 +2,14 @@
 {% block link_css %}
     rel="stylesheet" href="{{ url_for('static', filename='css/style.css' ) }}"
 {% endblock %}
+{% block link_css_todo %}
+    rel="stylesheet" href="{{ url_for('static', filename='css/todolist.css' ) }}"
+{% endblock %}
+{% block script_js %}
+    type="text/javascript" src="{{ url_for('static', filename='js/todolist.js') }}"
+{% endblock %}
+
+script_js
 {% block title %} Index  {% endblock %}
 
 {% block head %}
@@ -18,15 +26,15 @@
 				<img src="static\img\img.png" alt="logo" width="70" height="70">
 			</div>
 			<h1 id= 'logo'>Organízate USM</h1>
-			<ul id="ulusm">    
+			<ul id="ulusm">
 				<li class="liusm"><a href="#" class="ausm">Inicio</a></li>
 				<li class="liusm"><a href="{{ url_for('material') }}" class="ausm">Material</a></li>
 				<li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm">Podomoro</a></li>
 				<li class="liusm"><a href="{{ url_for('logout') }}" class="ausm">Logout</a></li>
 			</ul>
 		</nav>
-    </header> 
-    
+    </header>
+
 	<div class="hero">
         <div id="calendar"></div>
     </div>
@@ -64,7 +72,7 @@
                 }
             ]
             })
-        })  
+        })
     </script>
         <div class="todolist">
             <div id="myDIV" class="header" methods='POST'>
@@ -75,13 +83,13 @@
                     <input type="submit" class="addBtn" value='Agregar'>
                 </form>
             </div>
-    
+
             <ul id="myUL">
                 {% for todo in incomplete %}
-                <li>{{ todo.text }}<a href="{{ url_for('complete', id=todo.id) }}"><span class="close"></span></a></li>
+                <li>{{ todo.text }}<a href="{{ url_for('complete', id=todo.id) }}"><span class="close">✔</span></a></li>
                 {% endfor %}
                 {% for todo in complete %}
-                <li class="checked">{{ todo.text }}<a href="{{ url_for('incomplete', id=todo.id) }}"><span class="closeleft"></span></a><a href="{{ url_for('deleteitem', id=todo.id) }}"><span class="close">X</span></a></li>
+                <li class="checked">{{ todo.text }}<a href="{{ url_for('incomplete', id=todo.id) }}"><span class="closeleft">✔</span></a><a href="{{ url_for('deleteitem', id=todo.id) }}"><span class="close">X</span></a></li>
                 {% endfor %}
             </ul>
         </div>
