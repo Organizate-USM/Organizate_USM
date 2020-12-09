@@ -14,27 +14,50 @@ html{
     background: linear-gradient(45deg,#6ac1c5,#bda5ff);
 }
 
-a{
+/* NAV BAR */
+
+/* a{
     color: #fff;;
     text-decoration: none;
     text-transform: uppercase;
     font-family: Verdana;
     font-size: 20px;
     display: inline-block;
-    padding: 23.5px 32px;
+    padding: 16px 32px;
     transform: all 0.3s;
     border: 2px solid transparent;
-    margin-bottom: -4rem;
 
+} */
+
+.ausm{
+    color: #fff;;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: Verdana;
+    font-size: 20px;
+    display: inline-block;
+    padding: 16px 32px;
+    transform: all 0.3s;
+    border: 2px solid transparent;
 }
 
-ul a:hover{
+ /* ul:hover a {
+    filter: blur(2px);
+} */
+
+/* ul a:hover{
     color: #fff;
     filter: blur(0);
     transform: translateY(-10px);
     background-color: rgb(41, 66, 90);
-} 
+}  */
 
+#ulusm .ausm:hover{
+    color: #fff;
+    filter: blur(0);
+    transform: translateY(-10px);
+    background-color: rgb(41, 66, 90);
+}
 h1{
     font-size: 2.5rem;
     color:white;
@@ -47,6 +70,13 @@ h1{
     margin-bottom: -4rem;
 } */
 
+#ulusm .liusm,p{
+    font-size: 2rem;
+    list-style: none;
+    margin-top: -5;
+    margin-bottom: -4rem;
+}
+
 .main-head
 {   
     position: fixed;
@@ -56,15 +86,32 @@ h1{
     background: rgb(36, 53, 70); 
 }
 
-nav{
+/* nav{
 	min-height: 10vh;
+	display: flex;
+	width: 80%;
+	margin: auto;
+	align-items: center;
+} */
+
+#navusm{
+    min-height: 10vh;
 	display: flex;
 	width: 80%;
 	margin: auto;
 	align-items: center;
 }
 
-nav ul{
+/* nav ul{
+    width: 90%;
+	display: flex;
+	flex: 1 1 20rem;
+	justify-content: space-around;
+	align-items: center;
+    list-style: none;
+} */
+
+#navusm #ulusm{
     width: 90%;
 	display: flex;
 	flex: 1 1 20rem;
@@ -81,6 +128,8 @@ nav ul{
     margin-top: 10px;
 }
 
+/* OTHER*/
+
 .text-muted {
     position: fixed;
     color: #ecb5b5;
@@ -88,6 +137,12 @@ nav ul{
     margin-left: 1170px;
 }
 
+#hola {
+    margin-top: 100px ;
+    width: 100px;
+    margin: 0 auto;
+
+}
 /* Calendario */
 
 #calendar{
