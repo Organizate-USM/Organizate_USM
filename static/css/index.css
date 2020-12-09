@@ -1,3 +1,16 @@
+.updateitems{
+    margin-top: 25px;
+}
+
+.todolist {
+    justify-content: space-between;
+}
+
+html {
+    min-width: 550px;
+    position: relative;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,6 +27,7 @@ html{
 
 
 /* NAV BAR */
+
 a{
     color: #fff;;
     text-decoration: none;
@@ -36,7 +50,7 @@ ul a:hover{
     filter: blur(0);
     transform: translateY(-10px);
     background-color: rgb(41, 66, 90);
-} 
+}
 
 h1{
     font-size: 2.5rem;
@@ -46,17 +60,17 @@ h1{
 ul li, p{
 	font-size: 2rem;
     list-style: none;
-    margin-top: -5;
+    margin-top: 25px;
     margin-bottom: -4rem;
 }
 
 .main-head
-{   
+{
     position: fixed;
     width: 102%;
     height: 80px;
     margin: -15px;
-    background: rgb(36, 53, 70); 
+    background: rgb(36, 53, 70);
 }
 
 nav{
