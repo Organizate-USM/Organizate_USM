@@ -18,7 +18,6 @@
 {% endblock %}
 
 {% block content %}
-    <!---
 	<header class=main-head>
 		<nav>
 			<div id="logoimg">
@@ -34,42 +33,32 @@
 			</ul>
 		</nav>
 	</header>
-    --->
-    <body>
-        <div class="todolist">
-            <div id="myDIV" class="header" methods='POST'>
-                <h2>My To Do List</h2>
-                <form action="{{ url_for('add') }}" method="POST">
-                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
-                    <input type="text" id="myInput" name="todoitem" placeholder="Title...">
-                    <input type="submit" class="addBtn" value='Add'>
-                </form>
+        <body>
+            <div class="todolist">
+                <div id="myDIV" class="header" methods='POST'>
+                    <h2>My To Do List</h2>
+                    <form action="{{ url_for('add') }}" method="POST">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
+                        <input type="text" id="myInput" name="todoitem" placeholder="Title...">
+                        <input type="submit" class="addBtn" value='Add'>
+                    </form>
+                </div>
+                <ul id="myUL">
+                    {% for todo in incomplete %}
+                    <li>{{ todo.text }}<a href="{{ url_for('complete', id=todo.id) }}"><span class="close">✔</span></a></li>
+                    {% endfor %}
+                    {% for todo in complete %}
+                    <li class="checked">{{ todo.text }}<a href="{{ url_for('incomplete', id=todo.id) }}"><span class="closeleft">✔</span></a><a href="{{ url_for('deleteitem', id=todo.id) }}"><span class="close">X</span></a></li>
+                    {% endfor %}
+                </ul>
             </div>
-
-            <ul id="myUL">
-                {% for todo in incomplete %}
-                <li>{{ todo.text }}<a href="{{ url_for('complete', id=todo.id) }}"><span class="close">✔</span></a></li>
-                {% endfor %}
-                {% for todo in complete %}
-                <li class="checked">{{ todo.text }}<a href="{{ url_for('incomplete', id=todo.id) }}"><span class="closeleft">✔</span></a><a href="{{ url_for('deleteitem', id=todo.id) }}"><span class="close">X</span></a></li>
-                {% endfor %}
-            </ul>
-        </div>
-    </body>
-	</header>
-
-	<div class="hero">
-        <div id="calendar"></div>
-    </div>
-    <div>
-        <button class="btn-action" id="addBtn"></button>
-        <button class="btn-action" id="removeBtn"></button>
-    </div>
-
+            <div class="hero">
+                <div id="calendar"></div>
+            </div>
+        </body>
     <!-- Add jQuery library (required) -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="{{ url_for('static', filename='js/evo-calendar.min.js' ) }}"></script>
-
     <script>
         $(document).ready(function() {
             $('#calendar').evoCalendar({

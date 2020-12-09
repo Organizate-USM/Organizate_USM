@@ -30,50 +30,50 @@
     </ul>
   </nav>
 </header>
-  <body onload="template()">
-    <div class="container">
-      <h1 class="text-center my-5 heading">Pomodoro</h1>
-      <!-- Main timer -->
-      <div class= "parrafo">
-        <div class="caja">
-          <ol>
-            <h1>¿Cómo trabajar con pomodoro? </h1>
-            <br>
-            <li>Elige una tarea para completar.</li>
-            <li>Dale inicio al temporizador.</li>
-            <li>Trabaja en la tarea hasta que pasen los 25 minutos.</li>
-            <li>Toma un pequeño descanso de cinco minutos (esto indica la conclusión de un "pomodoro").</li>
-            <li>Repite los pasos del 1 al 4.</li>
-            <li>Después de cada cuatro pomodoros, toma un descanso más extenso, de unos 20 minutos o más.</li>
-          </ol>
-        </div>
-        <div class="container timer">
-          <div class="row">
-            <div class="col-5">
-              <h4 id="minutes"></h4>
-            </div>
-            <div class="col-2">
-              <h4>:</h4>
-            </div>
-            <div class="col-5">
-              <h4 id="seconds"></h4>
-            </div>
+    <body onload="template()">
+      <div class="container">
+        <h1 class="text-center my-5 heading">Pomodoro</h1>
+        <!-- Main timer -->
+        <div class= "parrafo">
+          <div class="caja">
+            <ol>
+              <h1>¿Cómo trabajar con pomodoro? </h1>
+              <br>
+              <li>Elige una tarea para completar.</li>
+              <li>Dale inicio al temporizador.</li>
+              <li>Trabaja en la tarea hasta que pasen los 25 minutos.</li>
+              <li>Toma un pequeño descanso de cinco minutos (esto indica la conclusión de un "pomodoro").</li>
+              <li>Repite los pasos del 1 al 4.</li>
+              <li>Después de cada cuatro pomodoros, toma un descanso más extenso, de unos 20 minutos o más.</li>
+            </ol>
           </div>
+          <div class="container timer">
+            <div class="row">
+              <div class="col-5">
+                <h4 id="minutes"></h4>
+              </div>
+              <div class="col-2">
+                <h4>:</h4>
+              </div>
+              <div class="col-5">
+                <h4 id="seconds"></h4>
+              </div>
+            </div>
+        </div>
+        <div class="my-5">
+          <h3 id="done" class="text-center"></h3>
+        </div>
       </div>
-      <div class="my-5">
-        <h3 id="done" class="text-center"></h3>
+        <!-- Botón de inicio y reinicio-->
+        <div class="conatiner d-flex justify-content-center my-5" style="margin-left: 650px;">
+          <button class="btn" onclick="start_timer()">
+            <i class="fas fa-play fa-2x"></i>
+          </button>
+          <a href="pomodoro"><i class="fas fa-redo-alt fa-2x"></i></a>
+        </div>
       </div>
-    </div>
-      <!-- Botón de inicio y reinicio-->
-      <div class="conatiner d-flex justify-content-center my-5" style="margin-left: 650px;">
-        <button class="btn" onclick="start_timer()">
-          <i class="fas fa-play fa-2x"></i>
-        </button>
-        <a href="pomodoro"><i class="fas fa-redo-alt fa-2x"></i></a>
-      </div>
-    </div>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="margin-left: 450px;"></iframe>
-  </body>
-  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="margin-left: 450px;"></iframe>
+    </body>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 {% endblock %}
 
