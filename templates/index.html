@@ -20,19 +20,19 @@ script_js
 {% endblock %}
 
 {% block content %}
-	<header class=main-head>
-		<nav id="navusm">
-			<div id="logoimg">
-				<img src="static\img\img.png" alt="logo" width="70" height="70">
-			</div>
-			<h1 id= 'logo'>Organízate USM</h1>
-			<ul id="ulusm">
-				<li class="liusm"><a href="#" class="ausm">Inicio</a></li>
-				<li class="liusm"><a href="{{ url_for('material') }}" class="ausm">Material</a></li>
-				<li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm">Podomoro</a></li>
-				<li class="liusm"><a href="{{ url_for('logout') }}" class="ausm">Logout</a></li>
-			</ul>
-		</nav>
+    <header class=main-head>
+        <nav id="navusm">
+            <div id="logoimg">
+                <img src="static\img\img.png" alt="logo" width="70" height="70">
+            </div>
+            <h1 id= 'logo'>Organízate USM</h1>
+            <ul id="ulusm">
+                <li class="liusm"><a href="{{ url_for('index') }}" class="ausm">Inicio</a></li>
+                <li class="liusm"><a href="{{ url_for('material') }}" class="ausm">Material</a></li>
+                <li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm">Podomoro</a></li>
+                <li class="liusm"><a href="{{ url_for('logout') }}" class="ausm">Logout</a></li>
+            </ul>
+        </nav>
     </header>
 
 	<div class="hero">
