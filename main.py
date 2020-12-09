@@ -29,7 +29,7 @@ def page_not_found(e):
 
 @app.before_request
 def before_request():
-	if 'username' not in session and request.endpoint in ['index', 'cookie', 'material', 'collaborate']:
+	if 'username' not in session and request.endpoint in ['index', 'cookie', 'material', 'collaborate','pomodoro']:
 		return redirect(url_for('login'))
 	elif 'username' in session and request.endpoint in ['login', 'register']:
 		return redirect(url_for('index'))
