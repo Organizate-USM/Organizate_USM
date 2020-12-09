@@ -1,12 +1,6 @@
 {% extends 'base/base.html'%}
-{% block link_css1 %}
+{% block link_css %}
     rel="stylesheet" href="{{ url_for('static', filename='css/style.css' ) }}"
-{% endblock %}
-{% block link_css2 %}
-    rel="stylesheet" href="{{ url_for('static', filename='css/todolist.css' ) }}"
-{% endblock %}
-{% block script_js %}
-    type="text/javascript" src=" {{ url_for('static', filename='js/todolist.js') }} "
 {% endblock %}
 {% block title %} Index  {% endblock %}
 
@@ -19,46 +13,32 @@
 
 {% block content %}
 	<header class=main-head>
-		<nav>
+		<nav id="navusm">
 			<div id="logoimg">
 				<img src="static\img\img.png" alt="logo" width="70" height="70">
 			</div>
 			<h1 id= 'logo'>Organízate USM</h1>
-			<ul>
-				<li><a href="#">Inicio</a></li>
-				<li><a href="{{ url_for('material') }}">Material</a></li>
-				<li><a href="{{ url_for('collaborate') }}">Colaborar</a></li>
-				<li><a href="{{ url_for('pomodoro') }}">Pomodoro</a></li>
-				<li><a href="{{ url_for('logout') }}">Logout</a></li>
+			<ul id="ulusm">    
+				<li class="liusm"><a href="#" class="ausm">Inicio</a></li>
+				<li class="liusm"><a href="{{ url_for('material') }}" class="ausm">Material</a></li>
+				<li class="liusm"><a href="{{ url_for('collaborate') }}" class="ausm">Colaborar</a></li>
+				<li class="liusm"><a href="{{ url_for('logout') }}" class="ausm">Logout</a></li>
 			</ul>
 		</nav>
-	</header>
-        <body>
-            <div class="todolist">
-                <div id="myDIV" class="header" methods='POST'>
-                    <h2>My To Do List</h2>
-                    <form action="{{ url_for('add') }}" method="POST">
-                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
-                        <input type="text" id="myInput" name="todoitem" placeholder="Title...">
-                        <input type="submit" class="addBtn" value='Add'>
-                    </form>
-                </div>
-                <ul id="myUL">
-                    {% for todo in incomplete %}
-                    <li>{{ todo.text }}<a href="{{ url_for('complete', id=todo.id) }}"><span class="close">✔</span></a></li>
-                    {% endfor %}
-                    {% for todo in complete %}
-                    <li class="checked">{{ todo.text }}<a href="{{ url_for('incomplete', id=todo.id) }}"><span class="closeleft">✔</span></a><a href="{{ url_for('deleteitem', id=todo.id) }}"><span class="close">X</span></a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="hero">
-                <div id="calendar"></div>
-            </div>
-        </body>
+	</header> 
+
+	<div class="hero">
+        <div id="calendar"></div>
+    </div>
+    <div>
+        <button class="btn-action" id="addBtn"></button>
+        <button class="btn-action" id="removeBtn"></button>
+    </div>
+    
     <!-- Add jQuery library (required) -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="{{ url_for('static', filename='js/evo-calendar.min.js' ) }}"></script>
+
     <script>
         $(document).ready(function() {
             $('#calendar').evoCalendar({
@@ -84,6 +64,6 @@
                 }
             ]
             })
-        })
+        })  
     </script>
 {% endblock %}
