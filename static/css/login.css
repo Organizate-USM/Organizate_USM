@@ -91,10 +91,10 @@ p {
     margin: 320px 110px 0px
 }
 .avtar {
-    background: url("../img/logo.png") no-repeat;
+    background: url("../img/logo.png") no-repeat bottom steelblue ;
     width: 150px;
     height: 150px;
-    background-size: 160px;
+    background-size: 105px;
     border-radius: 50%;
     margin: 0 auto;
     box-shadow: 20px 20px 80px #1d1d1d,
