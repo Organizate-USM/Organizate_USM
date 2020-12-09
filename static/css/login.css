@@ -36,24 +36,65 @@ body {
     box-shadow: 15px 15px 15px #050505, -25px -25px 60px #050505;
 }
 
+.boton{
+    background:#111111;
+    color:#7ACBCD;
+    border:none;
+    position:relative;
+    height:60px;
+    font-size:1.6em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    box-shadow: 3px 3px 8px #080808, -3px -3px 8px #3a3a3a;
+    font-family: 'Lato', sans-serif;
+    margin-left: 100px;
+}
+.boton:hover{
+    background:#111111;
+    color:#7ACBCD;
+}
+.boton:before,.boton:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #7ACBCD;
+    transition:400ms ease all;
+}
+.boton:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+.boton:hover:before,.boton:hover:after{
+    width:100%;
+    transition:800ms ease all;
+}
+
+
 .text-muted {
-    position: absolute;
-    transform: translate(-50%, -50%);
+    transform: translate(150%, 1100%);
     FONT-WEIGHT: 1000;
     top: 50%;
     height: 0px;
     left: 50%;
     color: #35abff;
+    margin-top: 650px;
 }
 
 p {
     margin: 320px 110px 0px
 }
 .avtar {
-    background: url("../img/img.png") no-repeat;
+    background: url("../img/logo.png") no-repeat bottom steelblue ;
     width: 150px;
     height: 150px;
-    background-size: 160px;
+    background-size: 105px;
     border-radius: 50%;
     margin: 0 auto;
     box-shadow: 20px 20px 80px #1d1d1d,
@@ -100,26 +141,8 @@ input {
     box-shadow: inset 8px 8px 8px #090909, inset -8px -8px 8px #1b1b1b;
 }
 
-.login, .register {
-    outline: none;
-    border: none;
-    cursor: pointer;
-    width: 90%;
-    margin-left: 20px;
-    height: 60px;
-    border-radius: 30px;
-    font-size: 20px;
-    font-weight: 700;
-    font-family: 'Lato', sans-serif;
-    color: #7ACBCD;
-    background: #111111;
-    box-shadow: 3px 3px 8px #080808, -3px -3px 8px #3a3a3a;
-    transition: 0.5s;
-}
-
 .go_login,
 .go_register{
-
     outline: none;
     border: none;
     cursor: pointer;
@@ -134,8 +157,9 @@ input {
     background: #111111;
     box-shadow: 3px 3px 8px #080808, -3px -3px 8px #3a3a3a;
     transition: 0.5s;
-
 }
+
+
 li{
 	font-size: 2rem;
     list-style: none;

@@ -108,6 +108,9 @@ def material():
 def collaborate():
     return render_template('collaborate.html')
 
+@app.route('/pomodoro')
+def pomodoro():
+    return render_template('pomodoro.html')
 
 if __name__ == '__main__':
     csrf.init_app(app)
