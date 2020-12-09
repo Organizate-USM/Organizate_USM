@@ -86,7 +86,7 @@ script_js
 
             <ul id="myUL">
                 {% for todo in incomplete %}
-                <li>{{ todo.text }}<a href="{{ url_for('complete', id=todo.id) }}"><span class="close">✔</span></a></li>
+                <li class="lito">{{ todo.text }}<a href="{{ url_for('complete', id=todo.id) }}"><span class="close">✔</span></a></li>
                 {% endfor %}
                 {% for todo in complete %}
                 <li class="checked">{{ todo.text }}<a href="{{ url_for('incomplete', id=todo.id) }}"><span class="closeleft">✔</span></a><a href="{{ url_for('deleteitem', id=todo.id) }}"><span class="close">X</span></a></li>

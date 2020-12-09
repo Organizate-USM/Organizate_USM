@@ -68,13 +68,11 @@ def incomplete(id):
     db1.session.commit()
     return redirect(url_for('index'))
 
-@app.route('/deleteitem', methods=['POST'])
-def deleteitem():
-    eliminar = Todo.query.filter_by(complete=True).all()
-    for elemento in eliminar:
-        db1.session.delete(elemento)
+@app.route('/deleteitem/<id>')
+def deleteitem(id):
+    eliminar = Todo.query.filter_by(id=int(id)).first()
+    db1.session.delete(eliminar)
     db1.session.commit()
-
     return redirect(url_for('index'))
 
 @app.route('/login', methods = ['GET', 'POST'])
