@@ -4,6 +4,10 @@
     font-family: 'Roboto', sans-serif ;
 }
 
+body{
+    background: #010114de;
+}
+
 html{
 	font-size: 62.5%;
 }
@@ -84,6 +88,7 @@ h1{
     height: 80px;
     margin: -15px;
     background: rgb(36, 53, 70); 
+    z-index: 1;
 }
 
 /* nav{
@@ -152,6 +157,7 @@ h1{
     left: 50%;
     transform: translate(-50%,-50%);
     margin-top: 100px;
+    z-index: 0;
 }
 
 .action-buttons {
@@ -179,4 +185,11 @@ button.btn-action {
     border: 2px solid #fff;
     -webkit-box-shadow: 0 10px 20px -5px rgba(19, 31, 51, .65);
     box-shadow: 0 10px 20px -5px rgba(19, 31, 51, .65);
+}
+
+.calendar-events>.event-header>p {
+    font-size: 30px;
+    font-weight: 600;
+    color: #5a5a5a;
+    margin-bottom: 10px;
 }
