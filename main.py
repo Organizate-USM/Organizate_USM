@@ -45,6 +45,10 @@ def index():
     title = 'Index'
     incomplete = Todo.query.filter_by(complete=False).all()
     complete = Todo.query.filter_by(complete=True).all()
+    event = Event.query.all()
+    # falta agregar a al return la variable event=event
+    # Pero necesito que se cree primero el elemento en HTML, para
+    # que no de error la pagina :)
     return render_template('index.html', title = title, incomplete=incomplete, complete=complete)
 
 @app.route('/add', methods=['GET', 'POST'])
@@ -71,6 +75,13 @@ def incomplete(id):
 @app.route('/deleteitem/<id>')
 def deleteitem(id):
     eliminar = Todo.query.filter_by(id=int(id)).first()
+    db1.session.delete(eliminar)
+    db1.session.commit()
+    return redirect(url_for('index'))
+
+@app.route('/deleteevent/<id>')
+def deleteitem(id):
+    eliminar = Event.query.filter_by(id=int(id)).first()
     db1.session.delete(eliminar)
     db1.session.commit()
     return redirect(url_for('index'))
