@@ -15,6 +15,7 @@ from models import db1
 from models import db2
 from models import User
 from models import Todo
+from models import Event
 import forms
 
 app = Flask(__name__)
@@ -80,7 +81,7 @@ def deleteitem(id):
     return redirect(url_for('index'))
 
 @app.route('/deleteevent/<id>')
-def deleteitem(id):
+def deleteevent(id):
     eliminar = Event.query.filter_by(id=int(id)).first()
     db1.session.delete(eliminar)
     db1.session.commit()
