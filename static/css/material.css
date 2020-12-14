@@ -145,7 +145,6 @@ h1{
 
 #tablita{
     color: white;
-    position: absolute;
     margin-top: 50px;
     width: 80%;
     height: 80%;
@@ -174,4 +173,21 @@ td, th {
 
 .num-color{
     color: rgb(38, 112, 173);
+}
+
+#ramo{
+    margin-top: 80px;
+    margin-left: 14%;
+
+    position: absolute;
+    color:white;
+}
+
+#colaborar{
+    position: absolute;
+    margin-top: 53.6%;
+    margin-left: 50%;
+    list-style:none;
+    transform: translate(-50%,-50%);
+
 }
