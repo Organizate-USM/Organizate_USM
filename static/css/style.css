@@ -230,3 +230,12 @@ button.btn-action {
     color: #5a5a5a;
     margin-bottom: 10px;
 }
+
+.alert-success {
+    color: #fbfbfb;
+    background-color: #47408a87;
+    border-color: #3fe6f9;
+    width: 100%;
+    margin-top: 5%;
+    position: absolute;
+}
