@@ -28,8 +28,14 @@ script_js
             <h1 id= 'logo'>Organízate USM</h1>
             <ul id="ulusm">
                 <li class="liusm"><a href="{{ url_for('index') }}" class="ausm">Inicio</a></li>
-                <li class="liusm"><a href="{{ url_for('material') }}" class="ausm">Material</a></li>
-                <li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm">Podomoro</a></li>
+                <li class="liusm"><a href="{{ url_for('material') }}" class="ausm">Material</a>
+                    <ul class="submenu">
+						<li><a href="#">Servicio #1</a></li>
+						<li><a href="#">Servicio #2</a></li>
+						<li><a href="#">Servicio #3</a></li>
+					</ul>
+                </li>
+                <li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm">Pomodoro</a></li>
                 <li class="liusm"><a href="{{ url_for('logout') }}" class="ausm">Logout</a></li>
             </ul>
         </nav>

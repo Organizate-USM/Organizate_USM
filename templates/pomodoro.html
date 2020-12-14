@@ -15,20 +15,28 @@
 {% block title %} Pomodoro {% endblock %}
 
 {% block content %}
-<header class=main-head>
-  <nav>
-    <div id="logoimg">
-      <img src="static\img\img.png" alt="logo" width="70" height="70">
-    </div>
-    <h1 id= 'logo'>Organízate USM</h1>
-    <ul>
-      <li><a href="{{ url_for('index') }}">Inicio</a></li>
-      <li><a href="{{ url_for('material') }}">Material</a></li>
-      <li><a href="{{ url_for('pomodoro') }}">Pomodoro</a></li>
-      <li><a href="{{ url_for('logout') }}">Logout</a></li>
-    </ul>
-  </nav>
-</header>
+  <header class=main-head>
+    <nav id="navusm">
+        <div id="logoimg">
+            <img src="static\img\img.png" alt="logo" width="70" height="70">
+        </div>
+        <h1 id= 'logo'>Organízate USM</h1>
+        <ul id="ulusm">
+            <li class="liusm"><a href="{{ url_for('index') }}" class="ausm">Inicio</a></li>
+            <li class="liusm"><a href="{{ url_for('material') }}" class="ausm">Material</a>
+                <ul class="submenu">
+        <li><a href="#">Servicio #1</a></li>
+        <li><a href="#">Servicio #2</a></li>
+        <li><a href="#">Servicio #3</a></li>
+      </ul>
+            </li>
+            <li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm">Pomodoro</a></li>
+            <li class="liusm"><a href="{{ url_for('logout') }}" class="ausm">Logout</a></li>
+        </ul>
+    </nav>
+  </header>
+
+
     <body onload="template()">
       <div class="container">
         <h1 class="text-center my-5 heading">Pomodoro</h1>

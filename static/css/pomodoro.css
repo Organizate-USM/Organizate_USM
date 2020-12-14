@@ -58,8 +58,22 @@ body {
   transition: 0.5s ease;
 }
 
-/* barra inicio */
-a{
+/* NAV BAR */
+
+/* a{
+    color: #fff;;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: Verdana;
+    font-size: 20px;
+    display: inline-block;
+    padding: 16px 32px;
+    transform: all 0.3s;
+    border: 2px solid transparent;
+
+} */
+
+.ausm{
   color: #fff;;
   text-decoration: none;
   text-transform: uppercase;
@@ -69,32 +83,45 @@ a{
   padding: 16px 32px;
   transform: all 0.3s;
   border: 2px solid transparent;
-
 }
 
 /* ul:hover a {
   filter: blur(2px);
 } */
 
-ul a:hover{
+/* ul a:hover{
   color: #fff;
   filter: blur(0);
   transform: translateY(-10px);
   background-color: rgb(41, 66, 90);
+}  */
 
-} 
-
+#ulusm .ausm:hover{
+  color: #fff;
+  filter: blur(0);
+  transform: translateY(-10px);
+  background-color: rgb(41, 66, 90);
+  transition: all .3s;
+}
 h1{
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   color:white;
 }
 
-ul li, p{
+/* ul li, p{
 font-size: 2rem;
   list-style: none;
   margin-top: -5;
   margin-bottom: -4rem;
+} */
+
+#ulusm .liusm,p{
+  font-size: 2rem;
+  list-style: none;
+  margin-top: -5;
+  margin-bottom: -4rem;
 }
+
 
 .main-head
 {   
@@ -106,30 +133,81 @@ font-size: 2rem;
   z-index: 1;
 }
 
-nav{
+/* nav{
 min-height: 10vh;
 display: flex;
 width: 80%;
 margin: auto;
 align-items: center;
+} */
+
+#navusm{
+  min-height: 10vh;
+  display: flex;
+  width: 80%;
+  margin: auto;
+  align-items: center;
 }
 
-nav ul{
+/* nav ul{
   width: 90%;
 display: flex;
 flex: 1 1 20rem;
 justify-content: space-around;
 align-items: center;
   list-style: none;
+} */
+
+#navusm #ulusm{
+  width: 90%;
+  display: flex;
+  flex: 1 1 20rem;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
 }
 
 #logo{
-flex: 3 1 50rem;
+  flex: 3 1 50rem;
 }
 
 #logoimg{
   margin-top: 10px;
 }
+
+#ulusm li a:hover{
+  filter: blur(0);
+  transform: translateY(-7px);
+  background-color: rgb(41, 66, 90);
+  transition: all .3s;
+}
+
+/* Submenu*/
+
+.submenu{
+  position: absolute;
+  background:rgb(36, 53, 70);
+  width: 170px;
+  height: 174px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 1.5s;
+  list-style:none;
+  padding: 0px;
+}
+
+.submenu li a{
+  display: block;
+  padding: 15px;
+  color: #fff;
+  text-decoration: none;
+}
+
+#ulusm li:hover .submenu{
+  visibility: visible;
+  opacity: 1;
+}
+
 
 ol{
   color: cyan;
@@ -157,4 +235,19 @@ ol li{
   -webkit-border-radius: 35px 0px 35px 0px; 
   border: 2px solid cyan;
   margin-top: 50px;
+}
+
+
+.text-muted {
+  position:  fixed;
+  color: #ecb5b5;
+  margin-top: -8%;
+  margin-left: 80%;
+}
+
+#hola {
+  margin-top: 100px ;
+  width: 100px;
+  margin: 0 auto;
+
 }

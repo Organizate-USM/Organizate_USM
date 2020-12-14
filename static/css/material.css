@@ -176,10 +176,10 @@ h1{
 /* OTHER*/
 
 .text-muted {
-    position: fixed;
+    position:fixed;
     color: #ecb5b5;
-    margin-top: 0px;
-    margin-left: 1170px;
+    margin-top: 47%;
+    margin-left: 82%;
 }
 
 #hola {
