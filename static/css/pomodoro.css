@@ -188,7 +188,6 @@ align-items: center;
   position: absolute;
   background:rgb(36, 53, 70);
   width: 170px;
-  height: 174px;
   visibility: hidden;
   opacity: 0;
   transition: opacity 1.5s;
@@ -241,8 +240,8 @@ ol li{
 .text-muted {
   position:  fixed;
   color: #ecb5b5;
-  margin-top: -8%;
-  margin-left: 80%;
+  margin-top: -7%;
+  margin-left: 90%;
 }
 
 #hola {

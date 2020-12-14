@@ -15,125 +15,73 @@
 				<li class="liusm"><a href="{{ url_for('index') }}" class="ausm">Inicio</a></li>
 				<li class="liusm"><a href="{{ url_for('material') }}" class="ausm">Material</a>
 					<ul class="submenu">
-						<li><a href="#">Servicio #1</a></li>
-						<li><a href="#">Servicio #2</a></li>
-						<li><a href="#">Servicio #3</a></li>
+						<li><a href="{{ url_for('informatica') }}">Ingeniería Civil en informatica</a></li>
+						<li><a href="#">Ingeniería Civil en matemática</a></li>
+						<li><a href="#">Ingeniería Civil en minas</a></li>
+						<li><a href="#">Arquitectura</a></li>
+						<li><a href="#">Ingeniería Civil en electronica</a></li>
+						<li><a href="#">Ingeniería Civil industrial</a></li>
 					</ul>
 				</li>
 				<li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm">Pomodoro</a></li>
 				<li class="liusm"><a href="{{ url_for('logout') }}" class="ausm">Logout</a></li>
 			</ul>
-		</nav>
+		</nav>	
 	</header>
 
+	<div class="container">
 
-	<h1 id="ramo">
-		Material de ramos ingeniería civil informática
-	</h1>
-		<table id='tablita'>
-		<tr>
-			<th id='tope'>
-				<font size="4.2">
-					<b>Semestre</b>
-				</font>
-			</th>
-			<th>
-				<font size="4.2">
-					<b>Asignaturas</b>
-				</font>
-			</th>
-			<th>
-				<font size="4.2">
-					<b>Semestre</b>
-				</font>
-			</th>
-			<th>
-				<font size="4.2">
-					<b>Asignaturas</b>
-				</font>
-			</th>
-		</tr>
-		<tr>
-			<td class='num'>
-				<font class="num-color" size="8">
-					<b>01</b>
-				</font>
-			</td>
-			<td>
-				<font class="links" size="3">
-					<li class="li-links"><a class="a-links" href="{{ ('https://drive.google.com/drive/folders/1wyNyUwhkfOFO77s1gvkei376yPSZVe-0?usp=sharing') }}" target="_blank" >Matemática I - MAT021</a></li>
-					<li class="li-links"><a class="a-links" href="{{ ('https://drive.google.com/drive/folders/1lA40TCDnYlPjBTJlOqlNxcrBli4M69XW?usp=sharing') }}" target="_blank" >Introducción a la físca - FIS100</a></li>
-					<li class="li-links"><a class="a-links" href="{{ ('https://drive.google.com/drive/folders/1TSnXW3_SOR_YOIqEfsR4mKO0ZyYKYSZj?usp=sharing') }}" target="_blank" >Programación - IWI131</a></li>
-				</font>
+		<div class="card">
+			<a class="card-link" href="{{ url_for('informatica') }}">
+				<h2>Ingeniería civil en informatica</h2>
+				<img src="static\img\informatica.jpg">
 				
-			</td>
-			<td class='num'>
-				<font class="num-color" size="8">
-					<b>02</b>
-				</font>
-			</td>
-			<td>
-				<font class="links" size="3">
-					<li class="li-links"><a class="a-links" href="{{ ('https://drive.google.com/drive/folders/18gDTp4BZ_T2WlnuPiQ7Flq_-s5T-TCTw?usp=sharing') }}" target="_blank" >Matemática II - MAT022</a></li>
-					<li class="li-links"><a class="a-links" href="{{ ('https://drive.google.com/drive/folders/1xTwfOlTpgT-lNDkD8yfFTJyYCD_DoaCx?usp=sharing') }}" target="_blank" >Fiísica General I - FIS110</a></li>
-					<li class="li-links"><a class="a-links" href="{{ ('https://drive.google.com/drive/folders/1ye8zGOubbWMWUH9NiyrPr8_BtO6ipTTJ?usp=sharing') }}" target="_blank" >Química y Sociedad - QUI010</a></li>
-					<li class="li-links"><a class="a-links" href="{{ ('https://drive.google.com/drive/folders/18cpIxg9vofAZkbk7Fg7BCXmX8xY9OYor?usp=sharing') }}" target="_blank" >Introducción a la ingeniería - IWG101</a></li>
-				</font>
 				
-			</td>
-		</tr>
-		<tr>
-			<td class='num'>
-				<font class="num-color" size="8">
-					<b>03</b>
-				</font>
-			</td>
-			<td>
-				<font class="links" size="3">
-					<li class="li-links"><a class="a-links" class="a-links" href="{{ ('https://drive.google.com/drive/folders/10eSIP3HEIVo-5LLTPrOXSNXAhObHGlld?usp=sharing') }}" target="_blank" >Matemática III - MAT023</a></li>
-					<li class="li-links"><a class="a-links" href="{{ ('https://drive.google.com/drive/folders/1uV5ncXL3A73z6HmKOXbiyfaeuzgJYp8U?usp=sharing') }}" target="_blank" >Fiísica General III - FIS130</a></li>
-				</font>
-				
-			</td>
-			<td>
-				<font class="num-color" size="8">
-					<b>04</b>
-				</font>
-			</td>
-			<td>
-				<font class="links" size="3">
-					<li class="li-links"><a class="a-links" href="{{ ('https://drive.google.com/drive/folders/1-jMMnoTM4TGzqOEi3dDLpEQSFUqMufqg?usp=sharing') }}" target="_blank" >Matemática IV - MAT024</a></li>
-					<li class="li-links"><a class="a-links" href="{{ ('https://drive.google.com/drive/folders/1fQ_5kkM56l-dqdOqTE2VDzQNSoBVMI69?usp=sharing') }}" target="_blank" >Fiísica General II - FIS120</a></li>
-				</font>
-				
-			</td>
-		</tr>
-		<tr>
-			<td class='num'>
-				<font class="num-color" size="8">
-					<b>05</b>
-				</font>
-			</td>
-			<td>
-				<font class="links" size="3">
-					<li class="li-links"><a class="a-links" href="{{ ('https://drive.google.com/drive/folders/1EWD2F8P4vGmBfz51JUL2J1hAOs4QEm0l?usp=sharing') }}" target="_blank" >Fiísica General IV - FIS140</a></li>
-				</font>
-				
-			</td>
-			<td>
-				<font class="num-color" size="8">
-					<b>06</b>
-				</font>
-			</td>
-			<td>DSDA</td>
-		</tr>
+				<!-- <p>Material De estudio para estudiar </p> -->
+			</a>
+		</div>
+		
+		<div class="card">
+			<a class="card-link" href="#">
+				<h2>Ingeniería civil en matemática</h2>
+				<img src="static\img\matematica.jpg">
+			</a>
+		</div>
+		
+		<div class="card">
+			<a class="card-link" href="#">
+				<h2>Ingeniería civil en minas</h2>
+				<img src="static\img\minas.jpg">
+			</a>
+		</div>
 
-		</table>
+		<div class="card">
+			<a class="card-link" href="#">
+				<h2>Arquiectura</h2>
+				<img src="static\img\arquitectura.jpg">
+			</a>
+		</div>
+
+		<div class="card">
+			<a class="card-link" href="#">
+				<h2>Ingeniería civil en electronica</h2>
+				<img src="static\img\electronica.jpg">
+			</a>
+		</div>
+
+		<div class="card">
+			<a class="card-link" href="#">
+				<h2>Ingeniería civil industrial</h2>
+				<img src="static\img\industrial.jpg">
+			</a>
+		</div>
+		
+		</div>
+	</div>
 
 
-		<font class="num-color" size="5">
-			<li id="colaborar"><a id="a-colaborar" href=" https://forms.gle/bLooxe4qJCPCcuEw8 " >¿Quieres colaborar con nosotros?</a></li>
-		</font>
 
-
+	<font class="num-color" size="5">
+		<li id="colaborar"><a id="a-colaborar" href=" https://forms.gle/bLooxe4qJCPCcuEw8 " >¿Quieres colaborar con nosotros?</a></li>
+	</font>
 {% endblock %}

@@ -30,7 +30,7 @@ def page_not_found(e):
 
 @app.before_request
 def before_request():
-	if 'username' not in session and request.endpoint in ['index', 'cookie', 'material', 'collaborate','pomodoro']:
+	if 'username' not in session and request.endpoint in ['index', 'cookie', 'material', 'informatica','pomodoro']:
 		return redirect(url_for('login'))
 	elif 'username' in session and request.endpoint in ['login', 'register']:
 		return redirect(url_for('index'))
@@ -147,9 +147,9 @@ def logout():
 def material():
     return render_template('material.html')
 
-@app.route('/collaborate')
-def collaborate():
-    return render_template('collaborate.html')
+@app.route('/informatica')
+def informatica():
+    return render_template('informatica.html')
 
 @app.route('/pomodoro')
 def pomodoro():

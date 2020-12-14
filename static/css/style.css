@@ -151,7 +151,6 @@ h1{
 	position: absolute;
 	background:rgb(36, 53, 70);
     width: 170px;
-    height: 174px;
 	visibility: hidden;
 	opacity: 0;
     transition: opacity 1.5s;
@@ -177,7 +176,7 @@ h1{
     position:fixed;
     color: #ecb5b5;
     margin-top: 45%;
-    margin-left: 82%;
+    margin-left: 90%;
 }
 
 #hola {
