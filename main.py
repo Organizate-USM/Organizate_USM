@@ -12,7 +12,6 @@ from flask_bootstrap import Bootstrap
 
 from config import DevelopmentConfig
 from models import db1
-from models import db2
 from models import User
 from models import Todo
 from models import Event
@@ -47,10 +46,19 @@ def index():
     incomplete = Todo.query.filter_by(complete=False).all()
     complete = Todo.query.filter_by(complete=True).all()
     event = Event.query.all()
-    # falta agregar a al return la variable event=event
-    # Pero necesito que se cree primero el elemento en HTML, para
-    # que no de error la pagina :)
-    return render_template('index.html', title = title, incomplete=incomplete, complete=complete)
+    return render_template('index.html', title = title, incomplete=incomplete, complete=complete, event=event)
+
+@app.route('/addevent', methods=['GET', 'POST'])
+def addevent():
+    dia = request.form['fecha']
+    listad = dia.split('-')
+    meses = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    mes = meses[int(listad[1])-1]
+    fechadb = '{}/{}/{}'.format(mes, listad[0], listad[2])
+    event = Event(nombre=request.form['nombre'], fecha=fechadb, descripcion=request.form['descripcion'])
+    db1.session.add(event)
+    db1.session.commit()
+    return redirect(url_for('index'))
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
@@ -160,5 +168,4 @@ if __name__ == '__main__':
     db1.init_app(app)
     with app.app_context():
         db1.create_all()
-        db2.create_all(bind=['calendary'])
     app.run(port=8000)

@@ -5,13 +5,14 @@ import datetime
 
 
 db1 = SQLAlchemy()
-db2 = SQLAlchemy()
 
 class Event(db1.Model):
     __bind_key__ = 'sqlite'
     __tablename__ = 'event'
     id = db1.Column(db1.Integer, primary_key=True)
-    text = db1.Column(db1.String(200))
+    nombre = db1.Column(db1.String(100))
+    fecha = db1.Column(db1.String(11))
+    descripcion = db1.Column(db1.String(100))
 
 class Todo(db1.Model):
     __bind_key__ = 'sqlite'
@@ -43,16 +44,3 @@ class User(db1.Model):
     def verify_password(self, password):
         return self.password
         return check_password_hash(self.password, password)
-
-class Calendary(db2.Model):
-    __bind_key__ = 'calendary'
-    __tablename__ = 'calendary'
-    id = db2.Column(db2.Integer, primary_key=True)
-    fechas = db2.Column(db2.String(80), unique=True)
-    horario = db1.Column(db1.String(50), unique=True)
-    a = db1.Column(db1.String(40))
-
-    def  __init__(self, fechas,horario,a):
-        self.fechas = fechas
-        self.horario = horario
-        self.a = a

@@ -38,10 +38,8 @@ script_js
 	<div class="hero">
         <div id="calendar"></div>
     </div>
-    <div>
-        <button class="btn-action" id="addBtn"></button>
-        <button class="btn-action" id="removeBtn"></button>
-    </div>
+
+
 
     <!-- Add jQuery library (required) -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
@@ -69,11 +67,34 @@ script_js
                     description: "Vacaciones.", // Event description (optional)
                     type: "event",
                     color: "#63d867" // Event custom color (optional)
-                }
+
+                },
+                {% for evento in event %}
+                {
+                    name: "{{ evento.nombre }}",
+                    date: "{{ evento.fecha }}",
+                    description: "{{ evento.descripcion }}",
+                    type: "event",
+                    color: "#63d867"
+                },
+                {% endfor %}
+
             ]
             })
         })
     </script>
+        <div class="addevent">
+            <div>
+                <h1>Hola</h1>
+                <form action="{{ url_for('addevent') }}" method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
+                    <input type="text" name="nombre" placeholder="Nombre...">
+                    <input type="text" name="fecha" placeholder="Fecha (dd-mm-aaaa)">
+                    <input type="text" name="descripcion" placeholder="Descripcion...">
+                    <input type="submit" class="addBtn" value='Agregar'>
+                </form>
+            </div>
+        </div>
         <div class="todolist">
             <div id="myDIV" class="header" methods='POST'>
                 <h2>Lista de quehaceres</h2>
