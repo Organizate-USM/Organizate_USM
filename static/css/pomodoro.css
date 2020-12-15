@@ -1,15 +1,16 @@
-/* Body background and font */
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
 body {
   background: #010114de;
   font-family: "Lato", sans-serif;
 }
 
-/* Main heading */
+
 .heading {
   color:  rgb(41, 66, 90);
 }
 
-/* Countdown timer */
+
 .timer {
   color: cyan;
   text-align: center;
@@ -26,12 +27,12 @@ body {
   width: 100%;
 }
 
-/* remove the padding on the play button */
+
 .btn {
   padding: 0;
 }
 
-/* play and reset icons */
+
 .fa-play,
 .fa-redo-alt {
   color: #5adbdb;
@@ -47,8 +48,7 @@ body {
   transition: 0.3s ease;
 }
 
-/* Dynamic class */
-/* Make the message visible */
+
 .show_message {
   display: block;
   padding: 1rem 0;
@@ -222,6 +222,7 @@ ol li{
 .parrafo{
   display:flex;
   justify-content: space-between;
+  margin-top:-150px ;
 }
 
 .caja{
@@ -249,4 +250,52 @@ ol li{
   width: 100px;
   margin: 0 auto;
 
+}
+
+svg {
+  display: block;
+  font: 10.5em 'Montserrat';
+  width: 960px;
+  height: 300px;
+  margin: 0 auto;
+  position: relative;
+  top: -150px;
+}
+
+.text-copy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 6% 29%;
+  stroke-width: 5px;
+  stroke-dashoffset: 0%;
+  animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1){
+stroke: #062DA2;
+animation-delay: -1;
+}
+
+.text-copy:nth-child(2){
+stroke: #2BDDF9;
+animation-delay: -2s;
+}
+
+.text-copy:nth-child(3){
+stroke: #57F2FF;
+animation-delay: -3s;
+}
+
+.text-copy:nth-child(4){
+stroke: #015CE0;
+animation-delay: -4s;
+}
+
+.text-copy:nth-child(5){
+stroke:#0B1A51;
+animation-delay: -5s;
+}
+
+@keyframes stroke-offset{
+100% {stroke-dashoffset: -35%;}
 }
