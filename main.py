@@ -151,6 +151,26 @@ def material():
 def informatica():
     return render_template('informatica.html')
 
+@app.route('/matematica')
+def matematica():
+    return render_template('matematica.html')
+
+@app.route('/arqui')
+def arqui():
+    return render_template('arqui.html')
+
+@app.route('/industrial')
+def industrial():
+    return render_template('industrial.html')
+
+@app.route('/elo')
+def elo():
+    return render_template('elo.html')
+
+@app.route('/minas')
+def minas():
+    return render_template('minas.html')
+
 @app.route('/pomodoro')
 def pomodoro():
     return render_template('pomodoro.html')
