@@ -1,0 +1,84 @@
+*{
+	padding:0px;
+	margin:0px;
+}
+body{
+        background:#030323;
+        background-image: linear-gradient(315deg, #000e23 0, #000c24 8.33%, #000a24 16.67%, #000925 25%, #000724 33.33%, #000524 41.67%, #030323 50%, #0a0122 58.33%, #100020 66.67%, #15001e 75%, #19001c 83.33%, #1b001a 91.67%, #1e0017 100%);
+}
+.st0{font-family:'FootlightMTLight';}
+.st1{font-size:83.0285px;}
+.st2{fill:gray;}
+
+svg{
+    width: 500px;
+    height: 400px;
+    text-align: center;
+    fill: cyan;
+}
+path#XMLID_5_ {
+    fill: cyan;
+    filter: url(#blurFilter4);
+}
+path#XMLID_11_ ,path#XMLID_2_ {
+    fill: cyan;
+}
+.circle{
+    animation: out 2s infinite ease-out;
+    fill: cyan;
+}
+
+#container{
+    text-align:center;
+}
+.message{
+	color:cyan;
+}
+.message:after{
+	content:"]";
+}
+.message:before{
+	content:"[";
+}
+
+.message:after, .message:before {
+    
+    color: cyan;
+    font-size: 20px;
+    -webkit-animation-name: opacity;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: opacity;
+            animation-name: opacity;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            margin:0 50px;
+}
+
+@-webkit-keyframes opacity {
+    0%, 100% {
+    opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes opacity {
+    0%, 100% {
+    opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes out {
+    0% {r:1;  opacity: 0.9 ;}
+    25%{r:5;  opacity: 0.3 ;}
+    50%{r:10; opacity: 0.2 ;}
+    75%{r:15;opacity:0.1;}
+    100% {r:20;opacity:0;}
+}
