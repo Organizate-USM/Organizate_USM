@@ -6,6 +6,7 @@
 
 body{
     background: #010114de;
+    background-image: linear-gradient(315deg, #000e23 0, #000c24 8.33%, #000a24 16.67%, #000925 25%, #000724 33.33%, #000524 41.67%, #030323 50%, #0a0122 58.33%, #100020 66.67%, #15001e 75%, #19001c 83.33%, #1b001a 91.67%, #1e0017 100%);
 }
 
 html{
@@ -83,6 +84,7 @@ h1{
     margin: -15px;
     background: rgb(36, 53, 70); 
     z-index: 1;
+    top: 0%;
 }
 
 /* nav{
@@ -191,7 +193,6 @@ h1{
 
 #colaborar{
     position: absolute;
-    margin-top: 80%;
     margin-left: 50%;
     list-style:none;
     transform: translate(-50%,-50%);
@@ -207,8 +208,7 @@ h1{
     flex-wrap: wrap;
     justify-content: center;
     margin: auto;
-    z-index: -1;
-    position: absolute;
+    position: relative;
     margin-left: 50%;
     margin-top: 43%;
     transform: translate(-50%,-50%);
@@ -273,4 +273,16 @@ h1{
     height: 100%;
 }
 
+#cola{
+    margin-top: -25%;
+    margin-left: 50%;
+    /* list-style: none; */
+    transform: translate(-50%,-50%);
+    position: absolute;
+    width: 100%;
+}
 
+
+.container-etos{
+    color: blue;
+}

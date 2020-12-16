@@ -240,10 +240,11 @@ ol li{
 
 
 .text-muted {
-  position:  fixed;
+  position: fixed;
   color: #ecb5b5;
-  margin-top: -7%;
-  margin-left: 90%;
+  margin-top: -18%;
+  margin-left: 89%;
+}
 }
 
 #hola {
