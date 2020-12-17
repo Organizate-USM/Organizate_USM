@@ -101,8 +101,8 @@ body {
   color: #fff;
   filter: blur(0);
   transform: translateY(-10px);
-  background-color: rgb(41, 66, 90);
   transition: all .3s;
+  background: rgb(36, 53, 70); 
 }
 h1{
   font-size: 2.5rem;
@@ -130,8 +130,8 @@ font-size: 2rem;
   width: 102%;
   height: 80px;
   margin: -15px;
-  background: rgb(36, 53, 70); 
   z-index: 1;
+  background-image: radial-gradient(circle at 6.56% 19.58%, #2d4a64 0, #243546 50%, #1a222a 100%);
 }
 
 /* nav{
@@ -245,7 +245,7 @@ ol li{
   margin-top: -18%;
   margin-left: 89%;
 }
-}
+
 
 #hola {
   margin-top: 100px ;

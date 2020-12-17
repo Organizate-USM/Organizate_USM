@@ -82,9 +82,9 @@ h1{
     width: 102%;
     height: 80px;
     margin: -15px;
-    background: rgb(36, 53, 70); 
     z-index: 1;
     top: 0%;
+    background-image: radial-gradient(circle at 6.56% 19.58%, #2d4a64 0, #243546 50%, #1a222a 100%);
 }
 
 /* nav{
@@ -145,8 +145,8 @@ h1{
 #ulusm li a:hover{
     filter: blur(0);
     transform: translateY(-7px);
-    background-color: rgb(41, 66, 90);
-	transition: all .3s;
+    transition: all .3s;
+    background: rgb(36, 53, 70); 
 }
 
 

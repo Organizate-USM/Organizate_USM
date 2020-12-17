@@ -32,8 +32,8 @@ body {
     height: 700px;
     padding: 60px 35px 35px 35px;
     border-radius: 40px;
-    background: #2c1d40;
     box-shadow: 15px 15px 15px #050505, -25px -25px 60px #050505;
+    background-image: radial-gradient(circle at 6.56% 19.58%, #452c59 0, #2c1d40 50%, #170d28 100%);
 }
 
 .boton{
