@@ -54,9 +54,10 @@ body {
   display: block;
   padding: 1rem 0;
   color: #272343;
-  background: #e3f6f5;
+  background: #9ff7f2;
   border-radius: 0.5rem;
   transition: 0.5s ease;
+  font-family: 'Montserrat';
 }
 
 /* NAV BAR */
@@ -107,6 +108,7 @@ body {
 h1{
   font-size: 2.5rem;
   color:white;
+  font-family: 'Montserrat';
 }
 
 /* ul li, p{
@@ -217,7 +219,7 @@ ol{
 ol li{
   color:#5adbdb;
   font-size: 12px;
-  font-family: monospace;
+  font-family: 'Montserrat';
 }
 
 .parrafo{
