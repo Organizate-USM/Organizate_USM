@@ -85,23 +85,8 @@ script_js
     </script>
         <div class="addevent">
             <div>
-                <h1>Titulo agregar evento</h1>
-                <form action="{{ url_for('addevent') }}" method="POST" class="header">
-                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
-                    <input type="text" name="nombre" placeholder="Nombre...">
-                    <input type="text" name="descripcion" placeholder="Descripcion...">
-                    <input type="date" id="start" name="fecha" value="2020-12-12" min="2020-01-01" max="2030-12-31">
-                    <select name="">
-                        <option value="">Noviembre</option>
-                    </select>
-                    <input type="submit" class="addBtn" value='Agregar'>
-                </form>
+                <button type="button" id="BotonModal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Launch demo modal</button>
             </div>
-            <ul id="myUL">
-                {% for evento in event %}
-                <li class="lito">{{ evento.nombre }}, Fecha: {{ evento.fechaleer }}<a href="{{ url_for('deleteevent', id=evento.id) }}"><span class="close">X</span></a></li>
-                {% endfor %}
-            </ul>
         </div>
 
         <div class="todolist">
@@ -124,7 +109,7 @@ script_js
             </ul>
         </div>
 
-        <!-- Modal
+        <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -135,14 +120,27 @@ script_js
                 </button>
               </div>
               <div class="modal-body">
-                <h1>Hola mundo</h1>
+                  <div>
+                      <h1>Titulo agregar evento</h1>
+                      <form action="{{ url_for('addevent') }}" method="POST" class="header">
+                          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
+                          <input type="text" name="nombre" placeholder="Nombre...">
+                          <input type="text" name="descripcion" placeholder="Descripcion...">
+                          <input type="date" id="start" name="fecha" value="2020-12-12" min="2020-01-01" max="2030-12-31">
+                          <input type="submit" class="addBtn" value='Agregar'>
+                      </form>
+                  </div>
+                  <ul id="myUL">
+                      {% for evento in event %}
+                      <li class="lito">{{ evento.nombre }}, Fecha: {{ evento.fechaleer }}<a href="{{ url_for('deleteevent', id=evento.id) }}"><span class="close">X</span></a></li>
+                      {% endfor %}
+                  </ul>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
               </div>
             </div>
           </div>
         </div>
-         -->
+
 {% endblock %}

@@ -43,5 +43,4 @@ class User(db1.Model):
         return generate_password_hash(password)
 
     def verify_password(self, password):
-        return self.password
         return check_password_hash(self.password, password)

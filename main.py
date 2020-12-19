@@ -9,6 +9,8 @@ from flask import flash
 from flask import g
 from flask_wtf import CsrfProtect
 from flask_bootstrap import Bootstrap
+from werkzeug.security import generate_password_hash
+import bcrypt
 
 from config import DevelopmentConfig
 from models import db1
@@ -106,8 +108,8 @@ def login():
     if request.method == 'POST' and login_form.validate():
         username = login_form.username.data
         password = login_form.password.data
-
         user = User.query.filter_by(username = username).first()
+
         if user is not None and user.verify_password(password):
             success_message = 'Bienvenido {}'.format(username)
             flash(success_message)
