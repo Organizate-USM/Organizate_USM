@@ -47,6 +47,7 @@ def index():
     complete = Todo.query.filter_by(complete=True).all()
     event = Event.query.all()
     return render_template('index.html', title = title, incomplete=incomplete, complete=complete, event=event)
+    #return render_template('index.html', title = title, incomplete=incomplete, complete=complete)
 
 @app.route('/addevent', methods=['GET', 'POST'])
 def addevent():
@@ -54,8 +55,11 @@ def addevent():
     listad = dia.split('-')
     meses = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     mes = meses[int(listad[1])-1]
-    fechadb = '{}/{}/{}'.format(mes, listad[0], listad[2])
-    event = Event(nombre=request.form['nombre'], fecha=fechadb, descripcion=request.form['descripcion'])
+    fechadb = '{}/{}/{}'.format(mes, listad[2], listad[0])
+    mesesSpanish = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+    mesSpanish = mesesSpanish[int(listad[1])-1]
+    fechaleer = '{} de {} del {}'.format(listad[2], mesSpanish, listad[0])
+    event = Event(nombre=request.form['nombre'], fecha=fechadb, descripcion=request.form['descripcion'], fechaleer=fechaleer )
     db1.session.add(event)
     db1.session.commit()
     return redirect(url_for('index'))

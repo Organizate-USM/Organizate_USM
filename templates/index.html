@@ -85,16 +85,25 @@ script_js
     </script>
         <div class="addevent">
             <div>
-                <h1>Hola</h1>
-                <form action="{{ url_for('addevent') }}" method="POST">
+                <h1>Titulo agregar evento</h1>
+                <form action="{{ url_for('addevent') }}" method="POST" class="header">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
                     <input type="text" name="nombre" placeholder="Nombre...">
-                    <input type="text" name="fecha" placeholder="Fecha (dd-mm-aaaa)">
                     <input type="text" name="descripcion" placeholder="Descripcion...">
+                    <input type="date" id="start" name="fecha" value="2020-12-12" min="2020-01-01" max="2030-12-31">
+                    <select name="">
+                        <option value="">Noviembre</option>
+                    </select>
                     <input type="submit" class="addBtn" value='Agregar'>
                 </form>
             </div>
+            <ul id="myUL">
+                {% for evento in event %}
+                <li class="lito">{{ evento.nombre }}, Fecha: {{ evento.fechaleer }}<a href="{{ url_for('deleteevent', id=evento.id) }}"><span class="close">X</span></a></li>
+                {% endfor %}
+            </ul>
         </div>
+
         <div class="todolist">
             <div id="myDIV" class="header" methods='POST'>
                 <h2>Lista de quehaceres</h2>
@@ -114,4 +123,26 @@ script_js
                 {% endfor %}
             </ul>
         </div>
+
+        <!-- Modal
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <h1>Hola mundo</h1>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+         -->
 {% endblock %}

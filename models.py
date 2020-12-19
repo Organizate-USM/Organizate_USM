@@ -12,6 +12,7 @@ class Event(db1.Model):
     id = db1.Column(db1.Integer, primary_key=True)
     nombre = db1.Column(db1.String(100))
     fecha = db1.Column(db1.String(11))
+    fechaleer = db1.Column(db1.String(20))
     descripcion = db1.Column(db1.String(100))
 
 class Todo(db1.Model):
