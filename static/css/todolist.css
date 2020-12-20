@@ -33,7 +33,7 @@ ul {
 }
 
 /* Style the list items */
-#myUL .lito, #myUL .checked{
+#myUL .lito, #myUL .checked, #ul-model .lito, #ul-model .checked{
 	cursor: pointer;
 	position: relative;
 	padding: 12px 8px 12px 40px;
@@ -50,26 +50,26 @@ ul {
 }
 
 /* Set all odd list items to a different color (zebra-stripes) */
-#myUL .lito, #myUL .checked:nth-child(odd) {
+#myUL .lito, #myUL .checked:nth-child(odd),#ul-model .lito, #ul-model .checked:nth-child(odd) {
 	background: #393e46;
     color: white;
 }
 
 /* Darker background-color on hover */
-#myUL .lito, #myUL .checked:hover {
+#myUL .lito, #myUL .checked:hover,#ul-model .lito, #ul-model .checked:hover {
 	background: #222831;
     color: white;
 }
 
 /* When clicked on, add a background color and strike out text */
-#myUL .checked {
+#myUL .checked,#ul-model .checked {
 	background: #393e46;
 	color: #fff;
 	text-decoration: line-through;
 }
 
 /* Add a "checked" mark when clicked on */
-#myUL .checked::before {
+#myUL .checked::before,#ul-model .checked::before {
 	content: '';
 	position: absolute;
 	border-color: #fff;

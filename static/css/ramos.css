@@ -55,9 +55,26 @@ html{
     color: #fff;
     filter: blur(0);
     transform: translateY(-10px);
-    background: rgb(36, 53, 70); 
+    background: rgb(41, 66, 90); 
 
 }
+
+#ulusm #index-button:hover{
+    background:  #2a4056;
+}
+
+#ulusm #material-button:hover{
+    background:  #263b4e;
+}
+
+#ulusm #pomodoro-button:hover{
+    background:  #263748;
+}
+
+#ulusm #logout-button:hover{
+    background:  #263444;
+}
+
 h1{
     font-size: 2.5rem;
     color:white;
@@ -84,6 +101,7 @@ h1{
     height: 80px;
     margin: -15px;
     z-index: 1;
+    border: 1px solid white;
     background-image: radial-gradient(circle at 6.56% 19.58%, #2d4a64 0, #243546 50%, #1a222a 100%);
 }
 

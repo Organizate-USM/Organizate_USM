@@ -63,8 +63,26 @@ html{
     filter: blur(0);
     transform: translateY(-10px);
     transition: all .3s;
-    background: rgb(36, 53, 70); 
+    background-color: rgb(41, 66, 90);
 }
+#ulusm #index-button:hover{
+    background:  #2a4056;
+}
+
+#ulusm #material-button:hover{
+    background:  #263b4e;
+}
+
+#ulusm #pomodoro-button:hover{
+    background:  #263748;
+}
+
+#ulusm #logout-button:hover{
+    background:  #263444;
+}
+
+
+
 h1{
     font-size: 2.5rem;
     color:white;
@@ -97,6 +115,7 @@ h1{
     top: 0%;
     background: rgb(36, 53, 70);
     z-index: 1;
+    border: 1px solid white;
     background-image: radial-gradient(circle at 6.56% 19.58%, #2d4a64 0, #243546 50%, #1a222a 100%);
 }
 
@@ -247,8 +266,9 @@ button.btn-action {
 
 .btn-primary {
     color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
+    border: 2px solid;
+    background-color: #153948;
+    border-color: #00adb5;
     box-shadow: -1px -2px 94px -4px #8773c1;
     size: 0ch;
     margin-top: 80%;
@@ -294,6 +314,8 @@ button.btn-action {
     margin: 0;
     background-color: grey;
 }
+
+
 
 
 

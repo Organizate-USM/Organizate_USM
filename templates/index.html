@@ -27,8 +27,8 @@ script_js
             </div>
             <h1 id= 'logo'>Organízate USM</h1>
             <ul id="ulusm">
-                <li class="liusm"><a href="{{ url_for('index') }}" class="ausm">Inicio</a></li>
-                <li class="liusm"><a href="{{ url_for('material') }}" class="ausm">Material</a>
+                <li class="liusm"><a href="{{ url_for('index') }}" class="ausm" id="index-button">Inicio</a></li>
+                <li class="liusm"><a href="{{ url_for('material') }}" class="ausm" id="material-button">Material</a>
                     <ul class="submenu">
 						<li><a href="{{ url_for('informatica') }}">Ingeniería Civil en informatica</a></li>
 						<li><a href="{{ url_for('matematica') }}">Ingeniería Civil en matemática</a></li>
@@ -38,8 +38,8 @@ script_js
 						<li><a href="{{ url_for('industrial') }}">Ingeniería Civil industrial</a></li>
 					</ul>
                 </li>
-                <li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm">Pomodoro</a></li>
-                <li class="liusm"><a href="{{ url_for('logout') }}" class="ausm">Logout</a></li>
+                <li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm" id="pomodoro-button">Pomodoro</a></li>
+                <li class="liusm"><a href="{{ url_for('logout') }}" class="ausm" id="logout-button">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -143,7 +143,7 @@ script_js
                   <div>
                     <h1>Eliminar evento</h1>
                   </div>
-                  <ul id="myUL">
+                  <ul id="ul-model">
                       {% for evento in event %}
                       <li class="lito">{{ evento.nombre }}, Fecha: {{ evento.fechaleer }}<a href="{{ url_for('deleteevent', id=evento.id) }}"><span class="close">X</span></a></li>
                       {% endfor %}
