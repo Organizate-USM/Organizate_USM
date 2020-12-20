@@ -164,6 +164,17 @@ p {
         -20px -20px 80px #1d1d1d;
 }
 
+.avtar-register{
+    background: url("../img/logo.png") no-repeat bottom steelblue ;
+    width: 150px;
+    height: 150px;
+    background-size: 105px;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: -7%;
+    box-shadow: 20px 20px 80px #1d1d1d,
+        -20px -20px 80px #1d1d1d;
+}
 .title {
     text-align: center;
     font-size: 28px;
@@ -219,7 +230,8 @@ input {
     color: #7ACBCD;
     background: #111111;
     box-shadow: 3px 3px 8px #080808, -3px -3px 8px #3a3a3a;
-    transition: 0.5s;
+    transition: 0.5s; 
+    margin-top: 2%;
 }
 
 
@@ -258,3 +270,27 @@ input::placeholder {
 input:focus {
     cursor: #7ACBCD;
 }
+
+li {
+    height: 40px;
+    font-size: 2rem;
+    list-style: none;
+    font-weight: 500;
+    margin-top: -5;
+    margin-bottom: 0rem;
+    margin-top: -5%;
+    height: 1;
+    margin-left: 9%;
+}
+
+.alert-success {
+    color: #4cbfbf;
+    /* background-color: #422b56; */
+    border-color: #337ab7;
+    position: absolute;
+    top: 45%;
+    left: 16%;
+    background-image: radial-gradient(circle at 6.56% 19.58%, #452c59 0, #2c1d40 50%, #170d28 100%);
+    z-index: 1;
+}
+

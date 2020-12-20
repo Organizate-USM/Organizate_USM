@@ -113,7 +113,7 @@ def login():
             session['username'] = username
             return redirect(url_for('index'))
         else:
-            error_message = 'Usuario o contraseña no válida'
+            error_message = ' Usuario o contraseña no válida '
             flash(error_message)
 
     return render_template('login.html', form = login_form)
