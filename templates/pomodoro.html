@@ -15,24 +15,49 @@
 {% block title %} Pomodoro {% endblock %}
 
 {% block content %}
-<header class=main-head>
-  <nav>
-    <div id="logoimg">
-      <img src="static\img\img.png" alt="logo" width="70" height="70">
-    </div>
-    <h1 id= 'logo'>Organízate USM</h1>
-    <ul>
-      <li><a href="{{ url_for('index') }}">Inicio</a></li>
-      <li><a href="{{ url_for('material') }}">Material</a></li>
-      <li><a href="{{ url_for('pomodoro') }}">Pomodoro</a></li>
-      <li><a href="{{ url_for('logout') }}">Logout</a></li>
-    </ul>
-  </nav>
-</header>
+  <header class=main-head>
+    <nav id="navusm">
+        <div id="logoimg">
+            <img src="static\img\img.png" alt="logo" width="70" height="70">
+        </div>
+        <h1 id= 'logo'>Organízate USM</h1>
+        <ul id="ulusm">
+            <li class="liusm"><a href="{{ url_for('index') }}" class="ausm">Inicio</a></li>
+            <li class="liusm"><a href="{{ url_for('material') }}" class="ausm">Material</a>
+              <ul class="submenu">
+                <li><a href="{{ url_for('informatica') }}">Ingeniería Civil en informatica</a></li>
+                <li><a href="{{ url_for('matematica') }}">Ingeniería Civil en matemática</a></li>
+                <li><a href="{{ url_for('minas') }}">Ingeniería Civil en minas</a></li>
+                <li><a href="{{ url_for('arqui') }}">Arquitectura</a></li>
+                <li><a href="{{ url_for('elo') }}">Ingeniería Civil en electronica</a></li>
+                <li><a href="{{ url_for('industrial') }}">Ingeniería Civil industrial</a></li>
+              </ul>
+            </li>
+            <li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm">Pomodoro</a></li>
+            <li class="liusm"><a href="{{ url_for('logout') }}" class="ausm">Logout</a></li>
+        </ul>
+    </nav>
+  </header>
+
+
     <body onload="template()">
       <div class="container">
-        <h1 class="text-center my-5 heading">Pomodoro</h1>
-        <!-- Main timer -->
+        <!-- Main temporizador -->
+        <div>
+          <svg viewBox="0 0 960 300">
+            <symbol id="s-text">
+              <text text-anchor="middle" x="50%" y="80%">Pomodoro</text>
+            </symbol>
+          
+            <g class = "g-ants">
+              <use xlink:href="#s-text" class="text-copy"></use>
+              <use xlink:href="#s-text" class="text-copy"></use>
+              <use xlink:href="#s-text" class="text-copy"></use>
+              <use xlink:href="#s-text" class="text-copy"></use>
+              <use xlink:href="#s-text" class="text-copy"></use>
+            </g>
+          </svg>
+        </div>
         <div class= "parrafo">
           <div class="caja">
             <ol>
@@ -61,6 +86,7 @@
         </div>
         <div class="my-5">
           <h3 id="done" class="text-center"></h3>
+          <a href="{{ url_for('pomodoro') }}" ><h3 id="descanso" class="text-center"></h3></a>
         </div>
       </div>
         <!-- Botón de inicio y reinicio-->

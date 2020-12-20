@@ -28,8 +28,17 @@ script_js
             <h1 id= 'logo'>Organízate USM</h1>
             <ul id="ulusm">
                 <li class="liusm"><a href="{{ url_for('index') }}" class="ausm">Inicio</a></li>
-                <li class="liusm"><a href="{{ url_for('material') }}" class="ausm">Material</a></li>
-                <li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm">Podomoro</a></li>
+                <li class="liusm"><a href="{{ url_for('material') }}" class="ausm">Material</a>
+                    <ul class="submenu">
+						<li><a href="{{ url_for('informatica') }}">Ingeniería Civil en informatica</a></li>
+						<li><a href="{{ url_for('matematica') }}">Ingeniería Civil en matemática</a></li>
+						<li><a href="{{ url_for('minas') }}">Ingeniería Civil en minas</a></li>
+						<li><a href="{{ url_for('arqui') }}">Arquitectura</a></li>
+						<li><a href="{{ url_for('elo') }}">Ingeniería Civil en electronica</a></li>
+						<li><a href="{{ url_for('industrial') }}">Ingeniería Civil industrial</a></li>
+					</ul>
+                </li>
+                <li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm">Pomodoro</a></li>
                 <li class="liusm"><a href="{{ url_for('logout') }}" class="ausm">Logout</a></li>
             </ul>
         </nav>

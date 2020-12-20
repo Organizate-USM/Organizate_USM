@@ -26,7 +26,7 @@ class LoginForm(Form):
 				validators.Required(message = '¡El username es requerido!.'),
 				validators.length(min=4, max=25, message='¡Ingrese un username valido!.'),
 				],
-				render_kw={"placeholder": "Ingrese Username"})
+				render_kw={"placeholder": "Ingrese Username","autocomplete": "off"})
 	password = PasswordField('Password',
                 [
                 validators.Required(message='El password es requerido')
@@ -39,14 +39,14 @@ class RegisterForm(Form):
 				validators.Required(message = '¡El username es requerido!.'),
 				validators.length(min=4, max=25, message='¡Ingrese un username valido!.'),
 				],
-				render_kw={"placeholder": "Ingrese Username"})
+				render_kw={"placeholder": "Ingrese Username", "autocomplete": "off"})
 
 	email = EmailField('Email',
 				[
 				validators.Required(message = '¡El Email es requerido!.'),
 				validators.length(min=4, max=50, message='¡Ingrese un Email valido!.'),
                 email_usm,
-				],render_kw={"placeholder": "Ingrese correo electronico"})
+				],render_kw={"placeholder": "Ingrese correo electronico", "autocomplete": "off"})
 
 	password = PasswordField('Password',
                 [

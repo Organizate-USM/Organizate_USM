@@ -1,5 +1,3 @@
-
-
 * {
     margin: 0;
     padding: 0;
@@ -13,12 +11,6 @@ body{
 
 html{
 	font-size: 62.5%;
-}
-
-.hero{
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg,#6ac1c5,#bda5ff);
 }
 
 /* NAV BAR */
@@ -63,8 +55,8 @@ html{
     color: #fff;
     filter: blur(0);
     transform: translateY(-10px);
-    transition: all .3s;
     background: rgb(36, 53, 70); 
+
 }
 h1{
     font-size: 2.5rem;
@@ -85,20 +77,12 @@ h1{
     margin-bottom: -4rem;
 }
 
-#ulusm .liusm{
-    margin-top: -11px;
-}
-
 .main-head
-{
+{   
     position: fixed;
     width: 102%;
     height: 80px;
     margin: -15px;
-<<<<<<< HEAD
-    background: rgb(36, 53, 70);
-=======
->>>>>>> ca7ac5fe96619e569b05dc5c300b36ad1928c703
     z-index: 1;
     background-image: radial-gradient(circle at 6.56% 19.58%, #2d4a64 0, #243546 50%, #1a222a 100%);
 }
@@ -144,6 +128,19 @@ h1{
 #logoimg{
     margin-top: 10px;
 }
+
+/* #ulusm > li{
+	position: relative;
+	display: inline-block;
+} */
+
+/* #ulusm > li > a{
+	display: block;
+	padding: 15px 20px;
+	color: #353535;
+	font-family: 'Open sans';
+	text-decoration: none;
+} */
 
 #ulusm li a:hover{
     filter: blur(0);
@@ -192,61 +189,117 @@ h1{
     margin: 0 auto;
 
 }
-/* Calendario */
 
-#calendar{
+#tablita{
+    color: white;
+    margin-top: 50px;
     width: 80%;
+    height: 80%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    margin-top: 100px;
-    z-index: 0;
+    border-radius: 20px;
+    border-collapse: separate;
+    list-style:none;
+    border-spacing: 10px 5px;
+
 }
 
-.action-buttons {
-	margin: 20px 0 30px 0;
-    text-align: center;
+
+td, th {
+    text-align: left;
+    border: solid 1px #00adb5;
+    background: #2d283e; 
+    box-shadow: 0 10px 40px -21px #8773c1;
+  }
+
+tr td, th { 
+    border-top-right-radius: 0;               
+    border-top-left-radius: 0; 
+    border-bottom-left-radius: 0; 
+    border-bottom-right-radius: 0; 
 }
 
-.action-buttons button.btn-action {
-	margin-right: 10px;
+th:first-child { 
+    border-top-left-radius: 15px; 
+}
+th:last-child {   
+    border-top-right-radius: 15px; 
+}
+tr:last-child td:first-child { 
+    border-bottom-left-radius: 15px; 
+}
+tr:last-child td:last-child { 
+    border-bottom-right-radius: 15px; 
 }
 
-action-buttons button.btn-action:last-child {
-    margin-right: 0;
+
+#tope {
+    height: 9%;
 }
 
-button.btn-action {
-    font-family: 'Fira Mono', monospace;
-    color: #755eb5;
-    border: none;
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px 30px;
-    font-size: 18px;
-    cursor: pointer;
-    border: 2px solid #fff;
-    -webkit-box-shadow: 0 10px 20px -5px rgba(19, 31, 51, .65);
-    box-shadow: 0 10px 20px -5px rgba(19, 31, 51, .65);
+.num{
+    width: 10%;
 }
 
-.calendar-events>.event-header>p {
-    font-size: 30px;
-    font-weight: 600;
-    color: #5a5a5a;
-    margin-bottom: 10px;
-}
-<<<<<<< HEAD
-=======
+.num-color{
+    color: rgb(65 139 183);
+    margin-left: 25%;
 
-.alert-success {
-    color: #fbfbfb;
-    background-color: #47408a87;
-    border-color: #3fe6f9;
-    width: 100%;
-    margin-top: 5%;
+}
+
+#ramo{
+    margin-top: 80px;
+    margin-left: 14%;
+
     position: absolute;
-    font-size: medium;
+    color:white;
 }
->>>>>>> ca7ac5fe96619e569b05dc5c300b36ad1928c703
+
+#colaborar{
+    position: absolute;
+    margin-top: 53.6%;
+    margin-left: 50%;
+    list-style:none;
+    transform: translate(-50%,-50%);
+
+}
+
+#a-colaborar{
+    color:white;
+}
+
+.links{
+    color: rgb(255, 255, 255);
+}
+
+.li-links{
+
+}
+
+.a-links{
+    color: rgb(197 242 255);;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: Verdana;
+    font-size: 15px;
+    display: inline-block;
+    padding: 16px 32px;
+    transform: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.li-links .a-links:hover{
+    filter: blur(0);
+    transform: translateY(-7px);
+    background-color: #413861;
+	transition: all .3s;
+}
+
+.a-links:hover{
+    color: rgb(197 242 255);;
+    filter: blur(0);
+    transform: translateY(-7px);
+    background-color: rgb(41, 66, 90);
+}

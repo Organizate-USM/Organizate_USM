@@ -1,0 +1,133 @@
+{% extends 'base/base.html'%}
+{% block title %} Arquitectura {% endblock %}
+{% block link_css %}
+    rel="stylesheet" href="{{ url_for('static', filename='css/ramos.css' ) }}"
+{% endblock %}
+
+{% block content %}
+	<header class=main-head>
+		<nav id="navusm">
+			<div id="logoimg">
+				<img src="static\img\img.png" alt="logo" width="70" height="70">
+			</div>
+			<h1 id= 'logo'>Organízate USM</h1>
+			<ul id="ulusm">
+				<li class="liusm"><a href="{{ url_for('index') }}" class="ausm">Inicio</a></li>
+				<li class="liusm"><a href="{{ url_for('material') }}" class="ausm">Material</a>
+					<ul class="submenu">
+						<li><a href="{{ url_for('informatica') }}">Ingeniería Civil en informatica</a></li>
+						<li><a href="{{ url_for('matematica') }}">Ingeniería Civil en matemática</a></li>
+						<li><a href="{{ url_for('minas') }}">Ingeniería Civil en minas</a></li>
+						<li><a href="{{ url_for('arqui') }}">Arquitectura</a></li>
+						<li><a href="{{ url_for('elo') }}">Ingeniería Civil en electronica</a></li>
+						<li><a href="{{ url_for('industrial') }}">Ingeniería Civil industrial</a></li>
+					</ul>
+				</li>
+				<li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm">Pomodoro</a></li>
+				<li class="liusm"><a href="{{ url_for('logout') }}" class="ausm">Logout</a></li>
+			</ul>
+		</nav>
+	</header>
+
+
+	<h1 id="ramo">
+		Material de ramos Arquitectura
+	</h1>
+		<table id='tablita'>
+		<tr>
+			<th id='tope'>
+				<font size="4.2">
+					<b>Semestre</b>
+				</font>
+			</th>
+			<th>
+				<font size="4.2">
+					<b>Asignaturas</b>
+				</font>
+			</th>
+			<th>
+				<font size="4.2">
+					<b>Semestre</b>
+				</font>
+			</th>
+			<th>
+				<font size="4.2">
+					<b>Asignaturas</b>
+				</font>
+			</th>
+		</tr>
+		<tr>
+			<td class='num'>
+				<font class="num-color" size="8">
+					<b>01</b>
+				</font>
+			</td>
+			<td>
+				<font class="links" size="3">
+					<li class="li-links"><a class="a-links" href="{{ ('https://drive.google.com/drive/folders/1ZxJXAt3pqiMXtS_esi8UT48rn201R4HE?usp=sharing') }}" target="_blank" >Matemáticas I - MAT050</a></li>
+					<li class="li-links"><a class="a-links" href="{{ ('https://drive.google.com/drive/folders/1lA40TCDnYlPjBTJlOqlNxcrBli4M69XW?usp=sharing') }}" target="_blank" >Introducción a la físca - FIS100</a></li>
+				</font>
+				
+			</td>
+			<td class='num'>
+				<font class="num-color" size="8">
+					<b>02</b>
+				</font>
+			</td>
+			<td>
+				<font class="links" size="3">
+					<li class="li-links"><a class="a-links" href="{{ ('https://drive.google.com/drive/folders/1ZxJXAt3pqiMXtS_esi8UT48rn201R4HE?usp=sharing') }}" target="_blank" >Matemáticas II - MAT051</a></li>
+					<li class="li-links"><a class="a-links" href="{{ ('https://drive.google.com/drive/folders/1m0BfbunXzsujpCA4YdhqStq9n8mhs9p9?usp=sharing') }}" target="_blank" >Física básica para Arquitectos - FIS103</a></li>
+				</font>
+				
+			</td>
+		</tr>
+		<tr>
+			<td class='num'>
+				<font class="num-color" size="8">
+					<b>03</b>
+				</font>
+			</td>
+			<td>
+				<font class="links" size="3">
+					<li class="li-links"><a class="a-links" class="a-links" href="{{ ('https://drive.google.com/drive/folders/1mUX8AZnczQvtrXjfVUvK9QLyjMS2Lk-P?usp=sharing') }}" target="_blank" >Matemáticas III - MAT052</a></li>
+				</font>
+				
+			</td>
+			<td>
+				<font class="num-color" size="8">
+					<b>04</b>
+				</font>
+			</td>
+			<td>
+				<font class="links" size="3">
+				</font>
+				
+			</td>
+		</tr>
+		<tr>
+			<td class='num'>
+				<font class="num-color" size="8">
+					<b>05</b>
+				</font>
+			</td>
+			<td>
+				<font class="links" size="3">
+				</font>
+				
+			</td>
+			<td>
+				<font class="num-color" size="8">
+					<b>06</b>
+				</font>
+			</td>
+			<td>DSDA</td>
+		</tr>
+
+		</table>
+
+
+		<font class="num-color" size="5">
+			<li id="colaborar"><a id="a-colaborar" href=" https://forms.gle/bLooxe4qJCPCcuEw8 " >¿Quieres colaborar con nosotros?</a></li>
+		</font>
+{% endblock %}

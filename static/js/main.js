@@ -1,12 +1,12 @@
-// Required variables
+// Variables requeridas
 var session_seconds = "00";
 var session_minutes = 25;
 
-// Audio files
+// Audios
 var click_sound = new Audio("static/audio/click.mp3");
 var bell = new Audio("static/audio/bell.mp3");
 
-// Starting template for the timer
+
 function template() {
   document.getElementById("minutes").innerHTML = session_minutes;
   document.getElementById("seconds").innerHTML = session_seconds;
@@ -15,50 +15,54 @@ function template() {
 function start_timer() {
   click_sound.play();
 
-  // Change the minutes and seconds to starting time
+  // Cambio de los mintuos y segundos del incio
   session_minutes = 00;
-  session_seconds = 10;
+  session_seconds = 05;
 
-  // Add the seconds and minutes to the page
+  // Agrega los segundos y minutos a la pagina 
   document.getElementById("minutes").innerHTML = session_minutes;
   document.getElementById("seconds").innerHTML = session_seconds;
 
-  // Start the countdown
+  // Inicia el conteo
   var minutes_interval = setInterval(minutesTimer, 60000);
   var seconds_interval = setInterval(secondsTimer, 1000);
 
-  // Functions
-  // Function for minute counter
+//Función para los minutos
   function minutesTimer() {
     session_minutes = session_minutes - 1;
     document.getElementById("minutes").innerHTML = session_minutes;
   }
 
-  // Function for second counter
+  //Función para los segundos
   function secondsTimer() {
     session_seconds = session_seconds - 1;
     document.getElementById("seconds").innerHTML = session_seconds;
 
-    // Check if the seconds and minutes counter has reached 0
-    // If reached 0 then end the session
+    // Revisa si los minutos y segundos llegan a 0
+    // Si llega a 0:
     if (session_seconds <= 0) {
       if (session_minutes <= 0) {
-        // Clears the interval i.e. stops the counter
-        clearInterval(minutes_interval);
+        // Para el contador y terminan los intervalos
+        clearInterval(minutes_interval); 
         clearInterval(seconds_interval);
 
-        // Add the message to the html
+        // Agrega el mensaje al html
         document.getElementById("done").innerHTML =
-          "Sesión completada!! Toma un descanso";
+          "¡Sesión completada! Toma un descanso";
+        document.getElementById("descanso").innerHTML =
+          "Dirígete al timer de descanso aquí";
+        
 
-        // Make the html message div visible
+        // Hace el mensaje visible
         document.getElementById("done").classList.add("show_message");
+        document.getElementById("descanso").classList.add("show_message");
+        
 
-        // PLay the bell sound to tell the end of session
+        // Suena la campana
         bell.play();
       }
 
-      // Reset the session seconds to 60
+      // Resetea los segundos a 60
       session_seconds = 60;
     }
   }
