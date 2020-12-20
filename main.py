@@ -9,8 +9,6 @@ from flask import flash
 from flask import g
 from flask_wtf import CsrfProtect
 from flask_bootstrap import Bootstrap
-
-
 from config import DevelopmentConfig
 from models import db1
 from models import User

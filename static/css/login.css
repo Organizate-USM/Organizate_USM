@@ -37,19 +37,20 @@ body {
 }
 
 .boton{
-    background:#111111;
-    color:#7ACBCD;
-    border:none;
-    position:relative;
-    height:60px;
-    font-size:1.6em;
-    padding:0 2em;
-    cursor:pointer;
-    transition:800ms ease all;
-    outline:none;
+    background: #111111;
+    color: #7ACBCD;
+    border: none;
+    position: relative;
+    height: 56px;
+    font-size: 1.6em;
+    padding: 0 2em;
+    cursor: pointer;
+    transition: 800ms ease all;
+    outline: none;
     box-shadow: 3px 3px 8px #080808, -3px -3px 8px #3a3a3a;
     font-family: 'Lato', sans-serif;
-    margin-left: 100px;
+    margin-left: 18%;
+    
 }
 .boton:hover{
     background:#111111;
