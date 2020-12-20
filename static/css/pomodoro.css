@@ -236,12 +236,11 @@ ol{
 
 ol li{
   color:#5adbdb;
-  font-size: 12px;
+  font-size: 15px;
   font-family: 'Montserrat';
 }
 
 .parrafo{
-  display:flex;
   justify-content: space-between;
   margin-top:-100px ;
 }

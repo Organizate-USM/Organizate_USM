@@ -1,0 +1,103 @@
+{% extends 'base/base.html'%}
+{% block link_css %}
+    rel="stylesheet" href="{{ url_for('static', filename='css/pomodoro.css' ) }}"
+{% endblock %}
+
+{% block script_js %}
+    type="text/javascript" src="{{ url_for('static', filename='js/main2.js') }}"
+{% endblock %}
+
+{% block audio_mp3 %}
+    src="{{ url_for('static', filename='audio/bell.mp3') }}"
+    src="{{ url_for('static', filename='audio/click.mp3') }}"  
+{% endblock %}
+
+{% block title %} Pomodoro Descanso {% endblock %}
+
+{% block content %}
+    <header class=main-head>
+        <nav id="navusm">
+            <div id="logoimg">
+                <img src="static\img\img.png" alt="logo" width="70" height="70">
+            </div>
+            <h1 id= 'logo'>Organízate USM</h1>
+            <ul id="ulusm">
+            <li class="liusm"><a href="{{ url_for('index') }}" class="ausm" id="index-button">Inicio</a></li>
+            <li class="liusm"><a href="{{ url_for('material') }}" class="ausm" id="material-button">Material</a>
+                <ul class="submenu">
+                    <li><a href="{{ url_for('informatica') }}">Ingeniería Civil en informatica</a></li>
+                    <li><a href="{{ url_for('matematica') }}">Ingeniería Civil en matemática</a></li>
+                    <li><a href="{{ url_for('minas') }}">Ingeniería Civil en minas</a></li>
+                    <li><a href="{{ url_for('arqui') }}">Arquitectura</a></li>
+                    <li><a href="{{ url_for('elo') }}">Ingeniería Civil en electronica</a></li>
+                    <li><a href="{{ url_for('industrial') }}">Ingeniería Civil industrial</a></li>
+                </ul>
+            </li>
+            <li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm" id="pomodoro-button">Pomodoro</a></li>
+            <li class="liusm"><a href="{{ url_for('logout') }}" class="ausm" id="logout-button">Logout</a></li>
+        </ul>
+        </nav>
+    </header>
+
+
+        <body onload="template()">
+        <div class="container">
+            <!-- Main temporizador -->
+            <div>
+            <svg viewBox="0 0 960 300" style="margin-top: 50px;">
+                <symbol id="s-text">
+                <text text-anchor="middle" x="50%" y="80%">Pomodoro</text>
+                </symbol>
+            
+                <g class = "g-ants">
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+                </g>
+            </svg>
+            </div>
+            <div class= "parrafo">
+            <div class="caja">
+                <ol>
+                <h1> Descanso </h1>
+                <br>
+                <li style="list-style:none">Inicia el temporizador de 5 minutos.</li>
+                <li style="list-style:none">Ahora toma un descanso, estira las piernas, ve a buscar agua, ir a la cocina y todo lo que se te ocurra para evitar distracciones en el siguiente Pomdoro.</li>
+                <li style="list-style:none">Haz cualquier cosa, menos algo que te agote mentalmente.</li>
+                <li style="list-style:none">No debes continuar trabajando aunque creas que puedes terminar la tarea en unos minutos.</li>
+                <li style="list-style:none">Acaba el descanso y ve al temporizador del pomodoro para comenzar el siguiente pomodoro.</li>
+                <li style="list-style:none">Recuerda después de unos 4 Pomodoros toma un desncanso más extenso.</li>
+                </ol>
+            </div>
+            <div class="container timer">
+                <div class="row">
+                <div class="col-5">
+                    <h4 id="minutes"></h4>
+                </div>
+                <div class="col-2">
+                    <h4>:</h4>
+                </div>
+                <div class="col-5">
+                    <h4 id="seconds"></h4>
+                </div>
+                </div>
+            </div>
+            <div class="my-5">
+            <h3 id="done" class="text-center"></h3>
+            <a href="{{ url_for('pomodoro') }}" ><h3 id="trabajo" class="text-center"></h3></a>
+            </div>
+        </div>
+            <!-- Botón de inicio y reinicio-->
+            <div class="conatiner d-flex justify-content-center my-5">
+            <button class="btn" onclick="start_timer()">
+                <i class="fas fa-play fa-2x"></i>
+            </button>
+            <a href="pomodoro"><i class="fas fa-redo-alt fa-2x"></i></a>
+            </div>
+        </div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="margin-left: 500px;"></iframe>
+        </body>
+        <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+{% endblock %}

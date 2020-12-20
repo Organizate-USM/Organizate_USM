@@ -186,6 +186,10 @@ def minas():
 def pomodoro():
     return render_template('pomodoro.html')
 
+@app.route('/pomodoroD')
+def pomodoroD():
+    return render_template('pomodoroD.html')
+
 if __name__ == '__main__':
     csrf.init_app(app)
     db1.init_app(app)

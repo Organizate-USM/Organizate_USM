@@ -44,7 +44,7 @@
       <div class="container">
         <!-- Main temporizador -->
         <div>
-          <svg viewBox="0 0 960 300">
+          <svg viewBox="0 0 960 300" style="margin-top: 50px;">
             <symbol id="s-text">
               <text text-anchor="middle" x="50%" y="80%">Pomodoro</text>
             </symbol>
@@ -86,18 +86,18 @@
         </div>
         <div class="my-5">
           <h3 id="done" class="text-center"></h3>
-          <a href="{{ url_for('pomodoro') }}" ><h3 id="descanso" class="text-center"></h3></a>
+          <a href="{{ url_for('pomodoroD') }}" ><h3 id="descanso" class="text-center"></h3></a>
         </div>
       </div>
         <!-- Botón de inicio y reinicio-->
-        <div class="conatiner d-flex justify-content-center my-5" style="margin-left: 650px;">
+        <div class="conatiner d-flex justify-content-center my-5">
           <button class="btn" onclick="start_timer()">
             <i class="fas fa-play fa-2x"></i>
           </button>
           <a href="pomodoro"><i class="fas fa-redo-alt fa-2x"></i></a>
         </div>
       </div>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="margin-left: 450px;"></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="margin-left: 500px;"></iframe>
     </body>
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 {% endblock %}
