@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Amaranth&display=swap');
 
 * {
     margin: 0;
@@ -88,6 +88,10 @@ h1{
     color:white;
 }
 
+h1 .titulo{
+    margin-top: 100px;
+
+}
 /* ul li, p{
 	font-size: 2rem;
     list-style: none;
@@ -216,7 +220,7 @@ h1{
     top: 50%;
     left: 39%;
     transform: translate(-50%,-50%);
-    margin-top: 35%;
+    margin-top: 20%;
     z-index: 0;
 }
 
@@ -271,7 +275,7 @@ button.btn-action {
     border-color: #00adb5;
     box-shadow: -1px -2px 94px -4px #8773c1;
     size: 0ch;
-    margin-top: 80%;
+    margin-top: 50%;
     width: 200%;
 }
 
@@ -314,8 +318,14 @@ button.btn-action {
     margin: 0;
     background-color: grey;
 }
-
-
+.h3, h3 {
+    font-size: 50px;
+    margin-top: 150px;
+    margin-left: 15%;
+    color:rgb(61, 226, 255);
+    font-family: "Amaranth";
+}
+    
 
 
 

@@ -1,19 +1,9 @@
-from flask import Flask
-from flask import render_template
-from flask import request
-from flask import make_response
-from flask import session
-from flask import url_for
-from flask import redirect
-from flask import flash
-from flask import g
+from flask import Flask, render_template, request, make_response
+from flask import session, url_for, redirect, flash, g
+from models import db1, User, Todo, Event
 from flask_wtf import CsrfProtect
 from flask_bootstrap import Bootstrap
 from config import DevelopmentConfig
-from models import db1
-from models import User
-from models import Todo
-from models import Event
 import forms
 
 app = Flask(__name__)
