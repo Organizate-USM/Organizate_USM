@@ -18,7 +18,6 @@ html{
 .hero{
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg,#6ac1c5,#bda5ff);
 }
 
 /* NAV BAR */
@@ -64,8 +63,26 @@ html{
     filter: blur(0);
     transform: translateY(-10px);
     transition: all .3s;
-    background: rgb(36, 53, 70); 
+    background-color: rgb(41, 66, 90);
 }
+#ulusm #index-button:hover{
+    background:  #2a4056;
+}
+
+#ulusm #material-button:hover{
+    background:  #263b4e;
+}
+
+#ulusm #pomodoro-button:hover{
+    background:  #263748;
+}
+
+#ulusm #logout-button:hover{
+    background:  #263444;
+}
+
+
+
 h1{
     font-size: 2.5rem;
     color:white;
@@ -95,8 +112,10 @@ h1{
     width: 102%;
     height: 80px;
     margin: -15px;
+    top: 0%;
     background: rgb(36, 53, 70);
     z-index: 1;
+    border: 1px solid white;
     background-image: radial-gradient(circle at 6.56% 19.58%, #2d4a64 0, #243546 50%, #1a222a 100%);
 }
 
@@ -193,11 +212,11 @@ h1{
 
 #calendar{
     width: 80%;
-    position: absolute;
+    position: relative;
     top: 50%;
-    left: 50%;
+    left: 39%;
     transform: translate(-50%,-50%);
-    margin-top: 100px;
+    margin-top: 35%;
     z-index: 0;
 }
 
@@ -240,7 +259,66 @@ button.btn-action {
     background-color: #47408a87;
     border-color: #3fe6f9;
     width: 100%;
-    margin-top: 5%;
+    top:10%;
     position: absolute;
     font-size: medium;
 }
+
+.btn-primary {
+    color: #fff;
+    border: 2px solid;
+    background-color: #153948;
+    border-color: #00adb5;
+    box-shadow: -1px -2px 94px -4px #8773c1;
+    size: 0ch;
+    margin-top: 80%;
+    width: 200%;
+}
+
+.modal-content{
+    background: #192435;
+}
+
+.modal-header .close {
+    margin-top: -2px;
+    background-color: cyan;
+}
+
+.modal-header .close {
+    padding: 1rem 1rem;
+    margin: 0;
+}
+
+.input-event{
+   
+
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #00ffcd;
+}
+
+.modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #00ffcd;
+}
+
+.modal-title {
+    color:white;
+}
+
+.close{
+    padding: 1rem 1rem;
+    margin: 0;
+    background-color: grey;
+}
+
+
+
+
+
+
+
+

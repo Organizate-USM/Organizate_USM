@@ -27,8 +27,8 @@ script_js
             </div>
             <h1 id= 'logo'>Organízate USM</h1>
             <ul id="ulusm">
-                <li class="liusm"><a href="{{ url_for('index') }}" class="ausm">Inicio</a></li>
-                <li class="liusm"><a href="{{ url_for('material') }}" class="ausm">Material</a>
+                <li class="liusm"><a href="{{ url_for('index') }}" class="ausm" id="index-button">Inicio</a></li>
+                <li class="liusm"><a href="{{ url_for('material') }}" class="ausm" id="material-button">Material</a>
                     <ul class="submenu">
 						<li><a href="{{ url_for('informatica') }}">Ingeniería Civil en informatica</a></li>
 						<li><a href="{{ url_for('matematica') }}">Ingeniería Civil en matemática</a></li>
@@ -38,8 +38,8 @@ script_js
 						<li><a href="{{ url_for('industrial') }}">Ingeniería Civil industrial</a></li>
 					</ul>
                 </li>
-                <li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm">Pomodoro</a></li>
-                <li class="liusm"><a href="{{ url_for('logout') }}" class="ausm">Logout</a></li>
+                <li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm" id="pomodoro-button">Pomodoro</a></li>
+                <li class="liusm"><a href="{{ url_for('logout') }}" class="ausm" id="logout-button">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -92,7 +92,7 @@ script_js
     </script>
         <div class="addevent">
             <div>
-                <button type="button" id="BotonModal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Launch demo modal</button>
+                <button type="button" id="BotonModal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" size= "90">Agregar o eliminar eventos</button>
             </div>
         </div>
 
@@ -121,23 +121,29 @@ script_js
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <font class="num-color" size="10">
+                    <h2 class="modal-title" id="exampleModalLabel">Eventos</h2>
+                </font>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
                   <div>
-                      <h1>Titulo agregar evento</h1>
+                      <h1>Agregar evento</h1>
                       <form action="{{ url_for('addevent') }}" method="POST" class="header">
-                          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
-                          <input type="text" name="nombre" placeholder="Nombre...">
-                          <input type="text" name="descripcion" placeholder="Descripcion...">
-                          <input type="date" id="start" name="fecha" value="2020-12-12" min="2020-01-01" max="2030-12-31">
-                          <input type="submit" class="addBtn" value='Agregar'>
+                          <input class="input-event" type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
+                          <input class="input-event" type="text" name="nombre" placeholder="Nombre...">
+                          <input class="input-event" type="text" name="descripcion" placeholder="Descripcion...">
+                          <input class="input-event" type="date" id="start" name="fecha" value="2020-12-12" min="2020-01-01" max="2030-12-31">
+                          <input class="input-event" type="submit" class="addBtn" value='Agregar'>
                       </form>
                   </div>
-                  <ul id="myUL">
+
+                  <div>
+                    <h1>Eliminar evento</h1>
+                  </div>
+                  <ul id="ul-model">
                       {% for evento in event %}
                       <li class="lito">{{ evento.nombre }}, Fecha: {{ evento.fechaleer }}<a href="{{ url_for('deleteevent', id=evento.id) }}"><span class="close">X</span></a></li>
                       {% endfor %}

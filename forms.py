@@ -14,7 +14,7 @@ def length_honeypot(form, field):
 
 def email_usm(form, field):
     if "@usm.cl" not in field.data and "@sansano.usm.cl" not in field.data:
-        raise validators.ValidationError("Tiene que ser un correo de la UTFSM")
+        raise validators.ValidationError("Unicamente correos de la UTFSM")
 
 class CommentForm(Form):
 	comment = TextAreaField('Comentario')

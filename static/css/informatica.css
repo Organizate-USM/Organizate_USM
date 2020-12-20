@@ -82,6 +82,7 @@ h1{
     width: 102%;
     height: 80px;
     margin: -15px;
+    border: 1px solid white;
     background-image: radial-gradient(circle at 6.56% 19.58%, #2d4a64 0, #243546 50%, #1a222a 100%); 
     z-index: 1;
 }

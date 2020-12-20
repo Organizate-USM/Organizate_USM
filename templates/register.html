@@ -6,11 +6,10 @@
 
 {% block content %}
     {% from "_macro.html" import render_field %}
-    
     <form name="RegisterForm" method="POST">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div class="register-container">
-            <div class="avtar"></div>
+            <div class="avtar-register"></div>
             <div class="title">¡Bienvenido!</div>
             <div class="sub-title">"La organización vence al tiempo"</div>
             <div class="fields_register">
@@ -27,7 +26,7 @@
                     {{ render_field(form.password)}}
                 </div>
             </div>
-            <button type= "submit" class="boton">Registrarse</button>
+            <button type= "submit" class="boton-register">Registrarse</button>
             <li class="go_login"><a href="{{ url_for('login') }}">¿Ya Tienes una cuenta?</a></li>
         </div>
         <script src="https://kit.fontawesome.com/a81368914c.js"></script>
