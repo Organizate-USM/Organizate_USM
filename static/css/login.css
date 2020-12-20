@@ -59,7 +59,7 @@ body {
     outline: none;
     box-shadow: 3px 3px 8px #080808, -3px -3px 8px #3a3a3a;
     font-family: 'Lato', sans-serif;
-    margin-left: 18%;
+    margin-left: 19%;
     
 }
 .boton:hover{
@@ -83,6 +83,58 @@ body {
     bottom:0;
 }
 .boton:hover:before,.boton:hover:after{
+    width:100%;
+    transition:800ms ease all;
+}
+
+
+.boton-register{
+    background:#111111;
+    color:#7ACBCD;
+    border:none;
+    position:relative;
+    height:60px;
+    font-size:1.6em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    background: #111111;
+    color: #7ACBCD;
+    border: none;
+    position: relative;
+    height: 56px;
+    font-size: 1.6em;
+    padding: 0 2em;
+    cursor: pointer;
+    transition: 800ms ease all;
+    outline: none;
+    box-shadow: 3px 3px 8px #080808, -3px -3px 8px #3a3a3a;
+    font-family: 'Lato', sans-serif;
+    margin-left: 22%;
+    
+}
+.boton-register:hover{
+    background:#111111;
+    color:#7ACBCD;
+}
+.boton-register:before,.boton-register:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #7ACBCD;
+    transition:400ms ease all;
+}
+.boton-register:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+.boton-register:hover:before,.boton-register:hover:after{
     width:100%;
     transition:800ms ease all;
 }
