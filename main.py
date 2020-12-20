@@ -10,7 +10,6 @@ from flask import g
 from flask_wtf import CsrfProtect
 from flask_bootstrap import Bootstrap
 from werkzeug.security import generate_password_hash
-import bcrypt
 
 from config import DevelopmentConfig
 from models import db1
