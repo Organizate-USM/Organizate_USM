@@ -95,10 +95,7 @@ h1{
     width: 102%;
     height: 80px;
     margin: -15px;
-<<<<<<< HEAD
     background: rgb(36, 53, 70);
-=======
->>>>>>> ca7ac5fe96619e569b05dc5c300b36ad1928c703
     z-index: 1;
     background-image: radial-gradient(circle at 6.56% 19.58%, #2d4a64 0, #243546 50%, #1a222a 100%);
 }
@@ -237,8 +234,6 @@ button.btn-action {
     color: #5a5a5a;
     margin-bottom: 10px;
 }
-<<<<<<< HEAD
-=======
 
 .alert-success {
     color: #fbfbfb;
@@ -249,4 +244,3 @@ button.btn-action {
     position: absolute;
     font-size: medium;
 }
->>>>>>> ca7ac5fe96619e569b05dc5c300b36ad1928c703
