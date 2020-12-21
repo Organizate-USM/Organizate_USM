@@ -35,7 +35,7 @@ def index():
     incomplete = Todo.query.filter_by(complete=False).all()
     complete = Todo.query.filter_by(complete=True).all()
     event = Event.query.all()
-    return render_template('index.html', title = title, incomplete=incomplete, complete=complete, event=event)
+    return render_template('index.html', title = title, incomplete=incomplete, complete=complete, event=event, username=username)
     #return render_template('index.html', title = title, incomplete=incomplete, complete=complete)
 
 @app.route('/addevent', methods=['GET', 'POST'])

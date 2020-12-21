@@ -19,7 +19,7 @@
 
         var firstA = document.createElement('a');
         firstA.classList.add('boton-todo');
-        firstA.setAttribute("onclick","check(\""+ text +"\"," + complete + ")");
+        firstA.setAttribute("onclick",`check("${text}",${complete})`);
         var spanCloseLeft = document.createElement('span');
         spanCloseLeft.innerHTML= '   ✔';
 
@@ -45,7 +45,7 @@
 
         var secondA = document.createElement('a');
         secondA.classList.add('boton-delete');
-        secondA.setAttribute("onclick","del(\""+ text +"\""+")")
+        secondA.setAttribute("onclick",`del("${text}")`)
         var spanClose = document.createElement('span');
         spanClose.classList.add('close');
         spanClose.innerHTML= 'X';
@@ -87,7 +87,7 @@
     }
 
     function FetchAllData(){
-        firebase.database().ref('student').once('value',function(snapchot){
+        firebase.database().ref(`user/${username}/todolist`).once('value',function(snapchot){
             snapchot.forEach(
                 function(childSnapchot){
                     let texto = childSnapchot.val().Description;
@@ -97,7 +97,7 @@
             );
         });
     }
-
+    
     function getDatos(text){
         function getDatos(text){
         var ref = firebase.database().ref("student/"+text);
@@ -111,7 +111,11 @@
 
     //Read
     var text,complete;
-
+    
+    function initial(){
+        console.log(username);
+    }
+        
     function Ready(){
         text = document.getElementById('myInput').value;
     }
@@ -120,12 +124,12 @@
 
     document.getElementById('addBtn').onclick = function(){
         Ready();
-        firebase.database().ref('student/'+text).set({
+        firebase.database().ref(`user/${username}/todolist/${text}`).set({
             Description: text,
             Checked: false
         });
         RemoveItemsToList();
-        window.onload(FetchAllData())
+        window.onload(FetchAllData());
     }
 
     //Check
@@ -133,28 +137,28 @@
     function check(text,complete){
         console.log(complete);
         if (complete == false) {
-        firebase.database().ref('student/'+text).update({
+        firebase.database().ref(`user/${username}/todolist/${text}`).update({
             Checked: true
         });
         }
         
         else{
-            firebase.database().ref('student/'+text).update({
+            firebase.database().ref(`user/${username}/todolist/${text}`).update({
             Checked: false
         }); 
         }
 
         RemoveItemsToList();
-        window.onload(FetchAllData())
+        window.onload(FetchAllData());
     }
 
 
     //Delete 
 
     function del(text){
-        firebase.database().ref('student/'+text).remove();
+        firebase.database().ref(`user/${username}/todolist/${text}`).remove();
         RemoveItemsToList();
-        window.onload(FetchAllData())
+        window.onload(FetchAllData());
     }
-
-    window.onload(FetchAllData())
+    initial();
+    window.onload(FetchAllData());

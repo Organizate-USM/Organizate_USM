@@ -5,9 +5,6 @@
 {% block link_css_todo %}
     rel="stylesheet" href="{{ url_for('static', filename='css/todolist.css' ) }}"
 {% endblock %}
-{% block script_js %}
-    type="text/javascript" src="{{ url_for('static', filename='js/todolist.js') }}"
-{% endblock %}
 
 script_js
 {% block title %} Index  {% endblock %}
@@ -20,6 +17,7 @@ script_js
 {% endblock %}
 
 {% block content %}
+    
     <header class=main-head>
         <nav id="navusm">
             <div id="logoimg">
