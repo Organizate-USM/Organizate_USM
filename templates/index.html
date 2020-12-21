@@ -97,24 +97,26 @@ script_js
         </div>
 
         <div class="todolist">
-            <div id="myDIV" class="header" methods='POST'>
+            <div id="myDIV" class="header">
                 <h2>Lista de quehaceres</h2>
-                <form action="{{ url_for('add') }}" method="POST">
-                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
-                    <input type="text" id="myInput" name="todoitem" placeholder="Titulo...">
-                    <input type="submit" class="addBtn" value='Agregar'>
-                </form>
+                <!-- <form action="/add" method="POST"> -->
+                    <!-- <input type="hidden" name="csrf_token" value="IjQ5MjMwODcxMGE3NzQzMDExNjIxMDkwM2NjNTc5YzQ2OTYyYTUyYmIi.X-AyKQ.8EyDTxP6RER7IsBMl4TlyaQ1udA"  /> -->
+                    <input type="text" id="myInput" placeholder="Titulo...">
+                    <button id="addBtn">Agregar</button>
+                <!-- </form> -->
             </div>
 
             <ul id="myUL">
-                {% for todo in incomplete %}
-                <li class="lito">{{ todo.text }}<a href="{{ url_for('complete', id=todo.id) }}"><span class="close">✔</span></a></li>
-                {% endfor %}
-                {% for todo in complete %}
-                <li class="checked">{{ todo.text }}<a href="{{ url_for('incomplete', id=todo.id) }}"><span class="closeleft">✔</span></a><a href="{{ url_for('deleteitem', id=todo.id) }}"><span class="close">X</span></a></li>
-                {% endfor %}
+
             </ul>
         </div>
+
+
+        <!-- Firebase Libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script> 
+    <script type="text/javascript" src="/static/js/organizate.js"></script>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -145,7 +147,7 @@ script_js
                   </div>
                   <ul id="ul-model">
                       {% for evento in event %}
-                      <li class="lito">{{ evento.nombre }}, Fecha: {{ evento.fechaleer }}<a href="{{ url_for('deleteevent', id=evento.id) }}"><span class="close">X</span></a></li>
+                      <li class="lito-modal">{{ evento.nombre }}, Fecha: {{ evento.fechaleer }}<a href="{{ url_for('deleteevent', id=evento.id) }}"><span class="close">X</span></a></li>
                       {% endfor %}
                   </ul>
               </div>
