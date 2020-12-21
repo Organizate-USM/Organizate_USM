@@ -101,7 +101,7 @@ script_js
                 <h2>Lista de quehaceres</h2>
                 <form action="{{ url_for('add') }}" method="POST">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
-                    <input type="text" id="myInput" name="todoitem" placeholder="Titulo...">
+                    <input type="text" id="myInput" autocomplete="off" name="todoitem" placeholder="Titulo...">
                     <input type="submit" class="addBtn" value='Agregar'>
                 </form>
             </div>
@@ -132,10 +132,10 @@ script_js
                   <div>
                       <h1>Agregar evento</h1>
                       <form action="{{ url_for('addevent') }}" method="POST" class="header">
-                          <input class="input-event" type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
-                          <input class="input-event" type="text" name="nombre" placeholder="Nombre...">
-                          <input class="input-event" type="text" name="descripcion" placeholder="Descripcion...">
-                          <input class="input-event" type="date" id="start" name="fecha" value="2020-12-12" min="2020-01-01" max="2030-12-31">
+                          <input class="input-event" type="hidden" name="csrf_token"  value="{{ csrf_token() }}"  />
+                          <input class="input-event" type="text" name="nombre" autocomplete="off" placeholder="Nombre...">
+                          <input class="input-event" type="text" name="descripcion" autocomplete="off" placeholder="Descripcion...">
+                          <input class="input-event" type="date" id="start" name="fecha" value="2020-12-21" min="2020-01-01" max="2030-12-31">
                           <input class="input-event" type="submit" class="addBtn" value='Agregar'>
                       </form>
                   </div>
