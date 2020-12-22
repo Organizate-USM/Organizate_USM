@@ -54,37 +54,10 @@ script_js
                 theme: 'Midnight Blue',
                 'todayHighlight': true,
                 'language': 'es',
-                'firstDayOfWeek': 1,
-                calendarEvents: [{
-                    id: 'event1', // Event's ID (required)
-                    name: "Año nuevo", // Event name (required)
-                    date: "January/1/2020", // Event date (required)
-                    description: "aaaaaaaaaaaaaa",
-                    type: "holiday", // Event type (required)
-                    everyYear: true // Same event every year (optional)
-                },
-                {
-                    name: "Vacaciones",
-                    badge: "02/13 - 02/15", // Event badge (optional)
-                    date: ["February/13/2020", "February/15/2020"], // Date range
-                    description: "Vacaciones.", // Event description (optional)
-                    type: "event",
-                    color: "#63d867" // Event custom color (optional)
-
-                },
-                {% for evento in event %}
-                {
-                    name: "{{ evento.nombre }}",
-                    date: "{{ evento.fecha }}",
-                    description: "{{ evento.descripcion }}",
-                    type: "event",
-                    color: "#63d867"
-                },
-                {% endfor %}
-
-            ]
-            })
-        })
+                'firstDayOfWeek': 1, 
+            });
+        });
+        
     </script>
         <div class="addevent">
             <div>
@@ -101,11 +74,19 @@ script_js
                     <button id="addBtn">Agregar</button>
                 <!-- </form> -->
             </div>
-        <div id="div-myul">
+            <div id="div-myul">
             
+            </div>
+
         </div>
-            
-        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
                     <!-- Firebase Libraries -->
         <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>

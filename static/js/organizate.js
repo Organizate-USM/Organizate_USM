@@ -168,9 +168,11 @@
 
     function del(text){
         firebase.database().ref(`user/${username}/todolist/${text}`).remove();
-        reload();
-        // RemoveItemsToList();
-        // window.onload(FetchAllData());
+        var ul = document.getElementById('myUL');
+        var elemento = document.getElementById("idenCheked"+text);
+        ul.removeChild(elemento);
+        FetchAllData();
+
     }
     
     function reload(){
