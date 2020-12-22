@@ -4,8 +4,23 @@ from models import db1, User, Todo, Event
 from flask_wtf import CsrfProtect
 from flask_bootstrap import Bootstrap
 from config import DevelopmentConfig
+from firebase import firebase
 import forms
+import pyrebase
 
+config = {
+    "apiKey": "AIzaSyD7geC0GEHTf9vREokkJGRRkad5BETp5q0",
+    "authDomain": "organizateusm.firebaseapp.com",
+    "databaseURL": "https://organizateusm-default-rtdb.firebaseio.com",
+    "projectId": "organizateusm",
+    "storageBucket": "organizateusm.appspot.com",
+    "messagingSenderId": "950537281109",
+    "appId": "1:950537281109:web:86dd2cd4dead3496053edc"
+}
+
+firebase = pyrebase.initialize_app(config)
+db = firebase.database()
+db.child("names").push({"name":"raunak"})
 app = Flask(__name__)
 Bootstrap(app)
 app.secret_key = 'my_secret_key'
@@ -182,6 +197,7 @@ def pomodoroD():
 
 @app.route('/todolist')
 def todolist():
+    print("a")
     return render_template('todolist.html')
 
 if __name__ == '__main__':

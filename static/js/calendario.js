@@ -26,6 +26,10 @@ function ShowEvents(){
                             type: "holiday", // Event type (required)
                             everyYear: true // Same event every year (optional)
                         },
+
+                        $( "li" ).each(function( index ) {
+                            console.log( index + ": " + $( this ).text() );
+                          });
                         {
                             name: "Vacaciones",
                             badge: "02/13 - 02/15", // Event badge (optional)
@@ -35,18 +39,17 @@ function ShowEvents(){
                             color: "#63d867" // Event custom color (optional)
         
                         },
+
                         
-                        {% for evento in event %}
-                        {
-                            date: `${name}`,
-                            name: `${name}`,
-                            description: `${description}`,
-                            type: "event",
-                            color: "#63d867"
-                        },
-                        {% endfor %}
-        
-                    ]
+
+                        // {
+                        //     date: `${nameEvent}`,
+                        //     name: `${name}`,
+                        //     description: `${description}`,
+                        //     type: "event",
+                        //     color: "#63d867"
+                        // },
+                    ],
                     });
                 });
 
