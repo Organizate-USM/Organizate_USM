@@ -180,6 +180,10 @@ def pomodoro():
 def pomodoroD():
     return render_template('pomodoroD.html')
 
+@app.route('/todolist')
+def todolist():
+    return render_template('todolist.html')
+
 if __name__ == '__main__':
     csrf.init_app(app)
     db1.init_app(app)

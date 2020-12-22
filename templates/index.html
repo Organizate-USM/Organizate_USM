@@ -17,8 +17,6 @@ script_js
 {% endblock %}
 
 {% block content %}
-    
-    <header class=main-head>
         <nav id="navusm">
             <div id="logoimg">
                 <img src="static\img\img.png" alt="logo" width="70" height="70">
@@ -103,19 +101,20 @@ script_js
                     <button id="addBtn">Agregar</button>
                 <!-- </form> -->
             </div>
-
-            <ul id="myUL">
-
-            </ul>
+        <div id="div-myul">
+            
         </div>
+            
+        </div>
+                    <!-- Firebase Libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script> 
+                 <!-- End Firebase Libraries -->
 
+        <script type="text/javascript" src="/static/js/organizate.js"></script>
 
-        <!-- Firebase Libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script> 
-    <script type="text/javascript" src="/static/js/organizate.js"></script>
-
+        
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">

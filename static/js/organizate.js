@@ -1,5 +1,8 @@
-
-     // Your web app's Firebase configuration
+          
+          
+          
+          
+    // Your web app's Firebase configuration
     var firebaseConfig = {
         apiKey: "AIzaSyD7geC0GEHTf9vREokkJGRRkad5BETp5q0",
         authDomain: "organizateusm.firebaseapp.com",
@@ -11,12 +14,13 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
+
     //A
 
     function addItemsToList(text,complete){
 
         var ul = document.getElementById('myUL');
-
+        var a = document.getElementById("iden"+text)
         var firstA = document.createElement('a');
         firstA.classList.add('boton-todo');
         firstA.setAttribute("onclick",`check("${text}",${complete})`);
@@ -28,6 +32,7 @@
         spanCloseLeft.classList.add('closeleft');
         var _text = document.createElement('li');
         _text.classList.add('lito');
+        _text.setAttribute("id", "iden"+text);
         _text.innerHTML= text;
 
         firstA.appendChild(spanCloseLeft);
@@ -41,6 +46,7 @@
         spanCloseLeft.classList.add('closeleft-check');
         var _complete = document.createElement('li');
         _complete.classList.add('checked');
+        _complete.setAttribute("id", "idenCheked"+text);
         _complete.innerHTML= text;
 
         var secondA = document.createElement('a');
@@ -54,33 +60,27 @@
         secondA.appendChild(spanClose);
         _complete.appendChild(secondA);
         _complete.appendChild(firstA);
+
         ul.appendChild(_complete);
 
         }
 
     }
 
-    function olal(){
-        console.log("S")
-    }
 
     function RemoveItemsToList(){
         var ul = document.getElementById('myUL');
         var list = document.getElementsByClassName('lito');
         var checked = document.getElementsByClassName('checked');
-        console.log(list);
-        console.log(checked);
 
         var largoList = list.length;
         var largoChecked = checked.length;
 
         for(i = 0; i< largoList; i++){
             ul.removeChild(list.item(0));    
-            console.log(i) 
         }
         for(i = 0; i< largoChecked; i++){
             ul.removeChild(checked.item(0));    
-            console.log(i) 
         }
 
       
@@ -92,7 +92,12 @@
                 function(childSnapchot){
                     let texto = childSnapchot.val().Description;
                     let complete = childSnapchot.val().Checked;
-                    addItemsToList(texto,complete);
+                    var comprobar = document.getElementById("iden"+texto)
+                    var comprobarCheck = document.getElementById("idenCheked"+texto)
+                    if(comprobar == null && comprobarCheck == null){
+                        addItemsToList(texto,complete);
+                    }
+                    
                 }
             );
         });
@@ -111,11 +116,7 @@
 
     //Read
     var text,complete;
-    
-    function initial(){
-        console.log(username);
-    }
-        
+       
     function Ready(){
         text = document.getElementById('myInput').value;
     }
@@ -128,28 +129,38 @@
             Description: text,
             Checked: false
         });
-        RemoveItemsToList();
-        window.onload(FetchAllData());
+
+        FetchAllData();
+        // RemoveItemsToList();
+        // window.onload(FetchAllData());
     }
 
     //Check
 
     function check(text,complete){
-        console.log(complete);
+        var ul = document.getElementById('myUL');
         if (complete == false) {
+        var elemento = document.getElementById("iden"+text);
+        ul.removeChild(elemento);
+
         firebase.database().ref(`user/${username}/todolist/${text}`).update({
             Checked: true
-        });
+            });
+            FetchAllData();
         }
         
         else{
+            var elemento = document.getElementById("idenCheked"+text);
+            ul.removeChild(elemento);
             firebase.database().ref(`user/${username}/todolist/${text}`).update({
             Checked: false
-        }); 
+            });
+            FetchAllData();
         }
 
-        RemoveItemsToList();
-        window.onload(FetchAllData());
+        // reload();
+        // RemoveItemsToList();
+        // window.onload(FetchAllData());
     }
 
 
@@ -157,8 +168,14 @@
 
     function del(text){
         firebase.database().ref(`user/${username}/todolist/${text}`).remove();
-        RemoveItemsToList();
-        window.onload(FetchAllData());
+        reload();
+        // RemoveItemsToList();
+        // window.onload(FetchAllData());
     }
-    initial();
-    window.onload(FetchAllData());
+    
+    function reload(){
+        $(document).ready(function(){
+            $("#div-myul").load("todolist")
+            FetchAllData()
+        });
+    }
