@@ -15,6 +15,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/initial.js') }}"></script>
 
     <link {% block link_css %} {% endblock %}>
     <script {% block script_js %} {% endblock %}></script>
@@ -31,7 +32,7 @@
     crossorigin="anonymous"></script>
     <header class=main-head>
     <input id="user" type="text" value="{{username}}">
-    <script type="text/javascript" src="{{ url_for('static', filename='js/initial.js') }}"></script>
+
     {% with messages = get_flashed_messages() %}
         {% if messages %}
                 {% for message in messages %}

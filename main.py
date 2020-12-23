@@ -7,20 +7,9 @@ from config import DevelopmentConfig
 from firebase import firebase
 import forms
 import pyrebase
+from collections import OrderedDict
 
-config = {
-    "apiKey": "AIzaSyD7geC0GEHTf9vREokkJGRRkad5BETp5q0",
-    "authDomain": "organizateusm.firebaseapp.com",
-    "databaseURL": "https://organizateusm-default-rtdb.firebaseio.com",
-    "projectId": "organizateusm",
-    "storageBucket": "organizateusm.appspot.com",
-    "messagingSenderId": "950537281109",
-    "appId": "1:950537281109:web:86dd2cd4dead3496053edc"
-}
 
-firebase = pyrebase.initialize_app(config)
-db = firebase.database()
-db.child("names").push({"name":"raunak"})
 app = Flask(__name__)
 Bootstrap(app)
 app.secret_key = 'my_secret_key'
@@ -199,6 +188,31 @@ def pomodoroD():
 def todolist():
     print("a")
     return render_template('todolist.html')
+    
+@app.route('/calendary')
+def calendary():
+    config = {
+    "apiKey": "AIzaSyD7geC0GEHTf9vREokkJGRRkad5BETp5q0",
+    "authDomain": "organizateusm.firebaseapp.com",
+    "databaseURL": "https://organizateusm-default-rtdb.firebaseio.com",
+    "projectId": "organizateusm",
+    "storageBucket": "organizateusm.appspot.com",
+    "messagingSenderId": "950537281109",
+    "appId": "1:950537281109:web:86dd2cd4dead3496053edc"
+    }
+
+    username = session['username']
+    firebase = pyrebase.initialize_app(config)
+    db = firebase.database()
+    eventos = db.child("user").child(username).child("calendary").get()
+    print("hola pre vento")
+    dic = eventos.val()
+    listaEventos = []
+    for eventito in dic:
+	    listaEventos.append(dic[eventito])
+
+    return render_template('calendary.html', listaEventos = listaEventos)
+
 
 if __name__ == '__main__':
     csrf.init_app(app)

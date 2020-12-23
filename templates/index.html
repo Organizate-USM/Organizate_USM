@@ -40,39 +40,36 @@ script_js
         </nav>
     </header>
     <h3>Calendario y lista de quehaceres</h3>
-    <div class="hero">
-        <div id="calendar"></div>
+    <div id="hero">
+        
     </div>
+    
 
     <!-- Add jQuery library (required) -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-    <script src="{{ url_for('static', filename='js/evo-calendar.min.js' ) }}"></script>
-
-    <script>
-        $(document).ready(function() {
-            $('#calendar').evoCalendar({
-                theme: 'Midnight Blue',
-                'todayHighlight': true,
-                'language': 'es',
-                'firstDayOfWeek': 1, 
-            });
-        });
+    
         
     </script>
+
+        <br>
+        <br>
         <div class="addevent">
             <div>
                 <button type="button" id="BotonModal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" size= "90">Agregar o eliminar eventos</button>
             </div>
         </div>
 
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <div class="todolist">
             <div id="myDIV" class="header">
                 <h2>Lista de quehaceres</h2>
-                <!-- <form action="/add" method="POST"> -->
-                    <!-- <input type="hidden" name="csrf_token" value="IjQ5MjMwODcxMGE3NzQzMDExNjIxMDkwM2NjNTc5YzQ2OTYyYTUyYmIi.X-AyKQ.8EyDTxP6RER7IsBMl4TlyaQ1udA"  /> -->
                     <input type="text" id="myInput" placeholder="Titulo...">
                     <button id="addBtn">Agregar</button>
-                <!-- </form> -->
             </div>
             <div id="div-myul">
             
@@ -104,29 +101,38 @@ script_js
                 <font class="num-color" size="10">
                     <h2 class="modal-title" id="exampleModalLabel">Eventos</h2>
                 </font>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
+                <button type="button" class="close-modal" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">X  </span>
                 </button>
               </div>
               <div class="modal-body">
                   <div>
-                      <h1>Agregar evento</h1>
-                      <form action="{{ url_for('addevent') }}" method="POST" class="header">
+                      <h1 class="titulito">Agregar evento</h1>
                           <input class="input-event" type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
-                          <input class="input-event" type="text" name="nombre" placeholder="Nombre...">
-                          <input class="input-event" type="text" name="descripcion" placeholder="Descripcion...">
-                          <input class="input-event" type="date" id="start" name="fecha" value="2020-12-12" min="2020-01-01" max="2030-12-31">
-                          <input class="input-event" type="submit" class="addBtn" value='Agregar'>
-                      </form>
+                          <input class="input-event" id="cal-text" type="text" name="nombre" placeholder="Nombre...">
+                          <input class="input-event" id="cal-desc" type="text" name="descripcion" placeholder="Descripcion...">
+                          <input class="input-event" id="cal-date" type="date" id="start" name="fecha"  min="2020-01-01" max="2030-12-31">
+                          <button class="input-event" id="addBtn-modal" >Agregar</button>
                   </div>
+                <!-- Hora -->
+                  <script>
+                        var fechaActual = new date();
+                        // value="2020-12-12"
+                        var dia = fechaActual.getDay();
+                        var mes = fechaActual.getMonth();
+                        var año = fechaActual.getFullYear();
+
+                        var actualizar = document.getElementById('start');
+                        actualizar.setAttribute("value",`${año}-${mes}-${dia}`);
+                  </script>
+                <!-- Hora -->
+
 
                   <div>
-                    <h1>Eliminar evento</h1>
+                    <h1 class="titulito">Eliminar evento</h1>
                   </div>
                   <ul id="ul-model">
-                      {% for evento in event %}
-                      <li class="lito-modal">{{ evento.nombre }}, Fecha: {{ evento.fechaleer }}<a href="{{ url_for('deleteevent', id=evento.id) }}"><span class="close">X</span></a></li>
-                      {% endfor %}
+
                   </ul>
               </div>
               <div class="modal-footer">
@@ -135,5 +141,6 @@ script_js
             </div>
           </div>
         </div>
+
 
 {% endblock %}

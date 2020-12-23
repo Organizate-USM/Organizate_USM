@@ -1,67 +1,107 @@
 
 
-function ShowEvents(){
-    eventosName = [];
-    eventosDate = [];
-    eventosDescription = [];
+    document.getElementById('addBtn-modal').onclick = function(){
+        fecha = document.getElementById('cal-date').value;
+        nombre = document.getElementById('cal-text').value;
+        descripcion = document.getElementById('cal-desc').value;
+        firebase.database().ref(`user/${username}/calendary/${fecha}`).set({
+            NombreEvento: nombre,
+            Descripcion: descripcion,
+            FechaEvento: fecha
+            });
+        reloadCalendary()
+        printEvent()
+    }
+
+// function option(){
+//     fecha = document.getElementById('cal-date').value;
+//     var ref = firebase.database().ref(`user/${username}/calendary/${fecha}-${cont}`);
+//     ref.once("value")
+//         .then(function(snapshot) {
+//         var existe = snapshot.exists();
+//         insertar(existe,fecha,cont);
+        
+//   });
+// }
+
+// function insertar(existe,fecha,cont){
+//     if(existe == false){
+//         nombre = document.getElementById('cal-text').value;
+//         descripcion = document.getElementById('cal-desc').value;
+//         firebase.database().ref(`user/${username}/calendary/${fecha}-${cont}`).set({
+//             NombreEvento: nombre,
+//             Descripcion: descripcion,
+//             FechaEvento: fecha
+//             });
+//         reloadCalendary()
+//         printEvent()
+//     }
+//     else{
+//         cont++;
+//         option(cont)
+//     }
+// }
+
+function delEvent(fecha){
+    firebase.database().ref(`user/${username}/calendary/${fecha}`).remove();
+    var ul = document.getElementById('ul-model');
+    var elemento = document.getElementById("calen"+fecha);
+    ul.removeChild(elemento);
+    reloadCalendary()
+    printEvent()
+    
+
+}
+
+
+function addLiCalendar(fecha, nombre){
+
+    var ul = document.getElementById('ul-model');
+    var firstA = document.createElement('a');
+    firstA.setAttribute("onclick",`delEvent("${fecha}")`);
+    var span = document.createElement('span');
+    span.classList.add("close-del")
+    span.innerHTML= 'X';
+
+    listad = fecha.split("-");
+    mesesSpanish = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+    mesSpanish = mesesSpanish[parseInt(listad[1])-1]
+    fechaleer = `${nombre}, Fecha: ${listad[2]} de ${mesSpanish} del ${listad[0]}`
+
+    var evento = document.createElement('li');
+    evento.classList.add('lito-modal');
+    evento.setAttribute("id", "calen"+fecha);
+    evento.innerHTML= fechaleer;
+
+    firstA.appendChild(span);
+
+    evento.appendChild(firstA);
+
+    ul.appendChild(evento);
+    }
+
+
+function printEvent(){
     firebase.database().ref(`user/${username}/calendary`).once('value',function(snapchot){
         snapchot.forEach(
             function(childSnapchot){
-                let nameEvent = childSnapchot.val().Nombre;
-                let date = childSnapchot.val().Fecha;
-                let description = childSnapchot.val().Descripcion;
-                eventos.push(nameEvent);
-                eventosDate.push(date);
-                eventosDescription.push(description);
-            });
-    });
-}
-                $(document).ready(function() {
-                    $('#calendar').evoCalendar({
-                        calendarEvents: [{
-                            id: 'event1', // Event's ID (required)
-                            name: "Año nuevo", // Event name (required)
-                            date: "January/1/2020", // Event date (required)
-                            description: "aaaaaaaaaaaaaa",
-                            type: "holiday", // Event type (required)
-                            everyYear: true // Same event every year (optional)
-                        },
-
-                        $( "li" ).each(function( index ) {
-                            console.log( index + ": " + $( this ).text() );
-                          });
-                        {
-                            name: "Vacaciones",
-                            badge: "02/13 - 02/15", // Event badge (optional)
-                            date: ["February/13/2020", "February/15/2020"], // Date range
-                            description: "Vacaciones.", // Event description (optional)
-                            type: "event",
-                            color: "#63d867" // Event custom color (optional)
-        
-                        },
-
-                        
-
-                        // {
-                        //     date: `${nameEvent}`,
-                        //     name: `${name}`,
-                        //     description: `${description}`,
-                        //     type: "event",
-                        //     color: "#63d867"
-                        // },
-                    ],
-                    });
-                });
-
-
-                
-                var comprobar = document.getElementById("iden"+texto)
-                var comprobarCheck = document.getElementById("idenCheked"+texto)
-                if(comprobar == null && comprobarCheck == null){
-                    addItemsToList(texto,complete);
+                let nombre = childSnapchot.val().NombreEvento;
+                let fecha = childSnapchot.val().FechaEvento;
+                var comprobar = document.getElementById("calen"+fecha)
+                if(comprobar == null){
+                    addLiCalendar(fecha,nombre);
                 }
                 
             }
         );
     });
 }
+
+function reloadCalendary(){
+    $(document).ready(function(){
+        $("#hero").load("calendary")
+    });
+}
+
+
+window.onload(printEvent())

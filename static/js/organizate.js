@@ -16,6 +16,8 @@
 
 
     //A
+    var username;
+    username = document.getElementById('user').value;
 
     function addItemsToList(text,complete){
 
@@ -87,6 +89,8 @@
     }
 
     function FetchAllData(){
+        // arrr = {{ listaEvento }}
+        // console.log(arrr);
         firebase.database().ref(`user/${username}/todolist`).once('value',function(snapchot){
             snapchot.forEach(
                 function(childSnapchot){
@@ -124,6 +128,7 @@
     //Insert
 
     document.getElementById('addBtn').onclick = function(){
+        console.log("toiaca");
         Ready();
         firebase.database().ref(`user/${username}/todolist/${text}`).set({
             Description: text,
@@ -134,7 +139,6 @@
         // RemoveItemsToList();
         // window.onload(FetchAllData());
     }
-
     //Check
 
     function check(text,complete){
@@ -178,6 +182,6 @@
     function reload(){
         $(document).ready(function(){
             $("#div-myul").load("todolist")
-            FetchAllData()
+            FetchAllData();
         });
     }

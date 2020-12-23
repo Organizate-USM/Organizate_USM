@@ -1,6 +1,5 @@
 .todolist {
     width: 1350px;
-    margin-top: 62%;
     position: relative;
     top: -16%;
     left: 3%;
@@ -10,6 +9,15 @@
     border-image: initial;
 }
 
+.addevent{
+	width: -1%;
+    /* height: -1; */
+    margin-top: 27%;
+    position: absolute;
+    top: 50%;
+    left: 17%;
+    transform: translate(-50%,-50%);
+}
 
 /* Include the padding and border in an element's total width and height */
 * {
@@ -27,7 +35,7 @@ ul {
 }
 
 /* Style the list items */
-#myUL .lito, #myUL .checked{
+#myUL .lito, #myUL .checked, #ul-model .lito-modal, #ul-model .checked{
 	cursor: pointer;
 	position: relative;
 	padding: 12px 8px 12px 40px;
@@ -43,27 +51,30 @@ ul {
 	user-select: none;
 }
 
+
 /* Set all odd list items to a different color (zebra-stripes) */
-#myUL .lito, #myUL .checked:nth-child(odd) {
+#myUL .lito, #myUL .checked:nth-child(odd),#ul-model .lito-modal, #ul-model .checked:nth-child(odd) {
 	background: #393e46;
     color: white;
 }
 
+
 /* Darker background-color on hover */
-#myUL .lito, #myUL .checked:hover {
+#myUL .lito, #myUL .checked:hover,#ul-model .lito-modal, #ul-model .checked:hover {
 	background: #222831;
     color: white;
 }
 
 /* When clicked on, add a background color and strike out text */
-#myUL .checked {
+#myUL .checked,#ul-model .checked {
 	background: #393e46;
 	color: #fff;
 	text-decoration: line-through;
 }
 
+
 /* Add a "checked" mark when clicked on */
-#myUL .checked::before {
+#myUL .checked::before,#ul-model .checked::before {
 	content: '';
 	position: absolute;
 	border-color: #fff;
@@ -90,7 +101,7 @@ ul {
     background: rgb(72, 76, 82);
 }
 
-.closeleft:hover, .closeleft-check:hover{
+.closeleft:hover, .closeleft-check:hover, .close-modal:hover, .close-del:hover{
 	background-color: #f44336;
 	color: white;
 }
@@ -174,7 +185,7 @@ input {
     background: rgb(72, 76, 82);
 }
 
-#myUL .lito, #myUL .checked, #ul-model .lito, #ul-model .checked {
+#myUL .lito, #myUL .checked, #ul-model .lito-modal, #ul-model .checked  {
     cursor: pointer;
     position: relative;
     font-size: 18px;
@@ -186,4 +197,80 @@ input {
     border-style: solid;
     border-color: rgb(69, 76, 87);
     border-image: initial;
+}
+
+#addBtn-modal {
+    width: 57%;
+    color: black;
+    margin-top: 10%;
+    margin-left: 18%;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px;
+    background: rgb(125, 132, 141);
+    transition: all 0.3s ease 0s;
+    border-radius: 39px;
+    border: white 1px solid;
+}
+
+#ul-model{
+    cursor: pointer;
+    position: relative;
+    font-size: 18px;
+    user-select: none;
+    padding: 12px 8px 12px 40px;
+    transition: all 0.2s ease 0s;
+    list-style: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(69, 76, 87);
+    border-image: initial;
+    background: #222831;
+    color: white;
+}
+
+.input-event {
+    margin-left: 7%;
+    width: 85%;
+    height: 131%;
+}
+
+.titulito{
+    margin-left: 30%;
+}
+
+.close-modal {
+    position: relative;
+    right: -127px;
+    top: -15px;
+    height: 28%;
+    width: 0%;
+    background-color: #3e6b6a;
+    padding: 1.5rem;
+    margin: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(60, 66, 82);
+    font-weight: 500;
+}
+
+
+.close-del {
+    position: absolute;
+    top: 0%;
+    padding: 1rem 1rem;
+    margin-left: 21%;
+    color: black;
+    font-weight: 420px;
+    background-color: #3e6b6a;
+    height: 100%;
+    border-color: rgb(60, 66, 82);
+    margin-left: 85%;
+    display: block;
+}
+
+#ul-model {
+    padding: 0%;
+    border: rgb(62 107 106) 1px solid;
 }
