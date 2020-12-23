@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
     $("#hero").load("calendary")
+    printEvent()
 });
 
 $(document).ready(function(){

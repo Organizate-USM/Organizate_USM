@@ -9,7 +9,6 @@ import forms
 import pyrebase
 from collections import OrderedDict
 
-
 app = Flask(__name__)
 Bootstrap(app)
 app.secret_key = 'my_secret_key'
@@ -36,61 +35,9 @@ def index():
     if 'username' in session:
         username = session['username']
     title = 'Index'
-    incomplete = Todo.query.filter_by(complete=False).all()
-    complete = Todo.query.filter_by(complete=True).all()
-    event = Event.query.all()
-    return render_template('index.html', title = title, incomplete=incomplete, complete=complete, event=event, username=username)
+    return render_template('index.html', title = title, username=username)
     #return render_template('index.html', title = title, incomplete=incomplete, complete=complete)
 
-@app.route('/addevent', methods=['GET', 'POST'])
-def addevent():
-    dia = request.form['fecha']
-    listad = dia.split('-')
-    meses = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    mes = meses[int(listad[1])-1]
-    fechadb = '{}/{}/{}'.format(mes, listad[2], listad[0])
-    mesesSpanish = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
-    mesSpanish = mesesSpanish[int(listad[1])-1]
-    fechaleer = '{} de {} del {}'.format(listad[2], mesSpanish, listad[0])
-    event = Event(nombre=request.form['nombre'], fecha=fechadb, descripcion=request.form['descripcion'], fechaleer=fechaleer )
-    db1.session.add(event)
-    db1.session.commit()
-    return redirect(url_for('index'))
-
-@app.route('/add', methods=['GET', 'POST'])
-def add():
-    todo = Todo(text=request.form['todoitem'], complete=False)
-    db1.session.add(todo)
-    db1.session.commit()
-    return redirect(url_for('index'))
-
-@app.route('/complete/<id>')
-def complete(id):
-    todo = Todo.query.filter_by(id=int(id)).first()
-    todo.complete = True
-    db1.session.commit()
-    return redirect(url_for('index'))
-
-@app.route('/incomplete/<id>')
-def incomplete(id):
-    todo = Todo.query.filter_by(id=int(id)).first()
-    todo.complete = False
-    db1.session.commit()
-    return redirect(url_for('index'))
-
-@app.route('/deleteitem/<id>')
-def deleteitem(id):
-    eliminar = Todo.query.filter_by(id=int(id)).first()
-    db1.session.delete(eliminar)
-    db1.session.commit()
-    return redirect(url_for('index'))
-
-@app.route('/deleteevent/<id>')
-def deleteevent(id):
-    eliminar = Event.query.filter_by(id=int(id)).first()
-    db1.session.delete(eliminar)
-    db1.session.commit()
-    return redirect(url_for('index'))
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
@@ -186,7 +133,6 @@ def pomodoroD():
 
 @app.route('/todolist')
 def todolist():
-    print("a")
     return render_template('todolist.html')
     
 @app.route('/calendary')
@@ -205,11 +151,12 @@ def calendary():
     firebase = pyrebase.initialize_app(config)
     db = firebase.database()
     eventos = db.child("user").child(username).child("calendary").get()
-    print("hola pre vento")
     dic = eventos.val()
     listaEventos = []
-    for eventito in dic:
-	    listaEventos.append(dic[eventito])
+
+    if dic != None:
+        for eventito in dic:
+	        listaEventos.append(dic[eventito])
 
     return render_template('calendary.html', listaEventos = listaEventos)
 

@@ -15,9 +15,13 @@ html{
 	font-size: 62.5%;
 }
 
-#hero{
-    width: 100%;
-    height: 100%;
+#hero {
+    width: 81%;
+    height: 73%;
+    top: 32%;
+    left: 10%;
+    position: absolute;
+    background-image: linear-gradient(315deg, #021f4a 0, #021742 8.33%, #031a56 16.67%, #000925 25%, #000724 33.33%, #000524 41.67%, #030323 50%, #0a0122 58.33%, #17012d 66.67%, #20002d 75%, #210025 83.33%, #210020 91.67%, #2d0023 100%);
 }
 
 /* NAV BAR */
@@ -214,9 +218,11 @@ h1 .titulo{
 /* Calendario */
 
 #calendar {
-    width: 80%;
+    width: 100%;
+    height: 100%;
     position: relative;
     left: 0%;
+    top: 0%;
     z-index: 0;
 }
 
@@ -322,5 +328,12 @@ button.btn-action {
     font-family: "Amaranth";
 }
 
-
-    
+#color {
+    height: 32px;
+    position: relative;
+    width: 17%;
+    margin-top: -8%;
+    top: 27%;
+    left: 74%;
+    padding: 0px;
+}

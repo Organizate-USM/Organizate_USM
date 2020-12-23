@@ -2,7 +2,6 @@
 <div id="calendar"></div>
 <script src="{{ url_for('static', filename='js/evo-calendar.min.js' ) }}"></script>
 <script>
-    
     $(document).ready(function() {
         $('#calendar').evoCalendar({
             theme: 'Midnight Blue',
@@ -32,7 +31,7 @@
                 date: " {{ evento["FechaEvento"] }} ",
                 description: "{{ evento["Descripcion"] }} ",
                 type: "event",
-                color: "#63d867"
+                color: "{{ evento["Color"] }} "
             },
             {% endfor %}
 
@@ -41,4 +40,4 @@
     })
 
 </script>
-<script type="text/javascript" src="/static/js/calendario.js"></script>
+

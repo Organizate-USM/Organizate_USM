@@ -46,25 +46,17 @@ script_js
     
 
     <!-- Add jQuery library (required) -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script> -->
     
         
     </script>
 
-        <br>
-        <br>
         <div class="addevent">
             <div>
                 <button type="button" id="BotonModal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" size= "90">Agregar o eliminar eventos</button>
             </div>
         </div>
 
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
         <div class="todolist">
             <div id="myDIV" class="header">
                 <h2>Lista de quehaceres</h2>
@@ -77,13 +69,7 @@ script_js
 
         </div>
 
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+
                     <!-- Firebase Libraries -->
         <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
@@ -108,26 +94,15 @@ script_js
               <div class="modal-body">
                   <div>
                       <h1 class="titulito">Agregar evento</h1>
-                          <input class="input-event" type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
-                          <input class="input-event" id="cal-text" type="text" name="nombre" placeholder="Nombre...">
-                          <input class="input-event" id="cal-desc" type="text" name="descripcion" placeholder="Descripcion...">
-                          <input class="input-event" id="cal-date" type="date" id="start" name="fecha"  min="2020-01-01" max="2030-12-31">
-                          <button class="input-event" id="addBtn-modal" >Agregar</button>
+                        <input class="input-event" type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
+                        <input class="input-event" id="cal-text" type="text" name="nombre" placeholder="Nombre...">
+                        <input class="input-event" id="cal-desc" type="text" name="descripcion" placeholder="Descripcion...">
+                        <input class="input-event" id="cal-color" type="text" name="colorsito" readonly="readonly" placeholder="Color...">
+                        <input type="color" id="color" value="#63d867">
+                        <input class="input-event" id="cal-date" type="date" id="start" name="fecha"  min="2020-01-01" max="2030-12-31">
+                        <button class="input-event" id="addBtn-modal" onclick="option(0)">Agregar</button>
                   </div>
-                <!-- Hora -->
-                  <script>
-                        var fechaActual = new date();
-                        // value="2020-12-12"
-                        var dia = fechaActual.getDay();
-                        var mes = fechaActual.getMonth();
-                        var año = fechaActual.getFullYear();
-
-                        var actualizar = document.getElementById('start');
-                        actualizar.setAttribute("value",`${año}-${mes}-${dia}`);
-                  </script>
-                <!-- Hora -->
-
-
+                
                   <div>
                     <h1 class="titulito">Eliminar evento</h1>
                   </div>
@@ -141,6 +116,17 @@ script_js
             </div>
           </div>
         </div>
-
-
+        <script type="text/javascript" src="/static/js/calendario.js" defer></script>
 {% endblock %}
+<!-- Hora -->
+<script defer>
+  var fechaActual = new Date();
+  var dia = fechaActual.getDay();
+  var mes = fechaActual.getMonth();
+  var año = fechaActual.getFullYear();
+
+  var actualizar = document.getElementById('start');
+  actualizar.setAttribute("value",`${año}-${mes}-${dia}`);
+</script>
+<!-- Hora -->
+

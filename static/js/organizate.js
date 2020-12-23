@@ -136,8 +136,7 @@
         });
 
         FetchAllData();
-        // RemoveItemsToList();
-        // window.onload(FetchAllData());
+
     }
     //Check
 
@@ -162,9 +161,6 @@
             FetchAllData();
         }
 
-        // reload();
-        // RemoveItemsToList();
-        // window.onload(FetchAllData());
     }
 
 
