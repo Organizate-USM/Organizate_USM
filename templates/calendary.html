@@ -1,0 +1,43 @@
+
+<div id="calendar"></div>
+<script src="{{ url_for('static', filename='js/evo-calendar.min.js' ) }}"></script>
+<script>
+    $(document).ready(function() {
+        $('#calendar').evoCalendar({
+            theme: 'Midnight Blue',
+            'todayHighlight': true,
+            'language': 'es',
+            'firstDayOfWeek': 1,
+            calendarEvents: [{
+                id: 'event1', // Event's ID (required)
+                name: "Año nuevo", // Event name (required)
+                date: "January/1/2020", // Event date (required)
+                description: "aaaaaaaaaaaaaa",
+                type: "holiday", // Event type (required)
+                everyYear: true // Same event every year (optional)
+            },
+            {
+                name: "Vacaciones",
+                badge: "02/13 - 02/15", // Event badge (optional)
+                date: ["February/13/2020", "February/15/2020"], // Date range
+                description: "Vacaciones.", // Event description (optional)
+                type: "event",
+                color: "#63d867" // Event custom color (optional)
+
+            },
+            {% for evento in listaEventos %}
+            {
+                name: " {{ evento["NombreEvento"] }} ",
+                date: " {{ evento["FechaEvento"] }} ",
+                description: "{{ evento["Descripcion"] }} ",
+                type: "event",
+                color: "{{ evento["Color"] }} "
+            },
+            {% endfor %}
+
+        ]
+        })
+    })
+
+</script>
+

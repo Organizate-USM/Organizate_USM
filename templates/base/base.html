@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/initial.css' ) }}">
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/initial.js') }}"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
@@ -24,6 +26,13 @@
     {% endblock %}
 </head>
 <body>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+    <header class=main-head>
+    <input id="user" type="text" value="{{username}}">
+
     {% with messages = get_flashed_messages() %}
         {% if messages %}
                 {% for message in messages %}
