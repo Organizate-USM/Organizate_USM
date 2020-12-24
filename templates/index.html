@@ -78,7 +78,7 @@ script_js
 
         <script type="text/javascript" src="/static/js/organizate.js"></script>
 
-        
+
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -100,7 +100,7 @@ script_js
                         <input class="input-event" id="cal-color" type="text" name="colorsito" readonly="readonly" placeholder="Color...">
                         <input type="color" id="color" value="#63d867">
                         <input class="input-event" id="cal-date" type="date" id="start" name="fecha"  min="2020-01-01" max="2030-12-31">
-                        <button class="input-event" id="addBtn-modal" onclick="option(0)">Agregar</button>
+                        <button class="input-event" id="addBtn-modal">Agregar</button>
                   </div>
                 
                   <div>
@@ -116,11 +116,14 @@ script_js
             </div>
           </div>
         </div>
+        <script type="text/javascript" src="/static/js/hora.js"></script>
         <script type="text/javascript" src="/static/js/calendario.js" defer></script>
 {% endblock %}
 <!-- Hora -->
 <script defer>
+
   var fechaActual = new Date();
+
   var dia = fechaActual.getDay();
   var mes = fechaActual.getMonth();
   var año = fechaActual.getFullYear();

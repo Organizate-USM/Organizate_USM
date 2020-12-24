@@ -277,7 +277,6 @@ button.btn-action {
     border-color: #00adb5;
     box-shadow: -1px -2px 94px -4px #8773c1;
     size: 0ch;
-    margin-top: 71%;
     width: 200%;
 }
 
@@ -336,4 +335,9 @@ button.btn-action {
     top: 27%;
     left: 74%;
     padding: 0px;
+}
+
+.event-container>.event-info>p {
+    margin: 0;
+    color: #8fd5d8;
 }

@@ -1,24 +1,62 @@
 
 
-// document.getElementById('addBtn-modal').onclick = function(){
-//     option(0);
-//     // var colorbtn = document.getElementById('color').value;
-//     // var fecha = document.getElementById('cal-date').value;
-//     // var nombre = document.getElementById('cal-text').value;
-//     // var descripcion = document.getElementById('cal-desc').value;
-//     // console.log(colorbtn)
-//     // firebase.database().ref(`user/${username}/calendary/${fecha}`).set({
-//     //     NombreEvento: nombre,
-//     //     Descripcion: descripcion,
-//     //     FechaEvento: fecha,
-//     //     Color: colorbtn,
-//     //     });
-//     // reloadCalendary()
-//     // printEvent()
-// }
+document.getElementById('addBtn-modal').onclick = function(){
+    option(0);
+}
+
+function aparecer(){
+
+    $(document).ready(function() {
+
+        if($('#calEv').find(".faltan").length == 0){
+            // ver si existe un elemento dentro de otro
+            if($('#dia-activo').find(".type-bullet").length){
+                var diaSelect = document.getElementById("dia-activo");
+                var data = diaSelect.getAttribute("data-date-val")
+            
+                var fechaActual = new Date();
+
+                console.log(diaSelect);
+                var lista = data.split("/");
+                console.log(lista);
+                milisegundosFecha = new Date(`${lista[2]}-${lista[0]}-${parseInt(lista[1])+1}`).getTime();
+                milisegundosActual = fechaActual.getTime();
+                console.log(milisegundosFecha);
+                console.log(milisegundosActual);
+                var ms = milisegundosFecha - milisegundosActual;
+                console.log(ms);
+                var diasComprobar = Math.trunc(ms/(1000*60*60*24))
+                console.log(diasComprobar);
+
+                var divFaltan = document.createElement('div');
+                var faltan = document.createElement('p');
+                divFaltan.classList.add('faltan');
+                faltan.setAttribute("id","falt");
+
+                if(diasComprobar == -1){
+                    faltan.innerHTML= `Ocurrió hace 1 día`;
+                }
+                else if(diasComprobar == 1){
+                    faltan.innerHTML= `Falta 1 día`;
+                }
+                else if(diasComprobar == 0){
+                    faltan.innerHTML= `¡Es hoy!`;
+                }
+                else if (diasComprobar < 0){
+                    faltan.innerHTML= `Ocurrió hace ${-diasComprobar} días`;
+                }
+                else{
+                    faltan.innerHTML= `Faltan ${diasComprobar} días`;
+                }
+                listaEvento = document.getElementById("calEv");
+                divFaltan.appendChild(faltan)
+                listaEvento.appendChild(divFaltan);
+            }
+        }
+    }); 
+}
 
 function option(cont){
-    console.log("a");
     fecha = document.getElementById('cal-date').value;
     var ref = firebase.database().ref(`user/${username}/calendary/${fecha}-${cont}`);
     ref.once("value")
@@ -113,4 +151,3 @@ function reloadCalendary(){
         
     });
 }
-

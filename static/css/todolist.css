@@ -12,10 +12,8 @@
 
 .addevent{
 	width: -1%;
-    /* height: -1; */
-    margin-top: 27%;
     position: absolute;
-    top: 50%;
+    top: 114%;
     left: 17%;
     transform: translate(-50%,-50%);
 }
