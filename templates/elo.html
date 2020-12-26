@@ -5,27 +5,39 @@
 {% endblock %}
 
 {% block content %}
-	<header class=main-head>
+	<header class="main-head">
 		<nav id="navusm">
+		<div class="toggle-btn">
+			<span>&#9776</span>
+		</div>
+		<div id="sidebar">
+			<ul>
+			<li><a href="{{ url_for('industrial') }}">E</a></li>
+			<li><a href="{{ url_for('industrial') }}">A</a></li>
+			<li><a href="{{ url_for('logout') }}">Logout</a></li>
+			</ul>
+		</div>
 			<div id="logoimg">
 				<img src="static\img\img.png" alt="logo" width="70" height="70">
 			</div>
 			<h1 id= 'logo'>Organízate USM</h1>
 			<ul id="ulusm">
-                <li class="liusm"><a href="{{ url_for('index') }}" class="ausm" id="index-button">Inicio</a></li>
-                <li class="liusm"><a href="{{ url_for('material') }}" class="ausm" id="material-button">Material</a>
-                    <ul class="submenu">
-						<li><a href="{{ url_for('informatica') }}">Ingeniería Civil en informatica</a></li>
-						<li><a href="{{ url_for('matematica') }}">Ingeniería Civil en matemática</a></li>
-						<li><a href="{{ url_for('minas') }}">Ingeniería Civil en minas</a></li>
-						<li><a href="{{ url_for('arqui') }}">Arquitectura</a></li>
-						<li><a href="{{ url_for('elo') }}">Ingeniería Civil en electronica</a></li>
-						<li><a href="{{ url_for('industrial') }}">Ingeniería Civil industrial</a></li>
-					</ul>
-                </li>
-                <li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm" id="pomodoro-button">Pomodoro</a></li>
-                <li class="liusm"><a href="{{ url_for('logout') }}" class="ausm" id="logout-button">Logout</a></li>
-            </ul>
+				<li class="liusm"><a href="{{ url_for('index') }}" class="ausm" id="index-button">Inicio</a></li>
+				<li class="liusm"><a href="{{ url_for('material') }}" class="ausm" id="material-button">Material</a>
+				<ul class="submenu">
+					<li><a href="{{ url_for('informatica') }}">Ingeniería Civil en informatica</a></li>
+					<li><a href="{{ url_for('matematica') }}">Ingeniería Civil en matemática</a></li>
+					<li><a href="{{ url_for('minas') }}">Ingeniería Civil en minas</a></li>
+					<li><a href="{{ url_for('arqui') }}">Arquitectura</a></li>
+					<li><a href="{{ url_for('elo') }}">Ingeniería Civil en electronica</a></li>
+					<li><a href="{{ url_for('industrial') }}">Ingeniería Civil industrial</a></li>
+						</ul>
+				</li>
+				<li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm" id="pomodoro-button">Pomodoro</a></li>
+				<li class="liusm"><p class="config" id="user" value="{{username}}" >{{username}}</p>
+			</li>
+
+			</ul>
 		</nav>
 	</header>
 
@@ -135,4 +147,5 @@
 		<font class="num-color" size="5">
 			<li id="colaborar"><a id="a-colaborar" href=" https://forms.gle/bLooxe4qJCPCcuEw8 " >¿Quieres colaborar con nosotros?</a></li>
 		</font>
+		<script type="text/javascript" src="/static/js/config.js" defer></script>
 {% endblock %}

@@ -1,6 +1,262 @@
-#user {
-    visibility: hidden;
-    margin-top: -200%;
-    width: 0%;
-    height: 0%;
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  #sidebar {
+    position: fixed;
+    width: 206px;
+    top: -100%;
+    background: #1e2934;
+    left: 80%;
+    border-bottom: white 1px solid;
+    border-right: white 1px solid;
+    border-left: white 1px solid;
+    padding: 7px 0px;
+}
+  
+  #sidebar.active {
+    top: 8%;
+}
+  
+  #sidebar ul li {
+    color: rgba(230, 230, 230, .9);
+    list-style: none;
+    padding: 15px 10px;
+    border-bottom: 1px solid rgba(100, 100, 100, .3);
+    text-align: center;
+  }
+
+  #sidebar ul li:hover {
+    filter: blur(0);
+    transform: translateY(-7px);
+    background-color: rgb(41, 66, 90);
+	transition: all .3s;
+  }
+  
+  .logo {
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto; 
+  }
+  
+  .toggle-btn {
+    position: absolute;
+    left: 117%;
+    top: 30%;
+    background: #1c2630;
+    cursor: pointer;
+}
+  
+.toggle-btn span {
+    display: block;
+    width: 40px;
+    text-align: center;
+    font-size: 30px;
+    border: 3px solid #fff;
+    color: white;
+}
+
+/* NAV BAR */
+
+/* a{
+    color: #fff;;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: Verdana;
+    font-size: 20px;
+    display: inline-block;
+    padding: 16px 32px;
+    transform: all 0.3s;
+    border: 2px solid transparent;
+} */
+
+.ausm{
+  color: #fff;;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: Verdana;
+  font-size: 20px;
+  display: inline-block;
+  padding: 16px 32px;
+  transform: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.config {
+  width: 16%;
+  color: #fff;
+  position: absolute;
+  top: 26%;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: Verdana;
+  font-size: 21px;
+  margin-bottom: 2px;
+  font-weight: 600;
+  display: inline-block;
+  padding: 16px;
+  justify-content: center;
+  transform: all 0.3s;
+  display: flex;
+  border: 2px solid transparent;
+  left: 98.5%;
+}
+
+/* ul:hover a {
+  filter: blur(2px);
+} */
+
+/* ul a:hover{
+  color: #fff;
+  filter: blur(0);
+  transform: translateY(-10px);
+  background-color: rgb(41, 66, 90);
+}  */
+
+#ulusm .ausm:hover{
+  color: #fff;
+  filter: blur(0);
+  transform: translateY(-10px);
+  transition: all .3s;
+  background-color: rgb(41, 66, 90);
+}
+
+#ulusm #index-button:hover{
+  background:  #2a4056;
+}
+
+#ulusm #material-button:hover{
+  background:  #263b4e;
+}
+
+#ulusm #pomodoro-button:hover{
+  background:  #263748;
+}
+
+#ulusm #logout-button:hover{
+  background:  #263444;
+}
+
+
+
+h1{
+  font-size: 2.5rem;
+  color:white;
+}
+
+h1 .titulo{
+  margin-top: 100px;
+
+}
+/* ul li, p{
+font-size: 2rem;
+  list-style: none;
+  margin-top: -5;
+  margin-bottom: -4rem;
+} */
+
+#ulusm .liusm,p{
+  font-size: 2rem;
+  list-style: none;
+  margin-top: -5;
+  margin-bottom: -4rem;
+}
+
+#ulusm .liusm{
+  margin-top: -11px;
+}
+
+.main-head {
+  position: fixed;
+  width: 104%;
+  left: -3px;
+  height: 81px;
+  /* margin: -15px; */
+  top: -2.5%;
+  background: rgb(36, 53, 70);
+  z-index: 1;
+  border: 1px solid white;
+  background-image: radial-gradient(circle at 6.56% 19.58%, #2d4a64 0, #243546 50%, #1a222a 100%);
+}
+
+/* nav{
+min-height: 10vh;
+display: flex;
+width: 80%;
+margin: auto;
+align-items: center;
+} */
+
+#navusm {
+  min-height: 10vh;
+  display: flex;
+  width: 80%;
+  position: absolute;
+  left: -1%;
+  margin: auto;
+  align-items: center;
+}
+
+/* nav ul{
+  width: 90%;
+display: flex;
+flex: 1 1 20rem;
+justify-content: space-around;
+align-items: center;
+  list-style: none;
+} */
+
+#navusm #ulusm{
+  width: 90%;
+display: flex;
+flex: 1 1 20rem;
+justify-content: space-around;
+align-items: center;
+  list-style: none;
+}
+
+#logo {
+  flex: 3 1 50rem;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+#logoimg {
+  margin-top: 14px;
+  padding-left: 107px;
+}
+
+
+#ulusm li a:hover{
+  filter: blur(0);
+  transform: translateY(-7px);
+  background-color: rgb(41, 66, 90);
+transition: all .3s;
+}
+
+/* Submenu*/
+
+.submenu{
+position: absolute;
+background:rgb(36, 53, 70);
+  width: 170px;
+visibility: hidden;
+opacity: 0;
+  transition: opacity 1.5s;
+  list-style:none;
+  padding: 0px;
+}
+
+
+.submenu li a{
+display: block;
+padding: 15px;
+color: #fff;
+text-decoration: none;
+}
+
+#ulusm li:hover .submenu{
+visibility: visible;
+opacity: 1;
 }

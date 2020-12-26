@@ -24,7 +24,7 @@ class LoginForm(Form):
 	username = StringField('Username',
 				[
 				validators.Required(message = '¡El username es requerido!.'),
-				validators.length(min=4, max=25, message='¡Ingrese un username valido!.'),
+				validators.length(min=4, max=11, message='¡Ingrese un username valido!.'),
 				],
 				render_kw={"placeholder": "Ingrese Username","autocomplete": "off"})
 	password = PasswordField('Password',
@@ -37,7 +37,7 @@ class RegisterForm(Form):
 	username = StringField('Username',
 				[
 				validators.Required(message = '¡El username es requerido!.'),
-				validators.length(min=4, max=25, message='¡Ingrese un username valido!.'),
+				validators.length(min=4, max=11, message='¡Ingrese un username valido!.'),
 				],
 				render_kw={"placeholder": "Ingrese Username", "autocomplete": "off"})
 

@@ -1,12 +1,13 @@
 from flask import Flask, render_template, request, make_response
 from flask import session, url_for, redirect, flash, g
-from models import db1, User, Todo, Event
+# from models import db1, User, Todo, Event,config,db
+from models import User, config, db
 from flask_wtf import CsrfProtect
 from flask_bootstrap import Bootstrap
 from config import DevelopmentConfig
-from firebase import firebase
+
 import forms
-import pyrebase
+
 from collections import OrderedDict
 
 app = Flask(__name__)
@@ -46,13 +47,24 @@ def login():
     if request.method == 'POST' and login_form.validate():
         username = login_form.username.data
         password = login_form.password.data
-        user = User.query.filter_by(username = username).first()
+        usuarios = (db.child("Datos").get()).val()
+        listaUsuarios = []
+        for usuario in usuarios:
+            listaUsuarios.append(usuarios[usuario])
 
-        if user is not None and user.verify_password(password):
-            success_message = 'Bienvenido {}'.format(username)
-            flash(success_message)
-            session['username'] = username
-            return redirect(url_for('index'))
+        for lista in listaUsuarios:
+            if username == lista["Usr"] and  User.verify_password(lista["psw"],password):
+                success_message = 'Bienvenido {}'.format(username)
+                flash(success_message)
+                session['username'] = username
+                return redirect(url_for('index'))
+
+        # user = User.query.filter_by(username = username).first()
+        # if user is not None and user.verify_password(password):
+        #     success_message = 'Bienvenido {}'.format(username)
+        #     flash(success_message)
+        #     session['username'] = username
+        #     return redirect(url_for('index'))
         else:
             error_message = ' Usuario o contraseña no válida '
             flash(error_message)
@@ -62,18 +74,37 @@ def login():
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
     register_form = forms.RegisterForm(request.form)
+    print(register_form)
     if request.method == 'POST' and register_form.validate():
+
         username = register_form.username.data
         email = register_form.email.data
-        user_verify = User.query.filter_by(username = username).first()
-        user_verify = User.query.filter_by(email = email).first()
-        if user_verify is None:
-            user = User(register_form.username.data,
-                        register_form.email.data,
-                        register_form.password.data)
 
-            db1.session.add(user)
-            db1.session.commit()
+        # user_verify = User.query.filter_by(username = username).first()
+        # print(user_verify)
+        # user_verify = User.query.filter_by(email = email).first()
+        # print(user_verify)
+        
+        unico = True
+        usuarios = (db.child("Datos").get()).val()
+        listaUsuarios = []
+        for usuario in usuarios:
+            listaUsuarios.append(usuarios[usuario])
+
+        for lista in listaUsuarios:
+            if username == lista["Usr"] or email == lista["email"]:
+                unico = False
+
+            
+        # if user_verify is None:
+        #     user = User(register_form.username.data,
+        #                 register_form.email.data,
+        #                 register_form.password.data)
+            # db1.session.add(user)
+            # db1.session.commit()
+               
+        if unico == True:
+            usuarios = db.child("Datos").push({"Usr":register_form.username.data, "psw":User.create_password(register_form.password.data), "email":register_form.email.data})
             success_message = 'Cuenta registrada exitosamente'
             flash(success_message)
             return redirect(url_for('login'))
@@ -97,39 +128,48 @@ def logout():
 
 @app.route('/material')
 def material():
-    return render_template('material.html')
+    username = session['username']
+    return render_template('material.html',username=username)
 
 @app.route('/informatica')
 def informatica():
-    return render_template('informatica.html')
+    username = session['username']
+    return render_template('informatica.html',username=username)
 
 @app.route('/matematica')
 def matematica():
-    return render_template('matematica.html')
+    username = session['username']
+    return render_template('matematica.html',username=username)
 
 @app.route('/arqui')
 def arqui():
-    return render_template('arqui.html')
+    username = session['username']
+    return render_template('arqui.html',username=username)
 
 @app.route('/industrial')
 def industrial():
-    return render_template('industrial.html')
+    username = session['username']
+    return render_template('industrial.html',username=username)
 
 @app.route('/elo')
 def elo():
-    return render_template('elo.html')
+    username = session['username']
+    return render_template('elo.html',username=username)
 
 @app.route('/minas')
 def minas():
-    return render_template('minas.html')
+    username = session['username']
+    return render_template('minas.html',username=username)
 
 @app.route('/pomodoro')
 def pomodoro():
-    return render_template('pomodoro.html')
+    username = session['username']
+    return render_template('pomodoro.html',username=username)
 
 @app.route('/pomodoroD')
 def pomodoroD():
-    return render_template('pomodoroD.html')
+    username = session['username']
+    return render_template('pomodoroD.html',username=username)
 
 @app.route('/todolist')
 def todolist():
@@ -137,19 +177,8 @@ def todolist():
     
 @app.route('/calendary')
 def calendary():
-    config = {
-    "apiKey": "AIzaSyD7geC0GEHTf9vREokkJGRRkad5BETp5q0",
-    "authDomain": "organizateusm.firebaseapp.com",
-    "databaseURL": "https://organizateusm-default-rtdb.firebaseio.com",
-    "projectId": "organizateusm",
-    "storageBucket": "organizateusm.appspot.com",
-    "messagingSenderId": "950537281109",
-    "appId": "1:950537281109:web:86dd2cd4dead3496053edc"
-    }
 
     username = session['username']
-    firebase = pyrebase.initialize_app(config)
-    db = firebase.database()
     eventos = db.child("user").child(username).child("calendary").get()
     dic = eventos.val()
     listaEventos = []
@@ -163,7 +192,7 @@ def calendary():
 
 if __name__ == '__main__':
     csrf.init_app(app)
-    db1.init_app(app)
-    with app.app_context():
-        db1.create_all()
+    # db1.init_app(app)
+    # with app.app_context():
+    #     db1.create_all()
     app.run(port=8000)

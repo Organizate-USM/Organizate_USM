@@ -2,45 +2,60 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
 import datetime
+from firebase import firebase
+import pyrebase
 
 
-db1 = SQLAlchemy()
+# db1 = SQLAlchemy()
 
-class Event(db1.Model):
-    __bind_key__ = 'sqlite'
-    __tablename__ = 'event'
-    id = db1.Column(db1.Integer, primary_key=True)
-    nombre = db1.Column(db1.String(100))
-    fecha = db1.Column(db1.String(11))
-    fechaleer = db1.Column(db1.String(20))
-    descripcion = db1.Column(db1.String(100))
+config = {
+    "apiKey": "AIzaSyD7geC0GEHTf9vREokkJGRRkad5BETp5q0",
+    "authDomain": "organizateusm.firebaseapp.com",
+    "databaseURL": "https://organizateusm-default-rtdb.firebaseio.com",
+    "projectId": "organizateusm",
+    "storageBucket": "organizateusm.appspot.com",
+    "messagingSenderId": "950537281109",
+    "appId": "1:950537281109:web:86dd2cd4dead3496053edc"
+}
 
-class Todo(db1.Model):
-    __bind_key__ = 'sqlite'
-    __tablename__ = 'todo'
-    id = db1.Column(db1.Integer, primary_key=True)
-    text = db1.Column(db1.String(200))
-    complete = db1.Column(db1.Boolean)
+firebase = pyrebase.initialize_app(config)
+db = firebase.database()
 
-class User(db1.Model):
-    __tablename__ = 'users'
+# class Event(db1.Model):
+#     __bind_key__ = 'sqlite'
+#     __tablename__ = 'event'
+#     id = db1.Column(db1.Integer, primary_key=True)
+#     nombre = db1.Column(db1.String(100))
+#     fecha = db1.Column(db1.String(11))
+#     fechaleer = db1.Column(db1.String(20))
+#     descripcion = db1.Column(db1.String(100))
 
-    id = db1.Column(db1.Integer, primary_key=True)
-    username = db1.Column(db1.String(50), unique=True)
-    email = db1.Column(db1.String(40))
-    password = db1.Column(db1.String(96))
-    created_date = db1.Column(db1.DateTime, default= datetime.datetime.now)
+# class Todo(db1.Model):
+#     __bind_key__ = 'sqlite'
+#     __tablename__ = 'todo'
+#     id = db1.Column(db1.Integer, primary_key=True)
+#     text = db1.Column(db1.String(200))
+#     complete = db1.Column(db1.Boolean)
 
-    def __repr__(self):
-        return "<Equipo %r>" %self.username
+class User():
+    # __tablename__ = 'users'
 
-    def  __init__(self, username,email,password):
-        self.username = username
-        self.password = self.__create_password(password)
-        self.email = email
+    # id = db1.Column(db1.Integer, primary_key=True)
+    # username = db1.Column(db1.String(50), unique=True)
+    # email = db1.Column(db1.String(40))
+    # password = db1.Column(db1.String(96))
+    # created_date = db1.Column(db1.DateTime, default= datetime.datetime.now)
 
-    def __create_password(self,password):
+    # def __repr__(self):
+    #     return "<Equipo %r>" %self.username
+
+    # def  __init__(self, username,email,password):
+    #     self.username = username
+    #     self.password = self.__create_password(password)
+    #     self.email = email
+
+    def create_password(password):
         return generate_password_hash(password)
 
-    def verify_password(self, password):
-        return check_password_hash(self.password, password)
+    def verify_password(comprobar,password):
+        return check_password_hash(comprobar, password)

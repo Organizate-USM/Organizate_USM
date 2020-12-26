@@ -6,6 +6,9 @@ body {
   background-image: linear-gradient(315deg, #000e23 0, #000c24 8.33%, #000a24 16.67%, #000925 25%, #000724 33.33%, #000524 41.67%, #030323 50%, #0a0122 58.33%, #100020 66.67%, #15001e 75%, #19001c 83.33%, #1b001a 91.67%, #1e0017 100%);
 }
 
+#ulusm .liusm {
+  margin-top: -4px;
+}
 
 .heading {
   color:  rgb(41, 66, 90);
@@ -60,6 +63,7 @@ body {
   font-family: 'Montserrat';
 }
 
+<<<<<<< Updated upstream
 /* NAV BAR */
 
 /* a{
@@ -227,6 +231,8 @@ align-items: center;
   visibility: visible;
   opacity: 1;
 }
+=======
+>>>>>>> Stashed changes
 
 
 ol{

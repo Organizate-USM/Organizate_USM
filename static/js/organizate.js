@@ -17,7 +17,8 @@
 
     //A
     var username;
-    username = document.getElementById('user').value;
+    username = (document.getElementById('user')).getAttribute("value");
+
 
     function addItemsToList(text,complete){
 

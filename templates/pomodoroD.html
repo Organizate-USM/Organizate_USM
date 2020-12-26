@@ -15,15 +15,25 @@
 {% block title %} Pomodoro Descanso {% endblock %}
 
 {% block content %}
-    <header class=main-head>
+    <header class="main-head">
         <nav id="navusm">
+        <div class="toggle-btn">
+            <span>&#9776</span>
+        </div>
+        <div id="sidebar">
+            <ul>
+            <li><a href="{{ url_for('industrial') }}">E</a></li>
+            <li><a href="{{ url_for('industrial') }}">A</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </div>
             <div id="logoimg">
                 <img src="static\img\img.png" alt="logo" width="70" height="70">
             </div>
             <h1 id= 'logo'>Organízate USM</h1>
             <ul id="ulusm">
-            <li class="liusm"><a href="{{ url_for('index') }}" class="ausm" id="index-button">Inicio</a></li>
-            <li class="liusm"><a href="{{ url_for('material') }}" class="ausm" id="material-button">Material</a>
+                <li class="liusm"><a href="{{ url_for('index') }}" class="ausm" id="index-button">Inicio</a></li>
+                <li class="liusm"><a href="{{ url_for('material') }}" class="ausm" id="material-button">Material</a>
                 <ul class="submenu">
                     <li><a href="{{ url_for('informatica') }}">Ingeniería Civil en informatica</a></li>
                     <li><a href="{{ url_for('matematica') }}">Ingeniería Civil en matemática</a></li>
@@ -31,11 +41,13 @@
                     <li><a href="{{ url_for('arqui') }}">Arquitectura</a></li>
                     <li><a href="{{ url_for('elo') }}">Ingeniería Civil en electronica</a></li>
                     <li><a href="{{ url_for('industrial') }}">Ingeniería Civil industrial</a></li>
-                </ul>
+                        </ul>
+                </li>
+                <li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm" id="pomodoro-button">Pomodoro</a></li>
+                <li class="liusm"><p class="config" id="user" value="{{username}}" >{{username}}</p>
             </li>
-            <li class="liusm"><a href="{{ url_for('pomodoro') }}" class="ausm" id="pomodoro-button">Pomodoro</a></li>
-            <li class="liusm"><a href="{{ url_for('logout') }}" class="ausm" id="logout-button">Logout</a></li>
-        </ul>
+
+            </ul>
         </nav>
     </header>
 
@@ -100,4 +112,5 @@
         <iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="margin-left: 500px;"></iframe>
         </body>
         <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+        <script type="text/javascript" src="/static/js/config.js" defer></script>
 {% endblock %}
