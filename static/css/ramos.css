@@ -103,6 +103,7 @@ h1{
     z-index: 1;
     border: 1px solid white;
     background-image: radial-gradient(circle at 6.56% 19.58%, #2d4a64 0, #243546 50%, #1a222a 100%);
+    margin-top: -35px;
 }
 
 /* nav{
@@ -268,11 +269,9 @@ tr:last-child td:last-child {
 }
 
 #ramo{
-    margin-top: 80px;
     margin-left: 14%;
-
-    position: absolute;
     color:white;
+    margin-top: 70px;
 }
 
 #colaborar{
