@@ -15,12 +15,19 @@ function aparecer(){
                 var data = diaSelect.getAttribute("data-date-val")
             
                 var fechaActual = new Date();
+                var dia = fechaActual.getDate();
+                var mes = fechaActual.getMonth();
+                var año = fechaActual.getFullYear();
+                console.log(dia);
+                console.log(mes);
+                console.log(año);
+
 
                 console.log(diaSelect);
                 var lista = data.split("/");
                 console.log(lista);
-                milisegundosFecha = new Date(`${lista[2]}-${lista[0]}-${parseInt(lista[1])+1}`).getTime();
-                milisegundosActual = fechaActual.getTime();
+                milisegundosFecha = new Date(`${lista[2]}-${lista[0]}-${lista[1]}`).getTime();
+                milisegundosActual = new Date(`${año}-${parseInt(mes)+1}-${dia}`).getTime();
                 console.log(milisegundosFecha);
                 console.log(milisegundosActual);
                 var ms = milisegundosFecha - milisegundosActual;
