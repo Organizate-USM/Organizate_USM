@@ -96,8 +96,8 @@ script_js
                   <div>
                       <h1 class="titulito">Agregar evento</h1>
                         <input class="input-event" type="hidden" name="csrf_token" value="{{ csrf_token() }}"  />
-                        <input class="input-event" id="cal-text" type="text" name="nombre" placeholder="Nombre...">
-                        <input class="input-event" id="cal-desc" type="text" name="descripcion" placeholder="Descripcion...">
+                        <input class="input-event" id="cal-text" type="text" name="nombre" placeholder="Nombre..." autocomplete="off">
+                        <input class="input-event" id="cal-desc" type="text" name="descripcion" placeholder="Descripcion..." autocomplete="off">
                         <input class="input-event" id="cal-color" type="text" name="colorsito" readonly="readonly" placeholder="Color...">
                         <input type="color" id="color" value="#63d867">
                         <input class="input-event" id="cal-date" type="date" id="start" name="fecha"  min="2020-01-01" max="2030-12-31">
