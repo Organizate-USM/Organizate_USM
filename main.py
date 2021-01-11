@@ -123,6 +123,18 @@ def elo():
 def minas():
     return render_template('minas.html')
 
+@app.route('/civil')
+def civil():
+    return render_template('civil.html')
+
+@app.route('/ambiental')
+def ambiental():
+    return render_template('ambiental.html')
+
+@app.route('/mecanica')
+def mecanica():
+    return render_template('mecanica.html')
+
 @app.route('/pomodoro')
 def pomodoro():
     return render_template('pomodoro.html')
